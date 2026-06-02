@@ -1,7 +1,0 @@
-C:\SSAS Repo\MarketerRate_SSAS\MarketerRate_SSAS\MarketerRate_SSAS\bin\Model.asdatabase
-C:\SSAS Repo\MarketerRate_SSAS\MarketerRate_SSAS\MarketerRate_SSAS\bin\Model.deploymenttargets
-C:\SSAS Repo\MarketerRate_SSAS\MarketerRate_SSAS\MarketerRate_SSAS\bin\Model.deploymentoptions
-C:\SSAS Repo\MarketerRate_SSAS\MarketerRate_SSAS\MarketerRate_SSAS\obj\Development\MarketerRate_SSAS.smproj.CoreCompileInputs.cache
-C:\SSAS Repo\MarketerRate_SSAS\MarketerRate_SSAS\MarketerRate_SSAS\obj\Development\Model.asdatabase
-C:\SSAS Repo\MarketerRate_SSAS\MarketerRate_SSAS\MarketerRate_SSAS\obj\Development\Model.deploymentoptions
-C:\SSAS Repo\MarketerRate_SSAS\MarketerRate_SSAS\MarketerRate_SSAS\obj\Development\Model.deploymenttargets
