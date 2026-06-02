@@ -143,7 +143,7 @@ SSAS Tabular / Direct Query
   Power BI Dashboards  ──►  End Users / Management
 ```
 
-> 📌 Power BI `.pbix` files and deployment scripts will be added to the `/PowerBI` folder in the next update.
+> 📌 Power BI `.pbix` files and deployment scripts will be added to the `/PowerBI` folder.
 
 ---
 
