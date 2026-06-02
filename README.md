@@ -1,6 +1,6 @@
 # 🏦 Brokerage Data Ecosystem
 
-> A comprehensive data platform for a brokerage firm, covering data ingestion, transformation, analytical modeling, reporting, and system integrations — ensuring accurate and timely access to business and trading information.
+> A comprehensive data platform for a brokerage firm, covering data ingestion, transformation, analytical modeling, reporting, and system integrations ensuring accurate and timely access to business and trading information.
 
 ---
 
