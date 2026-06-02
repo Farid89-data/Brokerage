@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SourceDB"
+  DTS:DTSID="{1EEA52EE-A344-4B4B-B2D5-A973B991F819}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=192.168.60.11;User ID=BiUser;Initial Catalog=Automation;Provider=SQLOLEDB.1;Persist Security Info=True;Application Name=SSIS-Package1-{1EEA52EE-A344-4B4B-B2D5-A973B991F819}192.168.60.11.Automation.BiUser;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAoA3VmLscKUKwn8gYrs06MAAAAAACAAAAAAAQZgAAAAEAACAAAAA2Y6Z1adkpzCmjaQ+aJQM+sHpPDSwvVodIDWnYuEobLQAAAAAOgAAAAAIAACAAAAA5xl1ZX0k8LFO0/ALHRGgYVagrwsKdwvQxtYk3JQcNnYAAAACXtVmsBVnA96PvUEtgbcicsciWq4ssNHAZi1vfm6Sm8AhVuqy6ajAY1LPvZR6l4B4XVQ1QczhognKxyIQT8wKKSBkS0i0LT5pq69r+bu8+Q+UPMFZzcJkVK+XNyWxKYvkNDcKAvfVjpHurJerRr1D7tReGiDPo7CymxfBfjVotakAAAAAUC7KgE/kWe4koyfnXvJWMbT3Qq+31JiH5htX40PbrTecKqTvFL1LqxanwqvlCA8BnRmflJoTxfoVjUIXVNnFC</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

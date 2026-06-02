@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "8+oibUVMxxWvfWrCFx0mYkyzQ71It0V4S4BE0+njOAmLAYGPkRu0D1LE3HSou1q+3ZqR0YaS1IFdT3cGNNh7Yw==",
+  "success": true,
+  "projectFilePath": "C:\\ETL Repos\\WebApi\\LeftCustomerByChangeBroker\\LeftCustomerByChangeBroker\\LeftCustomerByChangeBroker.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bolboli.MOBINSB\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\bolboli.MOBINSB\\.nuget\\packages\\restsharp\\106.15.0\\restsharp.106.15.0.nupkg.sha512"
+  ],
+  "logs": []
+}

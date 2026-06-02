@@ -1,0 +1,11 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="TSETMC"
+  DTS:DTSID="{6CD5F404-BB43-444C-B9D3-56419DE16AF8}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:Retain="True"
+      DTS:ConnectionString="Data Source=.\;Initial Catalog=TSETMC;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,2124 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/3/2020 8:14:20 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-2FOAQM3"
+  DTS:CreatorName="DESKTOP-2FOAQM3\koorosh"
+  DTS:DTSID="{31365554-92C8-43EC-A10F-562C55CE1DFB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.132"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Company"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="106"
+  DTS:VersionGUID="{6F3477AA-5E02-4EAD-89A8-6F29FFD82257}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BestLimitOneIns.xml]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{DC6A02DC-121A-41EC-8D10-60AB56EBB329}"
+      DTS:ObjectName="BestLimitOneIns.xml">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::XmlFileReader]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="1"
+          DTS:ConnectionString="C:\SourceFolder\Company\0Company.xml" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[HTTP Connection Manager 1]"
+      DTS:CreationName="HTTP"
+      DTS:DTSID="{D0A161AB-DB5A-4708-92DC-B38639BA02FF}"
+      DTS:ObjectName="HTTP Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="http://service.tsetmc.com/WebService/TsePublicV2.asmx?WSDL">
+          <DTS:HttpConnection
+            DTS:ServerURL="http://service.tsetmc.com/WebService/TsePublicV2.asmx?WSDL">
+            <DTS:Property
+              DTS:Name="ServerPassword"
+              Sensitive="1"></DTS:Property>
+            <DTS:Property
+              DTS:Name="ProxyPassword"
+              Sensitive="1"></DTS:Property>
+          </DTS:HttpConnection>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1613C0E3-8553-4005-8C78-E970BA730E92}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Flow">
+      <DTS:VariableValue
+        DTS:DataType="17">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FA2FC557-7E0E-40A5-8190-BA5DA98A82DE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="OptionXmlFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">Company.xml</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{25C67EE1-2370-44D7-B1E3-5E57F7C991CD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="OptionXmlFinalFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">Company-final.xml</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8B095A85-160D-4A3E-96E3-5C2E632D2692}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="OptionXmlFolderAddress">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\SourceFolder\Company\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{163EE27C-94B5-4B84-828A-195CB1157FC3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Password">
+      <DTS:VariableValue
+        DTS:DataType="8">mobinsarmayeh</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FBB05AA7-06D6-48ED-8F33-DBDD04B741B5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="UserName">
+      <DTS:VariableValue
+        DTS:DataType="8">mobinsarmayeh</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{904BB4E2-75BB-4459-AE03-92C8951483BE}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::OptionXmlFolderAddress]+ (DT_WSTR,1) @[User::Flow] +@[User::OptionXmlFileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="XmlFileReader">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\SourceFolder\Company\0Company.xml</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C3C572C2-2C17-4845-9849-630AA3C73463}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::OptionXmlFolderAddress]+ (DT_WSTR,1) @[User::Flow] + @[User::OptionXmlFinalFileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="XmlFileWriter">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\SourceFolder\Company\0Company-final.xml</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\For Loop Container"
+      DTS:AssignExpression="@Flow=@Flow+1"
+      DTS:CreationName="STOCK:FORLOOP"
+      DTS:Description="For Loop Container"
+      DTS:DTSID="{1A9907B5-65E1-4FFE-962A-099F255FA5C3}"
+      DTS:EvalExpression="@Flow&lt;=5"
+      DTS:ExecutableType="STOCK:FORLOOP"
+      DTS:InitExpression="@Flow=0"
+      DTS:LocaleID="-1"
+      DTS:MaxConcurrent="1"
+      DTS:ObjectName="For Loop Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\For Loop Container\Company"
+          DTS:CreationName="Microsoft.WebServiceTask"
+          DTS:Description="Web Service Task"
+          DTS:DTSID="{5314F026-E0AA-4573-83EE-744B71D49BD5}"
+          DTS:ExecutableType="Microsoft.WebServiceTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Company"
+          DTS:TaskContact="Web Service Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <WSTask:WebServiceTaskData
+              WSTask:ConnectionName="{D0A161AB-DB5A-4708-92DC-B38639BA02FF}"
+              WSTask:Service="TsePublicV2"
+              WSTask:WSDLFile="C:\SourceFolder\Conf-Wsdl.wsdl"
+              WSTask:OverwriteWSDLFile="True"
+              WSTask:OutputLocation="BestLimitOneIns.xml" xmlns:WSTask="www.microsoft.com/sqlserver/dts/tasks/webservicetask">
+              <WSTask:MethodInfo
+                WSTask:MethodName="Company"
+                WSTask:MessageName="">
+                <WSTask:Documentation></WSTask:Documentation>
+                <WSTask:ParamInfo
+                  WSTask:Name="UserName"
+                  WSTask:Datatype="string"
+                  WSTask:ParamType="Variable"
+                  WSTask:SeqNumber="0">
+                  <WSTask:VariableValue>User::UserName</WSTask:VariableValue>
+                </WSTask:ParamInfo>
+                <WSTask:ParamInfo
+                  WSTask:Name="Password"
+                  WSTask:Datatype="string"
+                  WSTask:ParamType="Variable"
+                  WSTask:SeqNumber="1">
+                  <WSTask:VariableValue>User::Password</WSTask:VariableValue>
+                </WSTask:ParamInfo>
+                <WSTask:ParamInfo
+                  WSTask:Name="Flow"
+                  WSTask:Datatype="byte"
+                  WSTask:ParamType="Variable"
+                  WSTask:SeqNumber="2">
+                  <WSTask:VariableValue>User::Flow</WSTask:VariableValue>
+                </WSTask:ParamInfo>
+              </WSTask:MethodInfo>
+            </WSTask:WebServiceTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\For Loop Container\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{DEC7847E-C2BC-4067-8D21-3AF63A4F8630}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\For Loop Container\Data Flow Task\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\For Loop Container\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[CIsin]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="CIsin"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[CIsin]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_WSTR,60)#{Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[CIsin]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_WSTR,60)CIsin</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[LVal30]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="LVal30"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[LVal30]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_WSTR,60)#{Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[LVal30]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_WSTR,60)LVal30</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[NInsCode]"
+                          cachedDataType="ui8"
+                          cachedName="NInsCode"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[NInsCode]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_I8)#{Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[NInsCode]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_I8)NInsCode</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[LVal18AFC]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="LVal18AFC"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[LVal18AFC]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_WSTR,60)#{Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[LVal18AFC]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_WSTR,60)LVal18AFC</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\For Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\For Loop Container\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\For Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Date]"
+                          name="Date"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[GETDATE]()</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">GETDATE()</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Flow]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\For Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Flow]"
+                          name="Flow"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_I4)@[User::Flow]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_I4)@[User::Flow]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\For Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\For Loop Container\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\For Loop Container\Data Flow Task\Lookup"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="Lookup"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select Hashvalue from Company</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (Select Hashvalue from Company) [refTable]
+where [refTable].[Hashvalue] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Hashvalue" dataType="DT_BYTES" length="16" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\For Loop Container\Data Flow Task\Multiple Hash.Outputs[HashedOutput].Columns[HashValue]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\For Loop Container\Data Flow Task\Lookup.Connections[OleDbConnection]"
+                      connectionManagerID="{6CD5F404-BB43-444C-B9D3-56419DE16AF8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[TSETMC]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\For Loop Container\Data Flow Task\Lookup.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Lookup.Inputs[Lookup Input].Columns[HashValue]"
+                          cachedDataType="bytes"
+                          cachedLength="16"
+                          cachedName="HashValue"
+                          lineageId="Package\For Loop Container\Data Flow Task\Multiple Hash.Outputs[HashedOutput].Columns[HashValue]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">Hashvalue</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\For Loop Container\Data Flow Task\Lookup.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\For Loop Container\Data Flow Task\Lookup.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\For Loop Container\Data Flow Task\Lookup.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\For Loop Container\Data Flow Task\Lookup.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\For Loop Container\Data Flow Task\Lookup.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\For Loop Container\Data Flow Task\Lookup.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\Data Flow Task\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\Data Flow Task\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\For Loop Container\Data Flow Task\Multiple Hash"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="https://github.com/keif888/SSISMHash/"
+                  description="Creates Multiple Hash's from selected input columns."
+                  name="Multiple Hash"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Select the number of threads to use"
+                      name="MultipleThreads"
+                      typeConverter="Martin.SQLServer.Dts.MultipleHash+MultipleThread">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Select True to force Nulls and Empty Strings to be detected in Hash, False for earlier version compatability."
+                      name="SafeNullHandling"
+                      typeConverter="Martin.SQLServer.Dts.MultipleHash+SafeNullHandling">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Select True to enable hashing of Milliseconds, False for earlier version compatability."
+                      name="IncludeMillsecond"
+                      typeConverter="Martin.SQLServer.Dts.MultipleHash+MillisecondHandling">1</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">MultipleHash</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\For Loop Container\Data Flow Task\Multiple Hash.Inputs[Input]"
+                      name="Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Multiple Hash.Inputs[Input].Columns[CIsin]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="CIsin"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[CIsin]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Multiple Hash.Inputs[Input].Columns[LVal30]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="LVal30"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[LVal30]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Multiple Hash.Inputs[Input].Columns[NInsCode]"
+                          cachedDataType="ui8"
+                          cachedName="NInsCode"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[NInsCode]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Multiple Hash.Inputs[Input].Columns[LVal18AFC]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="LVal18AFC"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[LVal18AFC]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Multiple Hash.Inputs[Input].Columns[Flow]"
+                          cachedDataType="i4"
+                          cachedName="Flow"
+                          lineageId="Package\For Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Flow]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\For Loop Container\Data Flow Task\Multiple Hash.Outputs[HashedOutput]"
+                      description="Hashed rows are directed to this output."
+                      name="HashedOutput"
+                      synchronousInputId="Package\For Loop Container\Data Flow Task\Multiple Hash.Inputs[Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\Multiple Hash.Outputs[HashedOutput].Columns[HashValue]"
+                          dataType="bytes"
+                          length="16"
+                          lineageId="Package\For Loop Container\Data Flow Task\Multiple Hash.Outputs[HashedOutput].Columns[HashValue]"
+                          name="HashValue">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Select the Hash Type that will be used for this output column."
+                              name="HashType"
+                              typeConverter="Martin.SQLServer.Dts.MultipleHash+HashTypeEnumerator, MultipleHash2019, Version=1.0.0.0, Culture=neutral, PublicKeyToken=51c551904274ab44">1</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Enter the Lineage ID's that will be used to calculate the hash for this output column."
+                              name="InputColumnLineageIDs">#{Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[CIsin]},#{Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[LVal30]},#{Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[NInsCode]},#{Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[LVal18AFC]},#{Package\For Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Flow]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Stores the type of the output column"
+                              name="HashOutputType"
+                              typeConverter="Martin.SQLServer.Dts.MultipleHash+OutputTypeEnumerator, MultipleHash2019, Version=1.0.0.0, Culture=neutral, PublicKeyToken=51c551904274ab44">0</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\For Loop Container\Data Flow Task\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Company]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{6CD5F404-BB43-444C-B9D3-56419DE16AF8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[TSETMC]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CIsin]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="CIsin"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CIsin]"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[CIsin]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LVal30]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="LVal30"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LVal30]"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[LVal30]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NInsCode]"
+                          cachedDataType="ui8"
+                          cachedName="NInsCode"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NInsCode]"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[NInsCode]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LVal18AFC]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="LVal18AFC"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LVal18AFC]"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[LVal18AFC]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Date"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                          lineageId="Package\For Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Date]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Flow]"
+                          cachedDataType="i4"
+                          cachedName="Flow"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Flow]"
+                          lineageId="Package\For Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Flow]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[HashValue]"
+                          cachedDataType="bytes"
+                          cachedLength="16"
+                          cachedName="HashValue"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Hashvalue]"
+                          lineageId="Package\For Loop Container\Data Flow Task\Multiple Hash.Outputs[HashedOutput].Columns[HashValue]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                          dataType="dbTimeStamp"
+                          name="Date" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TimeStamp]"
+                          dataType="bytes"
+                          length="8"
+                          name="TimeStamp" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Flow]"
+                          dataType="i4"
+                          name="Flow" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CIsin]"
+                          dataType="wstr"
+                          length="60"
+                          name="CIsin" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LVal30]"
+                          dataType="wstr"
+                          length="60"
+                          name="LVal30" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NInsCode]"
+                          dataType="i8"
+                          name="NInsCode" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LVal18AFC]"
+                          dataType="wstr"
+                          length="60"
+                          name="LVal18AFC" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Hashvalue]"
+                          dataType="bytes"
+                          length="16"
+                          name="Hashvalue" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\For Loop Container\Data Flow Task\XML Source"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element.;Microsoft Corporation;Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element."
+                  name="XML Source"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.XmlSourceAdapter</property>
+                    <property
+                      dataType="System.String"
+                      description="The XML data used by the XML source adapter."
+                      expressionType="Notify"
+                      name="XMLData"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable used by the XML source adapter to specify XML data."
+                      name="XMLDataVariable">User::XmlFileWriter</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Defines how the XML source adapter gets XML data."
+                      name="AccessMode">1</property>
+                    <property
+                      dataType="System.String"
+                      description="The XML schema definition used by the XML source adapter."
+                      expressionType="Notify"
+                      name="XMLSchemaDefinition">C:\SourceFolder\Company\1Company-final.xsd</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Identifies whether or not to use inline schema."
+                      name="UseInlineSchema">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Defines how XML integer types are mapped."
+                      name="XMLIntegerMapping"
+                      typeConverter="Microsoft.SqlServer.Dts.Pipeline.XmlSourceAdapter+XMLIntegerMappingConverter">0</property>
+                  </properties>
+                  <outputs>
+                    <output
+                      refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName]"
+                      name="DataSet__TseCompanyName__TseCompanyName">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Identifies the rowset associated with the output."
+                          name="RowsetID">DataSet__TseCompanyName__TseCompanyName</property>
+                      </properties>
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[CIsin]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].ExternalColumns[CIsin]"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[CIsin]"
+                          name="CIsin"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[LVal30]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].ExternalColumns[LVal30]"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[LVal30]"
+                          name="LVal30"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[NInsCode]"
+                          dataType="ui8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].ExternalColumns[NInsCode]"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[NInsCode]"
+                          name="NInsCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[LVal18AFC]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].ExternalColumns[LVal18AFC]"
+                          length="255"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].Columns[LVal18AFC]"
+                          name="LVal18AFC"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].ExternalColumns[OptionID]"
+                          dataType="wstr"
+                          length="255"
+                          name="OptionID">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.String</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].ExternalColumns[OptionrowOrder]"
+                          dataType="ui2"
+                          name="OptionrowOrder">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.UInt16</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].ExternalColumns[CIsin]"
+                          dataType="wstr"
+                          length="255"
+                          name="CIsin">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.String</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].ExternalColumns[LVal30]"
+                          dataType="wstr"
+                          length="255"
+                          name="LVal30">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.String</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].ExternalColumns[NInsCode]"
+                          dataType="ui8"
+                          name="NInsCode">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.UInt64</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].ExternalColumns[LVal18AFC]"
+                          dataType="wstr"
+                          length="255"
+                          name="LVal18AFC">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.String</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName].ExternalColumns[TseCompanyName_Id]"
+                          dataType="ui8"
+                          name="TseCompanyName_Id">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.UInt64</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName Error Output]"
+                      isErrorOut="true"
+                      name="DataSet__TseCompanyName__TseCompanyName Error Output">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Identifies the rowset associated with the output."
+                          name="RowsetID">DataSet__TseCompanyName__TseCompanyName</property>
+                      </properties>
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName Error Output].Columns[CIsin]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName Error Output].ExternalColumns[CIsin]"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName Error Output].Columns[CIsin]"
+                          name="CIsin" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName Error Output].Columns[LVal30]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName Error Output].ExternalColumns[LVal30]"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName Error Output].Columns[LVal30]"
+                          name="LVal30" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName Error Output].Columns[NInsCode]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName Error Output].ExternalColumns[NInsCode]"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName Error Output].Columns[NInsCode]"
+                          name="NInsCode" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName Error Output].Columns[LVal18AFC]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName Error Output].ExternalColumns[LVal18AFC]"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName Error Output].Columns[LVal18AFC]"
+                          name="LVal18AFC" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName Error Output].ExternalColumns[OptionID]"
+                          dataType="nText"
+                          name="OptionID" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName Error Output].ExternalColumns[OptionrowOrder]"
+                          dataType="nText"
+                          name="OptionrowOrder" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName Error Output].ExternalColumns[CIsin]"
+                          dataType="nText"
+                          name="CIsin" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName Error Output].ExternalColumns[LVal30]"
+                          dataType="nText"
+                          name="LVal30" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName Error Output].ExternalColumns[NInsCode]"
+                          dataType="nText"
+                          name="NInsCode" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName Error Output].ExternalColumns[LVal18AFC]"
+                          dataType="nText"
+                          name="LVal18AFC" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName Error Output].ExternalColumns[TseCompanyName_Id]"
+                          dataType="nText"
+                          name="TseCompanyName_Id" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName]"
+                      name="DataSet__TseCompanyName">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Identifies the rowset associated with the output."
+                          name="RowsetID">DataSet__TseCompanyName</property>
+                      </properties>
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName].Columns[TseCompanyName_Id]"
+                          dataType="ui8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName].ExternalColumns[TseCompanyName_Id]"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName].Columns[TseCompanyName_Id]"
+                          name="TseCompanyName_Id"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName].ExternalColumns[TseCompanyName_Id]"
+                          dataType="ui8"
+                          name="TseCompanyName_Id">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              name="CLRType">System.UInt64</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName Error Output]"
+                      isErrorOut="true"
+                      name="DataSet__TseCompanyName Error Output">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Identifies the rowset associated with the output."
+                          name="RowsetID">DataSet__TseCompanyName</property>
+                      </properties>
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName Error Output].Columns[TseCompanyName_Id]"
+                          dataType="nText"
+                          externalMetadataColumnId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName Error Output].ExternalColumns[TseCompanyName_Id]"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName Error Output].Columns[TseCompanyName_Id]"
+                          name="TseCompanyName_Id" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName Error Output].ExternalColumns[TseCompanyName_Id]"
+                          dataType="nText"
+                          name="TseCompanyName_Id" />
+                      </externalMetadataColumns>
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\For Loop Container\Data Flow Task.Paths[DataSet__TseCompanyName__TseCompanyName]"
+                  endId="Package\For Loop Container\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                  name="DataSet__TseCompanyName__TseCompanyName"
+                  startId="Package\For Loop Container\Data Flow Task\XML Source.Outputs[DataSet__TseCompanyName__TseCompanyName]" />
+                <path
+                  refId="Package\For Loop Container\Data Flow Task.Paths[Derived Column Output]"
+                  endId="Package\For Loop Container\Data Flow Task\Multiple Hash.Inputs[Input]"
+                  name="Derived Column Output"
+                  startId="Package\For Loop Container\Data Flow Task\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\For Loop Container\Data Flow Task.Paths[HashedOutput]"
+                  endId="Package\For Loop Container\Data Flow Task\Lookup.Inputs[Lookup Input]"
+                  name="HashedOutput"
+                  startId="Package\For Loop Container\Data Flow Task\Multiple Hash.Outputs[HashedOutput]" />
+                <path
+                  refId="Package\For Loop Container\Data Flow Task.Paths[Lookup No Match Output]"
+                  endId="Package\For Loop Container\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\For Loop Container\Data Flow Task\Lookup.Outputs[Lookup No Match Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\For Loop Container\Script Task"
+          DTS:CreationName="Microsoft.ScriptTask"
+          DTS:Description="Script Task"
+          DTS:DTSID="{E7232867-7329-44F8-AD97-508676085852}"
+          DTS:ExecutableType="Microsoft.ScriptTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Script Task"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ScriptProject
+              Name="ST_375da510b7c44d5ba99ec692e271aae0"
+              VSTAMajorVersion="15"
+              VSTAMinorVersion="0"
+              Language="CSharp"
+              ReadOnlyVariables="User::XmlFileReader,User::XmlFileWriter">
+              <ProjectItem
+                Name="Properties\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+              <ProjectItem
+                Name="Properties\Resources.resx"
+                Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+              <ProjectItem
+                Name="Properties\Settings.Designer.cs"
+                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_375da510b7c44d5ba99ec692e271aae0.Properties.Settings.get_Default():ST_375da510b7c44d5ba99ec692e271aae0.Properties.Sett" +
+    "ings")]
+
+namespace ST_375da510b7c44d5ba99ec692e271aae0.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+              <ProjectItem
+                Name="ScriptMain.cs"
+                Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
+/* The Script Task allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services control flow. 
+ * 
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script task. */
+#endregion
+
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Windows.Forms;
+#endregion
+
+namespace ST_375da510b7c44d5ba99ec692e271aae0
+{
+    /// <summary>
+    /// ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+    /// or parent of this class.
+    /// </summary>
+	[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+	public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+	{
+        #region Help:  Using Integration Services variables and parameters in a script
+        /* To use a variable in this script, first ensure that the variable has been added to 
+         * either the list contained in the ReadOnlyVariables property or the list contained in 
+         * the ReadWriteVariables property of this script task, according to whether or not your
+         * code needs to write to the variable.  To add the variable, save this script, close this instance of
+         * Visual Studio, and update the ReadOnlyVariables and 
+         * ReadWriteVariables properties in the Script Transformation Editor window.
+         * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+         * 
+         * Example of reading from a variable:
+         *  DateTime startTime = (DateTime) Dts.Variables["System::StartTime"].Value;
+         * 
+         * Example of writing to a variable:
+         *  Dts.Variables["User::myStringVariable"].Value = "new value";
+         * 
+         * Example of reading from a package parameter:
+         *  int batchId = (int) Dts.Variables["$Package::batchId"].Value;
+         *  
+         * Example of reading from a project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].Value;
+         * 
+         * Example of reading from a sensitive project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].GetSensitiveValue();
+         * */
+
+        #endregion
+
+        #region Help:  Firing Integration Services events from a script
+        /* This script task can fire events for logging purposes.
+         * 
+         * Example of firing an error event:
+         *  Dts.Events.FireError(18, "Process Values", "Bad value", "", 0);
+         * 
+         * Example of firing an information event:
+         *  Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, ref fireAgain)
+         * 
+         * Example of firing a warning event:
+         *  Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0);
+         * */
+        #endregion
+
+        #region Help:  Using Integration Services connection managers in a script
+        /* Some types of connection managers can be used in this script task.  See the topic 
+         * "Working with Connection Managers Programatically" for details.
+         * 
+         * Example of using an ADO.Net connection manager:
+         *  object rawConnection = Dts.Connections["Sales DB"].AcquireConnection(Dts.Transaction);
+         *  SqlConnection myADONETConnection = (SqlConnection)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Sales DB"].ReleaseConnection(rawConnection);
+         *
+         * Example of using a File connection manager
+         *  object rawConnection = Dts.Connections["Prices.zip"].AcquireConnection(Dts.Transaction);
+         *  string filePath = (string)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Prices.zip"].ReleaseConnection(rawConnection);
+         * */
+        #endregion
+
+
+		/// <summary>
+        /// This method is called when this script task executes in the control flow.
+        /// Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+        /// To open Help, press F1.
+        /// </summary>
+		public void Main()
+		{
+            // TODO: Add your code here
+            //User::OptionXmlFileName,User::OptionXmlFinalFileName,User::OptionXmlFolderAddress
+            //User::XmlFileReader,User::XmlFileWriter
+            string OptionXmlFileName = Dts.Variables["User::XmlFileReader"].Value.ToString();
+            string OptionXmlFinalFileName = Dts.Variables["User::XmlFileWriter"].Value.ToString();
+            //string OptionXmlFolderAddress = Dts.Variables["User::OptionXmlFolderAddress"].Value.ToString();
+
+            string text = System.IO.File.ReadAllText(OptionXmlFileName);
+
+            int RmStart = text.IndexOf("xs:schema") - 1;
+            int RmEnd = text.IndexOf("<diffgr:diffgram") + "<diffgr:diffgram xmlns:msdata=\"urn:schemas-microsoft-com:xml-msdata\" xmlns:diffgr=\"urn:schemas-microsoft-com:xml-diffgram-v1\" />".Length;
+
+            text = text.Remove(RmStart, RmEnd - RmStart);
+            text = text.Replace("diffgr:id", "OptionID");
+            text = text.Replace("</diffgr:diffgram>", "");
+            text = text.Replace("msdata:rowOrder", "OptionrowOrder");
+
+            text = text.Replace("&lt;", "<");
+            text = text.Replace("&gt;", ">");
+            // text = text.Replace("msdata:rowOrder", "OptionrowOrder");
+
+
+            text = text.Replace("encoding=\"utf-16\"", "");
+            //xml:space="preserve"
+            text = text.Replace("xml:space=\"preserve\"", "");
+
+
+            System.IO.File.WriteAllText(OptionXmlFinalFileName, text);
+
+
+            Dts.TaskResult = (int)ScriptResults.Success;
+		}
+
+        #region ScriptResults declaration
+        /// <summary>
+        /// This enum provides a convenient shorthand within the scope of this class for setting the
+        /// result of the script.
+        /// 
+        /// This code was generated automatically.
+        /// </summary>
+        enum ScriptResults
+        {
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+        #endregion
+
+	}
+}]]></ProjectItem>
+              <ProjectItem
+                Name="Project"
+                Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_375da510b7c44d5ba99ec692e271aae0</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_375da510b7c44d5ba99ec692e271aae0</msb:DisplayName>
+    <msb:ProjectId>{1279A60F-2390-4741-9860-56FEDF6EDBBC}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_375da510b7c44d5ba99ec692e271aae0.csproj" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="ScriptMain.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+              <ProjectItem
+                Name="Properties\AssemblyInfo.cs"
+                Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_375da510b7c44d5ba99ec692e271aae0")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_375da510b7c44d5ba99ec692e271aae0")]
+[assembly: AssemblyCopyright("Copyright @  2020")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+              <ProjectItem
+                Name="ST_375da510b7c44d5ba99ec692e271aae0.csproj"
+                Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{c01d4602-031f-42e1-838f-88fdf88da115}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_375da510b7c44d5ba99ec692e271aae0</RootNamespace>
+    <AssemblyName>ST_375da510b7c44d5ba99ec692e271aae0</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="ScriptTask" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
+        <Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex=""></Host>
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST150</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
+              <ProjectItem
+                Name="Properties\Resources.Designer.cs"
+                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_375da510b7c44d5ba99ec692e271aae0.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_375da510b7c44d5ba99ec692e271aae0.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_375da510b7c44d5ba99ec692e271aae0.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_375da510b7c44d5ba99ec692e271aae0.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_375da510b7c44d5ba99ec692e271aae0.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+              <BinaryItem
+                Name="ST_375da510b7c44d5ba99ec692e271aae0.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAClONl8AAAAAAAAAAOAAIiALATAAABIAAAAIAAAAAAAAWjEA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAAgxAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAYBEAAAAgAAAAEgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAHgEAAAAQAAAAAYAAAAUAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAGgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAA8
+MQAAAAAAAEgAAAACAAUAxCEAAIwOAAABAAAAAAAAAFAwAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwBAAAAQAAAQAAEQIoEAAACm8RAAAKcgEAAHBvEgAACm8T
+AAAKbxQAAAoCKBAAAApvEQAACnIpAABwbxIAAApvEwAACm8UAAAKCigVAAAKCwdyUQAAcG8WAAAK
+F1kMB3JlAABwbxYAAApyhwAAcCgXAAAKWA0HCAkIWW8YAAAKCwdyigEAcHKeAQBwbxkAAAoLB3Kw
+AQBwctYBAHBvGQAACgsHctgBAHBy+AEAcG8ZAAAKCwdyFgIAcHIgAgBwbxkAAAoLB3IkAgBwci4C
+AHBvGQAACgsHcjICAHBy1gEAcG8ZAAAKCwdyVgIAcHLWAQBwbxkAAAoLBgcoGgAACgIoEAAAChZv
+GwAACioeAigcAAAKKh4CKB0AAAoqrn4BAAAELR5ygAIAcNADAAACKB4AAApvHwAACnMgAAAKgAEA
+AAR+AQAABCoafgIAAAQqHgKAAgAABCoafgMAAAQqHgIoIQAACioucwgAAAaAAwAABCoAAEJTSkIB
+AAEAAAAAAAwAAAB2NC4wLjMwMzE5AAAAAAUAbAAAAOwDAAAjfgAAWAQAAKgFAAAjU3RyaW5ncwAA
+AAAACgAA9AIAACNVUwD0DAAAEAAAACNHVUlEAAAABA0AAIgBAAAjQmxvYgAAAAAAAAACAAABVx2i
+AQkDAAAA+gEzABYAAAEAAAAfAAAABQAAAAYAAAAJAAAAAQAAACEAAAACAAAAEAAAAAEAAAACAAAA
+AwAAAAQAAAABAAAABAAAAAEAAAABAAAAAACmAwEAAAAAAAYAPAJ2BAYAywJ2BAYAiAFjBA8A6gQA
+AAYAtQEkBAYAHwIkBAYAAAIkBAYAsgIkBAYAXAIkBAYAdQIkBAYAzAEkBAYA5wEIAwoAkAJVAwoA
+BwFVAwYA3gPXAwYAawFjBAYAXQXXAwYARgSWBAYANgQPBA4AOwGQAw4AnAGQAw4AIwH6AwYAUAF2
+BAoAfgNVAxIALAWyABIAgACyAAYArQAuAAYAJAPXAwYA0gDXAwYAiQDXAwYAnAUkBAAAAAAlAAAA
+AAABAAEAAQAQAO8DAQA5AAEAAQAAABAAnQT5BEUAAQADAAABEAA2BfkEWQADAAcAAwEAAE8FAAA9
+AAQACgARAOMDiQARAPcAjQARAHAAkQAGBlcAlQBWgD8FmABWgNcAmABQIAAAAACGAPUDBgABAFwh
+AAAAAIYYVgQGAAEAZCEAAAAAgxhWBAYAAQBsIQAAAACTCEIEnAABAJghAAAAAJMI3wChAAEAnyEA
+AAAAkwjrAKYAAQCnIQAAAACWCGQFrAACAK4hAAAAAIYYVgQGAAIAtiEAAAAAkRhcBLEAAgAAAAEA
+8wIJAFYEAQARAFYEBgAZAFYECgApAFYEEAAxAFYEEAA5AFYEEABBAFYEEABJAFYEEABRAFYEEABZ
+AFYEEABhAFYEEABpAFYEBgCBAFYEBgCpAFYEFQC5AFYEBgBxAEcFIgDBACgFJwDJAM4DLADRAOkC
+MgCJACIDNgDZAH8FOgDhAAADPwDhACsDRADhAPkCSADhAGgATgDZAIsFVADBAHAFAQBxAFYEBgCJ
+AFYEBgDpAJsAWgDpAJgFYQCRAFYEZgCxAFYEBgAIABQAfwAIABgAhAApAHMA7AAuAAsAxAAuABMA
+zQAuABsA7AAuACMA9QAuACsAHgEuADMAHgEuADsAHgEuAEMA9QAuAEsAJAEuAFMAHgEuAFsAOwFD
+AGMAhABJAHMA7ABhAHsAhABjAGsAhAAbAAMAAQAEAAMAAABGBLUAAAD/ALoAAABoBb8AAgAEAAMA
+AgAFAAUAAQAGAAUAAgAHAAcABIAAAAEAAABrHbhcAAAAAAAAAQAAAAQAAAAAAAAAAAAAAG0AXwAA
+AAAADwAAAAAAAAAAAAAAdgA2AwAAAAAEAAAAAAAAAAAAAABtANcDAAAAAA8AAAAAAAAAAAAAAHYA
+OAAAAAAAAAAAAAEAAACnBAAABQACAAAAAFNUXzM3NWRhNTEwYjdjNDRkNWJhOTllYzY5MmUyNzFh
+YWUwADxNb2R1bGU+AFN5c3RlbS5JTwBNaWNyb3NvZnQuU3FsU2VydmVyLk1hbmFnZWREVFMAdmFs
+dWVfXwBtc2NvcmxpYgBSZXBsYWNlAGRlZmF1bHRJbnN0YW5jZQBWYXJpYWJsZQBSdW50aW1lVHlw
+ZUhhbmRsZQBHZXRUeXBlRnJvbUhhbmRsZQBGaWxlAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlJ1
+bnRpbWUAVHlwZQBGYWlsdXJlAGdldF9DdWx0dXJlAHNldF9DdWx0dXJlAHJlc291cmNlQ3VsdHVy
+ZQBWU1RBUlRTY3JpcHRPYmplY3RNb2RlbEJhc2UAQXBwbGljYXRpb25TZXR0aW5nc0Jhc2UARWRp
+dG9yQnJvd3NhYmxlU3RhdGUAQ29tcGlsZXJHZW5lcmF0ZWRBdHRyaWJ1dGUARGVidWdnZXJOb25V
+c2VyQ29kZUF0dHJpYnV0ZQBEZWJ1Z2dhYmxlQXR0cmlidXRlAEVkaXRvckJyb3dzYWJsZUF0dHJp
+YnV0ZQBBc3NlbWJseVRpdGxlQXR0cmlidXRlAEFzc2VtYmx5VHJhZGVtYXJrQXR0cmlidXRlAFRh
+cmdldEZyYW1ld29ya0F0dHJpYnV0ZQBBc3NlbWJseUNvbmZpZ3VyYXRpb25BdHRyaWJ1dGUAQXNz
+ZW1ibHlEZXNjcmlwdGlvbkF0dHJpYnV0ZQBDb21waWxhdGlvblJlbGF4YXRpb25zQXR0cmlidXRl
+AEFzc2VtYmx5UHJvZHVjdEF0dHJpYnV0ZQBBc3NlbWJseUNvcHlyaWdodEF0dHJpYnV0ZQBTU0lT
+U2NyaXB0VGFza0VudHJ5UG9pbnRBdHRyaWJ1dGUAQXNzZW1ibHlDb21wYW55QXR0cmlidXRlAFJ1
+bnRpbWVDb21wYXRpYmlsaXR5QXR0cmlidXRlAGdldF9WYWx1ZQB2YWx1ZQBSZW1vdmUASW5kZXhP
+ZgBTeXN0ZW0uUnVudGltZS5WZXJzaW9uaW5nAFRvU3RyaW5nAGdldF9MZW5ndGgATWljcm9zb2Z0
+LlNxbFNlcnZlci5TY3JpcHRUYXNrAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlRhc2tzLlNjcmlw
+dFRhc2sAU2NyaXB0T2JqZWN0TW9kZWwAU3lzdGVtLkNvbXBvbmVudE1vZGVsAFNUXzM3NWRhNTEw
+YjdjNDRkNWJhOTllYzY5MmUyNzFhYWUwLmRsbABnZXRfSXRlbQBTeXN0ZW0ARW51bQByZXNvdXJj
+ZU1hbgBTY3JpcHRNYWluAFN5c3RlbS5Db25maWd1cmF0aW9uAFN5c3RlbS5HbG9iYWxpemF0aW9u
+AFN5c3RlbS5SZWZsZWN0aW9uAEN1bHR1cmVJbmZvAGdldF9SZXNvdXJjZU1hbmFnZXIALmN0b3IA
+LmNjdG9yAFN5c3RlbS5EaWFnbm9zdGljcwBTeXN0ZW0uUnVudGltZS5Db21waWxlclNlcnZpY2Vz
+AFN5c3RlbS5SZXNvdXJjZXMAU1RfMzc1ZGE1MTBiN2M0NGQ1YmE5OWVjNjkyZTI3MWFhZTAuUHJv
+cGVydGllcy5SZXNvdXJjZXMucmVzb3VyY2VzAERlYnVnZ2luZ01vZGVzAFNUXzM3NWRhNTEwYjdj
+NDRkNWJhOTllYzY5MmUyNzFhYWUwLlByb3BlcnRpZXMAZ2V0X1ZhcmlhYmxlcwBTZXR0aW5ncwBT
+dWNjZXNzAGdldF9EdHMAU2NyaXB0UmVzdWx0cwBPYmplY3QAZ2V0X0RlZmF1bHQAc2V0X1Rhc2tS
+ZXN1bHQAUmVhZEFsbFRleHQAV3JpdGVBbGxUZXh0AGdldF9Bc3NlbWJseQAAAAAAJ1UAcwBlAHIA
+OgA6AFgAbQBsAEYAaQBsAGUAUgBlAGEAZABlAHIAACdVAHMAZQByADoAOgBYAG0AbABGAGkAbABl
+AFcAcgBpAHQAZQByAAATeABzADoAcwBjAGgAZQBtAGEAACE8AGQAaQBmAGYAZwByADoAZABpAGYA
+ZgBnAHIAYQBtAACBATwAZABpAGYAZgBnAHIAOgBkAGkAZgBmAGcAcgBhAG0AIAB4AG0AbABuAHMA
+OgBtAHMAZABhAHQAYQA9ACIAdQByAG4AOgBzAGMAaABlAG0AYQBzAC0AbQBpAGMAcgBvAHMAbwBm
+AHQALQBjAG8AbQA6AHgAbQBsAC0AbQBzAGQAYQB0AGEAIgAgAHgAbQBsAG4AcwA6AGQAaQBmAGYA
+ZwByAD0AIgB1AHIAbgA6AHMAYwBoAGUAbQBhAHMALQBtAGkAYwByAG8AcwBvAGYAdAAtAGMAbwBt
+ADoAeABtAGwALQBkAGkAZgBmAGcAcgBhAG0ALQB2ADEAIgAgAC8APgABE2QAaQBmAGYAZwByADoA
+aQBkAAARTwBwAHQAaQBvAG4ASQBEAAAlPAAvAGQAaQBmAGYAZwByADoAZABpAGYAZgBnAHIAYQBt
+AD4AAAEAH20AcwBkAGEAdABhADoAcgBvAHcATwByAGQAZQByAAAdTwBwAHQAaQBvAG4AcgBvAHcA
+TwByAGQAZQByAAAJJgBsAHQAOwAAAzwAAAkmAGcAdAA7AAADPgAAI2UAbgBjAG8AZABpAG4AZwA9
+ACIAdQB0AGYALQAxADYAIgABKXgAbQBsADoAcwBwAGEAYwBlAD0AIgBwAHIAZQBzAGUAcgB2AGUA
+IgAAcVMAVABfADMANwA1AGQAYQA1ADEAMABiADcAYwA0ADQAZAA1AGIAYQA5ADkAZQBjADYAOQAy
+AGUAMgA3ADEAYQBhAGUAMAAuAFAAcgBvAHAAZQByAHQAaQBlAHMALgBSAGUAcwBvAHUAcgBjAGUA
+cwAAAADGxZ5IoTkST5cSvNypmrGNAAQgAQEIAyAAAQUgAQEREQQgAQEOBSABARFRBgcEDg4ICAQg
+ABJhBCAAEmUFIAESaRwDIAAcAyAADgQAAQ4OBCABCA4DIAAIBSACDggIBSACDg4OBQACAQ4OBgAB
+EnUReQQgABJ9BiACAQ4SfQi3elxWGTTgiQiJhF3NgIDMkQQAAAAABAEAAAADBhJJAwYSTQMGEhAC
+BggDBhEUBAAAEkkEAAASTQUAAQESTQQAABIQAwAAAQQIABJJBAgAEk0ECAASEAgBAAgAAAAAAB4B
+AAEAVAIWV3JhcE5vbkV4Y2VwdGlvblRocm93cwEIAQACAAAAAAAoAQAjU1RfMzc1ZGE1MTBiN2M0
+NGQ1YmE5OWVjNjkyZTI3MWFhZTAAAAUBAAAAABYBABFDb3B5cmlnaHQgQCAgMjAyMAAASQEAGi5O
+RVRGcmFtZXdvcmssVmVyc2lvbj12NC43AQBUDhRGcmFtZXdvcmtEaXNwbGF5TmFtZRIuTkVUIEZy
+YW1ld29yayA0LjcAAAC0AAAAzsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VS
+ZWFkZXIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGlj
+S2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJj
+ZVNldAIAAAAAAAAAAAAAAFBBRFBBRFC0AAAAMDEAAAAAAAAAAAAASjEAAAAgAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAADwxAAAAAAAAAAAAAAAAX0NvckRsbE1haW4AbXNjb3JlZS5kbGwAAAAAAP8lACAA
+EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAEAEAAAABgAAIAAAAAAAAAAAAAAAAAAAAEAAQAAADAAAIAAAAAAAAAAAAAAAAAAAAEAAAAA
+AEgAAABYQAAAGgQAAAAAAAAAAAAAGgQ0AAAAVgBTAF8AVgBFAFIAUwBJAE8ATgBfAEkATgBGAE8A
+AAAAAL0E7/4AAAEAAAABALhcax0AAAEAuFxrHT8AAAAAAAAABAAAAAIAAAAAAAAAAAAAAAAAAABE
+AAAAAQBWAGEAcgBGAGkAbABlAEkAbgBmAG8AAAAAACQABAAAAFQAcgBhAG4AcwBsAGEAdABpAG8A
+bgAAAAAAAACwBHoDAAABAFMAdAByAGkAbgBnAEYAaQBsAGUASQBuAGYAbwAAAFYDAAABADAAMAAw
+ADAAMAA0AGIAMAAAABoAAQABAEMAbwBtAG0AZQBuAHQAcwAAAAAAAAAiAAEAAQBDAG8AbQBwAGEA
+bgB5AE4AYQBtAGUAAAAAAAAAAABwACQAAQBGAGkAbABlAEQAZQBzAGMAcgBpAHAAdABpAG8AbgAA
+AAAAUwBUAF8AMwA3ADUAZABhADUAMQAwAGIANwBjADQANABkADUAYgBhADkAOQBlAGMANgA5ADIA
+ZQAyADcAMQBhAGEAZQAwAAAAPgAPAAEARgBpAGwAZQBWAGUAcgBzAGkAbwBuAAAAAAAxAC4AMAAu
+ADcANQAzADEALgAyADMANwAzADYAAAAAAHAAKAABAEkAbgB0AGUAcgBuAGEAbABOAGEAbQBlAAAA
+UwBUAF8AMwA3ADUAZABhADUAMQAwAGIANwBjADQANABkADUAYgBhADkAOQBlAGMANgA5ADIAZQAy
+ADcAMQBhAGEAZQAwAC4AZABsAGwAAABIABIAAQBMAGUAZwBhAGwAQwBvAHAAeQByAGkAZwBoAHQA
+AABDAG8AcAB5AHIAaQBnAGgAdAAgAEAAIAAgADIAMAAyADAAAAAqAAEAAQBMAGUAZwBhAGwAVABy
+AGEAZABlAG0AYQByAGsAcwAAAAAAAAAAAHgAKAABAE8AcgBpAGcAaQBuAGEAbABGAGkAbABlAG4A
+YQBtAGUAAABTAFQAXwAzADcANQBkAGEANQAxADAAYgA3AGMANAA0AGQANQBiAGEAOQA5AGUAYwA2
+ADkAMgBlADIANwAxAGEAYQBlADAALgBkAGwAbAAAAGgAJAABAFAAcgBvAGQAdQBjAHQATgBhAG0A
+ZQAAAAAAUwBUAF8AMwA3ADUAZABhADUAMQAwAGIANwBjADQANABkADUAYgBhADkAOQBlAGMANgA5
+ADIAZQAyADcAMQBhAGEAZQAwAAAAQgAPAAEAUAByAG8AZAB1AGMAdABWAGUAcgBzAGkAbwBuAAAA
+MQAuADAALgA3ADUAMwAxAC4AMgAzADcAMwA2AAAAAABGAA8AAQBBAHMAcwBlAG0AYgBsAHkAIABW
+AGUAcgBzAGkAbwBuAAAAMQAuADAALgA3ADUAMwAxAC4AMgAzADcAMwA2AAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAADAAAAFwxAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
+            </ScriptProject>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\For Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{7053D8A1-E15D-4E30-B203-FF5DF2394191}"
+          DTS:From="Package\For Loop Container\Company"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\For Loop Container\Script Task" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\For Loop Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{39ADFED4-EFEF-4A84-98CB-B57C7D4E76BE}"
+          DTS:From="Package\For Loop Container\Script Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\For Loop Container\Data Flow Task" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="141,42"
+          Id="Package\For Loop Container\Company"
+          TopLeft="27,12" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\For Loop Container\Data Flow Task"
+          TopLeft="27,178" />
+        <NodeLayout
+          Size="131,42"
+          Id="Package\For Loop Container\Script Task"
+          TopLeft="32,89" />
+        <EdgeLayout
+          Id="Package\For Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="97.5,54">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35"
+              Start="0,0"
+              End="0,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\For Loop Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="100,131">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47"
+              Start="0,0"
+              End="0,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="220,302"
+          Size="220,345"
+          Id="Package\For Loop Container"
+          TopLeft="424,32" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\For Loop Container\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\For Loop Container\Data Flow Task\OLE DB Destination"
+          TopLeft="534,391" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\For Loop Container\Data Flow Task\XML Source"
+          TopLeft="434,26" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\For Loop Container\Data Flow Task\Derived Column"
+          TopLeft="430,109" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\For Loop Container\Data Flow Task\Multiple Hash"
+          TopLeft="466,197" />
+        <NodeLayout
+          Size="115,42"
+          Id="Package\For Loop Container\Data Flow Task\Lookup"
+          TopLeft="502,282" />
+        <EdgeLayout
+          Id="Package\For Loop Container\Data Flow Task.Paths[HashedOutput]"
+          TopLeft="539,239">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20.5,43"
+              Start="0,0"
+              End="20.5,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="4,21.5" />
+                  <mssgle:LineSegment
+                    End="16.5,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.5,21.5"
+                    Point2="20.5,21.5"
+                    Point3="20.5,25.5" />
+                  <mssgle:LineSegment
+                    End="20.5,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\For Loop Container\Data Flow Task.Paths[Lookup No Match Output]"
+          TopLeft="559.5,324">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63,67"
+              Start="0,0"
+              End="63,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.5"
+                    Point2="0,33.5"
+                    Point3="4,33.5" />
+                  <mssgle:LineSegment
+                    End="59,33.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="59,33.5"
+                    Point2="63,33.5"
+                    Point3="63,37.5" />
+                  <mssgle:LineSegment
+                    End="63,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-24.30638671875,38.5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\For Loop Container\Data Flow Task.Paths[DataSet__TseCompanyName__TseCompanyName]"
+          TopLeft="504,68">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-111.13634765625,11.04296875,222.2726953125,11.4140625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\For Loop Container\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="507,151">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32,46"
+              Start="0,0"
+              End="32,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19"
+                    Point2="0,23"
+                    Point3="4,23" />
+                  <mssgle:LineSegment
+                    End="28,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28,23"
+                    Point2="32,23"
+                    Point3="32,27" />
+                  <mssgle:LineSegment
+                    End="32,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\For Loop Container\Data Flow Task\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\For Loop Container\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

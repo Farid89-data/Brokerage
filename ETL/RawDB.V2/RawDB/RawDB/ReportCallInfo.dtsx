@@ -1,0 +1,632 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/28/2022 5:31:59 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BOLBOLI-PC"
+  DTS:CreatorName="MOBINSB\bolboli"
+  DTS:DTSID="{0408422A-C710-40F4-B1F6-B41BBEE0FE7C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ReportCallInfo"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="81"
+  DTS:VersionGUID="{DC3ACFF5-39B8-4E68-B816-2E57D2EFD930}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9B18B1EC-0457-46ED-BB11-87C9D6628E2A}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="GETDATE()"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="EndDate">
+      <DTS:VariableValue
+        DTS:DataType="7">12/12/2023 9:41:56 AM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{54CD7A1C-9C90-414D-B6BD-FF6D5E4941CF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="MaxPage">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{85EC7300-61AD-4766-AB91-2CBB4E9D48D9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Page">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FF0F6D73-A906-4CAC-BCD5-1ADEA2A4382E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="PageSize">
+      <DTS:VariableValue
+        DTS:DataType="3">50000</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{011A8F64-4E02-4E71-BE95-64B38C859020}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="StartDate">
+      <DTS:VariableValue
+        DTS:DataType="7">8/22/2022 9:53:00 AM</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Bank Send Mail - Failure"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:DelayValidation="True"
+      DTS:Description="Script Task"
+      DTS:DTSID="{230787BC-8FA0-468E-B478-1CFB32C34C4B}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Bank Send Mail - Failure"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_760d71f4ec7b4e1aadf2b0a33e891d11"
+          VSTAMajorVersion="15"
+          VSTAMinorVersion="0"
+          Language="CSharp" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Bank Send Mail - Succssed"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:DelayValidation="True"
+      DTS:Description="Script Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{58E481C9-86AB-4A7D-9676-6A45B613321E}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Bank Send Mail - Succssed"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_8b28c208225146aaa09375282ca17acf"
+          VSTAMajorVersion="15"
+          VSTAMinorVersion="0"
+          Language="VisualBasic" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Begin"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{65795D0F-E17F-4F7B-B6D4-C3B45A0A4460}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Begin"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2C29B200-2F22-487B-A7EB-B2FCA432F505}"
+          SQLTask:SqlStatementSource="BEGIN TRANSACTION ;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Commit Bank"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E38464AA-3228-4F53-8C6F-960E80A59833}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Commit Bank"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2C29B200-2F22-487B-A7EB-B2FCA432F505}"
+          SQLTask:SqlStatementSource="COMMIT TRANSACTION ;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute Process Task"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="Execute Process Task"
+      DTS:DTSID="{3F373DB9-CE62-4193-ACFC-BAF84D4EDB9E}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute Process Task"
+      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="Arguments">(DT_WSTR,10)(DT_DBDATE) @[User::StartDate] + " " + (DT_WSTR,10)(DT_DBDATE)  @[User::EndDate] + " " +(DT_WSTR,10)  @[User::PageSize]  + " " +(DT_WSTR,10) @[User::Page]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <ExecuteProcessData
+          Executable="C:\WebApiRequests\ReportCallInfo\ReportCallInfo.exe"
+          Arguments="2022-08-22 2023-12-12 50000 1"
+          WorkingDirectory="C:\WebApiRequests\ReportCallInfo" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Merge With Db"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F63FA606-B9DC-40DC-8B5B-4296C617C022}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Merge With Db"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2C29B200-2F22-487B-A7EB-B2FCA432F505}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="Declare @JSON nvarchar(max)&#xA;SELECT @JSON=BulkColumn&#xA;FROM OPENROWSET (BULK 'C:\WebApiRequests\ReportCallInfo\jsondata.txt', SINGLE_NCLOB) import&#xA;&#xA;MERGE Rawdb.[bi].[ReportCallInfo] AS TARGET&#xA;USING(SELECT &#xA;      *&#x9;   &#xA;FROM OPENJSON (@JSON,'$' )&#xA;WITH &#xA;(&#xA;   &#xA; [id] INT  '$.id'  &#xA;,[personName] NVARCHAR(100)  '$.personName'  &#xA;,[customerId] INT  '$.customerId'  &#xA;,[persianDate] NVARCHAR(12)  '$.persianDate'  &#xA;,[creatorName] NVARCHAR(50)  '$.creatorName'  &#xA;,[creatorId] INT  '$.creatorId'  &#xA;,[dateClose] NVARCHAR(20)  '$.dateClose'  &#xA;,[hour] NVARCHAR(20)  '$.hour'  &#xA;,[hourClose]  NVARCHAR(20)  '$.hourClose'  &#xA;,[callType] NVARCHAR(50)  '$.callType'  &#xA;,[callPriority] NVARCHAR(10)  '$.callPriority'  &#xA;,[description] NVARCHAR(150)  '$.description'  &#xA;,[nationalCode] NVARCHAR(12)  '$.nationalCode'  &#xA;,[mobileNumber] NVARCHAR(15)  '$.mobileNumber'  &#xA;,[unknownPerson] BIT  '$.unknownPerson'  &#xA;,[callStateName] NVARCHAR(50)  '$.callStateName'  &#xA;,[callStateId] INT  '$.callStateId'  &#xA;,[companyChartId] INT  '$.companyChartId'  &#xA;,[priorityId] INT  '$.priorityId'  &#xA;,[callTypeId] INT  '$.callTypeId'  &#xA;,[callPriorityId] INT  '$.callPriorityId'  &#xA;,[jobTitle] NVARCHAR(50)  '$.jobTitle'  &#xA;,[companyChartDescription] NVARCHAR(50)  '$.companyChartDescription'  &#xA;,[companyChartDate] NVARCHAR(12)  '$.companyChartDate'  &#xA;,[companyChartTime]  NVARCHAR(12)  '$.companyChartTime'  &#xA;,[companyChartDateResolve] NVARCHAR(12)  '$.companyChartDateResolve'  &#xA;,[companyChartTimeResolve] NVARCHAR(12)  '$.companyChartTimeResolve'  &#xA;,[callAgainDate] NVARCHAR(12)  '$.callAgainDate' &#xA;,[crmAttitudeDeterminationId] INT  '$.crmAttitudeDeterminationId'  &#xA;,[crmAttitudeDeterminationName] NVARCHAR(50)  '$.crmAttitudeDeterminationName'  &#xA;,[customerSatisfactionId] INT  '$.customerSatisfactionId'  &#xA;,[rate] float  '$.rate'  &#xA;,[totalRowNumber] INT  '$.totalRowNumber'  &#xA;,[pageSize] INT  '$.pageSize'  &#xA;,[pageNumber] INT  '$.pageNumber'  &#xA;,[activeCapitalMarket] BIT  '$.activeCapitalMarket'  &#xA;,[traderTypeId] INT  '$.traderTypeId' &#xA;,[traderTypeName] NVARCHAR(50)  '$.traderTypeName'  &#xA;,[yourActivity] NVARCHAR(50)  '$.yourActivity'  &#xA;,[portfolioManagerActivity] NVARCHAR(50)  '$.portfolioManagerActivity'  &#xA;,[changePortfolioManager] NVARCHAR(50)  '$.changePortfolioManager'  &#xA;,[havePortfolioManager] NVARCHAR(50)  '$.havePortfolioManager'  &#xA;,[portfolioManagerLicense] NVARCHAR(50)  '$.portfolioManagerLicense'  &#xA;,[backToBroker] NVARCHAR(50)  '$.backToBroker'  &#xA;,[backToCapitalMarket] BIT  '$.backToCapitalMarket'  &#xA;,[crmCompanyChartIds] NVARCHAR(50)  '$.crmCompanyChartIds'  &#xA;,[crmCompanyChartNames] NVARCHAR(50)  '$.crmCompanyChartNames' &#xA;,[companyChartProblemIds] NVARCHAR(50)  '$.companyChartProblemIds'  &#xA;,[companyChartProblemNames] NVARCHAR(50)  '$.companyChartProblemNames'  &#xA;,[crmMarketIds] NVARCHAR(50)  '$.crmMarketIds'  &#xA;,[crmMarketNames] NVARCHAR(50)  '$.crmMarketNames'  &#xA;,[crmReasonInactivityIds] NVARCHAR(50)  '$.crmReasonInactivityIds'  &#xA;,[crmReasonInactivityNames] NVARCHAR(100)  '$.crmReasonInactivityNames'  &#xA;,[crmReasonNotInvestingOtherMarketsIds] NVARCHAR(50)  '$.crmReasonNotInvestingOtherMarketsIds'  &#xA;,[crmReasonNotInvestingOtherMarketsNames] NVARCHAR(150)  '$.crmReasonNotInvestingOtherMarketsNames'  &#xA;,[crmMessageIds] NVARCHAR(50)  '$.crmMessageIds'  &#xA;,[crmMessageNames] NVARCHAR(50)  '$.crmMessageNames'  &#xA;,[crmDissociateReasonIds] NVARCHAR(50)  '$.crmDissociateReasonIds'  &#xA;,[crmDissociateReasonNames] NVARCHAR(50)  '$.crmDissociateReasonNames'  &#xA;,[crmCustomerActivityTypeOtherBrokerIds] NVARCHAR(50)  '$.crmCustomerActivityTypeOtherBrokerIds'  &#xA;,[crmCustomerActivityTypeOtherBrokerNames] NVARCHAR(50)  '$.crmCustomerActivityTypeOtherBrokerNames'  &#xA;,[crmBrokerIds] NVARCHAR(50)  '$.crmBrokerIds'  &#xA;,[crmBrokerNames] NVARCHAR(50)  '$.crmBrokerNames'  &#xA;,[companyBranchNames] NVARCHAR(50)  '$.companyBranchNames'  &#xA;,[companyBranchIds] NVARCHAR(50)  '$.companyBranchIds'  &#xA;,[date] datetime '$.date'&#xA;,crmHeadPersonId INT '$.crmHeadPersonId'&#xA;,companyBranchHeadCall NVARCHAR(100) '$.companyBranchHeadCall'&#xA;,commissionGrowthPercentage FLOAT '$.commissionGrowthPercentage'&#xA;,commissionGrowthPercentageCalculatedDate NVARCHAR(10) '$.commissionGrowthPercentageCalculatedDate'&#xA;,customerTypeName NVARCHAR(50) '$.customerTypeName'&#xA;,customerTypeId   INT '$.customerTypeId'&#xA;,growth INT '$.commissionGrowth'&#xA;)) Source &#xA;ON (&#xA;Target.id   = SOURCE.id   )&#xA;WHEN NOT MATCHED BY TARGET THEN &#xA;INSERT(&#xA;&#xA; [id]  &#xA;,[personName]  &#xA;,[customerId]  &#xA;,[persianDate]  &#xA;,[creatorName]  &#xA;,[creatorId]  &#xA;,[dateClose]  &#xA;,[hour]  &#xA;,[hourClose]  &#xA;,[callType]  &#xA;,[callPriority]  &#xA;,[description]  &#xA;,[nationalCode]  &#xA;,[mobileNumber]  &#xA;,[unknownPerson]  &#xA;,[callStateName]  &#xA;,[callStateId]  &#xA;,[companyChartId]  &#xA;,[priorityId]  &#xA;,[callTypeId]  &#xA;,[callPriorityId]  &#xA;,[jobTitle]  &#xA;,[companyChartDescription]  &#xA;,[companyChartDate]  &#xA;,[companyChartTime]  &#xA;,[companyChartDateResolve]  &#xA;,[companyChartTimeResolve]  &#xA;,[callAgainDate]  &#xA;,[crmAttitudeDeterminationId]  &#xA;,[crmAttitudeDeterminationName]  &#xA;,[customerSatisfactionId]  &#xA;,[rate]  &#xA;,[totalRowNumber]  &#xA;,[pageSize]  &#xA;,[pageNumber]  &#xA;,[activeCapitalMarket]  &#xA;,[traderTypeId]  &#xA;,[traderTypeName]  &#xA;,[yourActivity]  &#xA;,[portfolioManagerActivity]  &#xA;,[changePortfolioManager]  &#xA;,[havePortfolioManager]  &#xA;,[portfolioManagerLicense]  &#xA;,[backToBroker]  &#xA;,[backToCapitalMarket]  &#xA;,[crmCompanyChartIds]  &#xA;,[crmCompanyChartNames]  &#xA;,[companyChartProblemIds]  &#xA;,[companyChartProblemNames]  &#xA;,[crmMarketIds]  &#xA;,[crmMarketNames]  &#xA;,[crmReasonInactivityIds]  &#xA;,[crmReasonInactivityNames]  &#xA;,[crmReasonNotInvestingOtherMarketsIds]  &#xA;,[crmReasonNotInvestingOtherMarketsNames]  &#xA;,[crmMessageIds]  &#xA;,[crmMessageNames]  &#xA;,[crmDissociateReasonIds]  &#xA;,[crmDissociateReasonNames]  &#xA;,[crmCustomerActivityTypeOtherBrokerIds]  &#xA;,[crmCustomerActivityTypeOtherBrokerNames]  &#xA;,[crmBrokerIds]  &#xA;,[crmBrokerNames]  &#xA;,[companyBranchNames]  &#xA;,[companyBranchIds]  &#xA;,[date]&#xA;,crmHeadPersonId&#xA;,companyBranchHeadCall&#xA;,commissionGrowthPercentage&#xA;,commissionGrowthPercentageCalculatedDate&#xA;,customerTypeName&#xA;,customerTypeId  &#xA;,growth&#xA;&#xA;)&#xA;VALUES(&#xA;&#xA;Source.[id]  &#xA;,Source.[personName]  &#xA;,Source.[customerId]  &#xA;,Source.[persianDate]  &#xA;,Source.[creatorName]  &#xA;,Source.[creatorId]  &#xA;,Source.[dateClose]  &#xA;,Source.[hour]  &#xA;,Source.[hourClose]  &#xA;,Source.[callType]  &#xA;,Source.[callPriority]  &#xA;,Source.[description]  &#xA;,Source.[nationalCode]  &#xA;,Source.[mobileNumber]  &#xA;,Source.[unknownPerson]  &#xA;,Source.[callStateName]  &#xA;,Source.[callStateId]  &#xA;,Source.[companyChartId]  &#xA;,Source.[priorityId]  &#xA;,Source.[callTypeId]  &#xA;,Source.[callPriorityId]  &#xA;,Source.[jobTitle]  &#xA;,Source.[companyChartDescription]  &#xA;,Source.[companyChartDate]  &#xA;,Source.[companyChartTime]  &#xA;,Source.[companyChartDateResolve]  &#xA;,Source.[companyChartTimeResolve]  &#xA;,Source.[callAgainDate]  &#xA;,Source.[crmAttitudeDeterminationId]  &#xA;,Source.[crmAttitudeDeterminationName]  &#xA;,Source.[customerSatisfactionId]  &#xA;,Source.[rate]  &#xA;,Source.[totalRowNumber]  &#xA;,Source.[pageSize]  &#xA;,Source.[pageNumber]  &#xA;,Source.[activeCapitalMarket]  &#xA;,Source.[traderTypeId]  &#xA;,Source.[traderTypeName]  &#xA;,Source.[yourActivity]  &#xA;,Source.[portfolioManagerActivity]  &#xA;,Source.[changePortfolioManager]  &#xA;,Source.[havePortfolioManager]  &#xA;,Source.[portfolioManagerLicense]  &#xA;,Source.[backToBroker]  &#xA;,Source.[backToCapitalMarket]  &#xA;,Source.[crmCompanyChartIds]  &#xA;,Source.[crmCompanyChartNames]  &#xA;,Source.[companyChartProblemIds]  &#xA;,Source.[companyChartProblemNames]  &#xA;,Source.[crmMarketIds]  &#xA;,Source.[crmMarketNames]  &#xA;,Source.[crmReasonInactivityIds]  &#xA;,Source.[crmReasonInactivityNames]  &#xA;,Source.[crmReasonNotInvestingOtherMarketsIds]  &#xA;,Source.[crmReasonNotInvestingOtherMarketsNames]  &#xA;,Source.[crmMessageIds]  &#xA;,Source.[crmMessageNames]  &#xA;,Source.[crmDissociateReasonIds]  &#xA;,Source.[crmDissociateReasonNames]  &#xA;,Source.[crmCustomerActivityTypeOtherBrokerIds]  &#xA;,Source.[crmCustomerActivityTypeOtherBrokerNames]  &#xA;,Source.[crmBrokerIds]  &#xA;,Source.[crmBrokerNames]  &#xA;,Source.[companyBranchNames]  &#xA;,Source.[companyBranchIds]  &#xA;,Source.[date]&#xA;,source.crmHeadPersonId&#xA;,source.companyBranchHeadCall&#xA;,source.commissionGrowthPercentage&#xA;,source.commissionGrowthPercentageCalculatedDate&#xA;,Source.customerTypeName&#xA;,Source.customerTypeId  &#xA;,SOURCE.growth&#xA;&#xA;)&#xA;WHEN MATCHED AND TARGET.HashValue &lt;&gt; HASHBYTES('MD5', CONCAT_WS('|'&#xA;,Source.[id]  &#xA;,Source.[personName]  &#xA;,Source.[customerId]  &#xA;,Source.[persianDate]  &#xA;,Source.[creatorName]  &#xA;,Source.[creatorId]  &#xA;,Source.[dateClose]  &#xA;,Source.[hour]  &#xA;,Source.[hourClose]  &#xA;,Source.[callType]  &#xA;,Source.[callPriority]  &#xA;,Source.[description]  &#xA;,Source.[nationalCode]  &#xA;,Source.[mobileNumber]  &#xA;,Source.[unknownPerson]  &#xA;,Source.[callStateName]  &#xA;,Source.[callStateId]  &#xA;,Source.[companyChartId]  &#xA;,Source.[priorityId]  &#xA;,Source.[callTypeId]  &#xA;,Source.[callPriorityId]  &#xA;,Source.[jobTitle]  &#xA;,Source.[companyChartDescription]  &#xA;,Source.[companyChartDate]  &#xA;,Source.[companyChartTime]  &#xA;,Source.[companyChartDateResolve]  &#xA;,Source.[companyChartTimeResolve]  &#xA;,Source.[callAgainDate]  &#xA;,Source.[crmAttitudeDeterminationId]  &#xA;,Source.[crmAttitudeDeterminationName]  &#xA;,Source.[customerSatisfactionId]  &#xA;,Source.[rate]  &#xA;,Source.[totalRowNumber]  &#xA;,Source.[pageSize]  &#xA;,Source.[pageNumber]  &#xA;,Source.[activeCapitalMarket]  &#xA;,Source.[traderTypeId]  &#xA;,Source.[traderTypeName]  &#xA;,Source.[yourActivity]  &#xA;,Source.[portfolioManagerActivity]  &#xA;,Source.[changePortfolioManager]  &#xA;,Source.[havePortfolioManager]  &#xA;,Source.[portfolioManagerLicense]  &#xA;,Source.[backToBroker]  &#xA;,Source.[backToCapitalMarket]  &#xA;,Source.[crmCompanyChartIds]  &#xA;,Source.[crmCompanyChartNames]  &#xA;,Source.[companyChartProblemIds]  &#xA;,Source.[companyChartProblemNames]  &#xA;,Source.[crmMarketIds]  &#xA;,Source.[crmMarketNames]  &#xA;,Source.[crmReasonInactivityIds]  &#xA;,Source.[crmReasonInactivityNames]  &#xA;,Source.[crmReasonNotInvestingOtherMarketsIds]  &#xA;,Source.[crmReasonNotInvestingOtherMarketsNames]  &#xA;,Source.[crmMessageIds]  &#xA;,Source.[crmMessageNames]  &#xA;,Source.[crmDissociateReasonIds]  &#xA;,Source.[crmDissociateReasonNames]  &#xA;,Source.[crmCustomerActivityTypeOtherBrokerIds]  &#xA;,Source.[crmCustomerActivityTypeOtherBrokerNames]  &#xA;,Source.[crmBrokerIds]  &#xA;,Source.[crmBrokerNames]  &#xA;,Source.[companyBranchNames]  &#xA;,Source.[companyBranchIds]  &#xA;,Source.[date]&#xA;,source.crmHeadPersonId&#xA;,source.companyBranchHeadCall&#xA;,source.commissionGrowthPercentage&#xA;,source.commissionGrowthPercentageCalculatedDate&#xA;,source.customerTypeName&#xA;,Source.customerTypeId  &#xA;,SOURCE.growth&#xA;&#x9;  &#xA;&#x9;  ))&#xA;THEN UPDATE SET &#xA;&#xA;Target.[id]   =  Source.[id]  &#xA;,Target.[personName]   =  Source.[personName]  &#xA;,Target.[customerId]   =  Source.[customerId]  &#xA;,Target.[persianDate]   =  Source.[persianDate]  &#xA;,Target.[creatorName]   =  Source.[creatorName]  &#xA;,Target.[creatorId]   =  Source.[creatorId]  &#xA;,Target.[dateClose]   =  Source.[dateClose]  &#xA;,Target.[hour]   =  Source.[hour]  &#xA;,Target.[hourClose]   =  Source.[hourClose]  &#xA;,Target.[callType]   =  Source.[callType]  &#xA;,Target.[callPriority]   =  Source.[callPriority]  &#xA;,Target.[description]   =  Source.[description]  &#xA;,Target.[nationalCode]   =  Source.[nationalCode]  &#xA;,Target.[mobileNumber]   =  Source.[mobileNumber]  &#xA;,Target.[unknownPerson]   =  Source.[unknownPerson]  &#xA;,Target.[callStateName]   =  Source.[callStateName]  &#xA;,Target.[callStateId]   =  Source.[callStateId]  &#xA;,Target.[companyChartId]   =  Source.[companyChartId]  &#xA;,Target.[priorityId]   =  Source.[priorityId]  &#xA;,Target.[callTypeId]   =  Source.[callTypeId]  &#xA;,Target.[callPriorityId]   =  Source.[callPriorityId]  &#xA;,Target.[jobTitle]   =  Source.[jobTitle]  &#xA;,Target.[companyChartDescription]   =  Source.[companyChartDescription]  &#xA;,Target.[companyChartDate]   =  Source.[companyChartDate]  &#xA;,Target.[companyChartTime]   =  Source.[companyChartTime]  &#xA;,Target.[companyChartDateResolve]   =  Source.[companyChartDateResolve]  &#xA;,Target.[companyChartTimeResolve]   =  Source.[companyChartTimeResolve]  &#xA;,Target.[callAgainDate]   =  Source.[callAgainDate]  &#xA;,Target.[crmAttitudeDeterminationId]   =  Source.[crmAttitudeDeterminationId]  &#xA;,Target.[crmAttitudeDeterminationName]   =  Source.[crmAttitudeDeterminationName]  &#xA;,Target.[customerSatisfactionId]   =  Source.[customerSatisfactionId]  &#xA;,Target.[rate]   =  Source.[rate]  &#xA;,Target.[totalRowNumber]   =  Source.[totalRowNumber]  &#xA;,Target.[pageSize]   =  Source.[pageSize]  &#xA;,Target.[pageNumber]   =  Source.[pageNumber]  &#xA;,Target.[activeCapitalMarket]   =  Source.[activeCapitalMarket]  &#xA;,Target.[traderTypeId]   =  Source.[traderTypeId]  &#xA;,Target.[traderTypeName]   =  Source.[traderTypeName]  &#xA;,Target.[yourActivity]   =  Source.[yourActivity]  &#xA;,Target.[portfolioManagerActivity]   =  Source.[portfolioManagerActivity]  &#xA;,Target.[changePortfolioManager]   =  Source.[changePortfolioManager]  &#xA;,Target.[havePortfolioManager]   =  Source.[havePortfolioManager]  &#xA;,Target.[portfolioManagerLicense]   =  Source.[portfolioManagerLicense]  &#xA;,Target.[backToBroker]   =  Source.[backToBroker]  &#xA;,Target.[backToCapitalMarket]   =  Source.[backToCapitalMarket]  &#xA;,Target.[crmCompanyChartIds]   =  Source.[crmCompanyChartIds]  &#xA;,Target.[crmCompanyChartNames]   =  Source.[crmCompanyChartNames]  &#xA;,Target.[companyChartProblemIds]   =  Source.[companyChartProblemIds]  &#xA;,Target.[companyChartProblemNames]   =  Source.[companyChartProblemNames]  &#xA;,Target.[crmMarketIds]   =  Source.[crmMarketIds]  &#xA;,Target.[crmMarketNames]   =  Source.[crmMarketNames]  &#xA;,Target.[crmReasonInactivityIds]   =  Source.[crmReasonInactivityIds]  &#xA;,Target.[crmReasonInactivityNames]   =  Source.[crmReasonInactivityNames]  &#xA;,Target.[crmReasonNotInvestingOtherMarketsIds]   =  Source.[crmReasonNotInvestingOtherMarketsIds]  &#xA;,Target.[crmReasonNotInvestingOtherMarketsNames]   =  Source.[crmReasonNotInvestingOtherMarketsNames]  &#xA;,Target.[crmMessageIds]   =  Source.[crmMessageIds]  &#xA;,Target.[crmMessageNames]   =  Source.[crmMessageNames]  &#xA;,Target.[crmDissociateReasonIds]   =  Source.[crmDissociateReasonIds]  &#xA;,Target.[crmDissociateReasonNames]   =  Source.[crmDissociateReasonNames]  &#xA;,Target.[crmCustomerActivityTypeOtherBrokerIds]   =  Source.[crmCustomerActivityTypeOtherBrokerIds]  &#xA;,Target.[crmCustomerActivityTypeOtherBrokerNames]   =  Source.[crmCustomerActivityTypeOtherBrokerNames]  &#xA;,Target.[crmBrokerIds]   =  Source.[crmBrokerIds]  &#xA;,Target.[crmBrokerNames]   =  Source.[crmBrokerNames]  &#xA;,Target.[companyBranchNames]   =  Source.[companyBranchNames]  &#xA;,Target.[companyBranchIds]   =  Source.[companyBranchIds]  &#xA;,Target.[date] = Source.[date]&#xA;,Target.crmHeadPersonId&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  = Source.crmHeadPersonId&#xA;,Target.companyBranchHeadCall&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  = Source.companyBranchHeadCall&#xA;,Target.commissionGrowthPercentage&#x9;&#x9;&#x9;&#x9;&#x9;  = Source.commissionGrowthPercentage&#xA;,Target.commissionGrowthPercentageCalculatedDate&#x9;  = Source.commissionGrowthPercentageCalculatedDate&#xA;,TARGET.customerTypeName = Source.customerTypeName&#xA;,target.customerTypeId  = Source.customerTypeId&#xA;,TARGET.growth =SOURCE.growth&#xA;;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Rollback Bank"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{CCC38CA1-1764-4051-AF3C-2403DBFE875B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Rollback Bank"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2C29B200-2F22-487B-A7EB-B2FCA432F505}"
+          SQLTask:SqlStatementSource="rollback TRANSACTION ;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Select and Set MaxPage"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{A3C812DD-61A9-4BBE-889F-540B9C712ADF}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Select and Set MaxPage"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2C29B200-2F22-487B-A7EB-B2FCA432F505}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="Declare @JSON nvarchar(max)&#xA;SELECT @JSON=BulkColumn&#xA;FROM OPENROWSET (BULK 'C:\WebApiRequests\ReportCallInfo\jsondata.txt', SINGLE_NCLOB) import&#xA;&#xA; SELECT *&#xA;FROM OPENJSON (@JSON)&#xA;  WITH( &#xA;   TotalPages int '$.Paged.TotalPages'&#xA; ) "
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::MaxPage" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Select max Date"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6E1539B6-3F82-4A6E-89A0-4401157C2DEA}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Select max Date"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2C29B200-2F22-487B-A7EB-B2FCA432F505}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="SELECT isnull(convert(date,max([date])),'2022-03-22')&#xA;&#xA;  FROM RawDB.bi.ReportCallInfo"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::StartDate" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{3FAFA4A1-6144-4195-A28E-2B388587CDE9}"
+      DTS:From="Package\Begin"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Select max Date" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{65779F2E-8137-4D36-8C12-2746D51F2BC1}"
+      DTS:From="Package\Execute Process Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Select and Set MaxPage" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{A480E70C-E5CE-4E41-9288-0376BC3C09A1}"
+      DTS:From="Package\Select and Set MaxPage"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Merge With Db" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{D7B3D884-148E-491C-A943-BDB3D44D293B}"
+      DTS:From="Package\Select max Date"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Execute Process Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{B757E7E3-FB90-4F54-8BF4-92FAA64CAC43}"
+      DTS:From="Package\Merge With Db"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Commit Bank" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{60477270-FEE7-4EEA-9F1C-DBA024CD5538}"
+      DTS:From="Package\Commit Bank"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Bank Send Mail - Succssed" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{18815E01-5669-4E57-9DF9-F4CD7040CE81}"
+      DTS:From="Package\Rollback Bank"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Bank Send Mail - Failure" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{3D03C1D0-ACE0-4AA2-B468-1EEA8FBA9839}"
+      DTS:From="Package\Merge With Db"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Rollback Bank"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{C20862AD-B80D-4EF1-9040-8A8E8D8776E9}"
+      DTS:From="Package\Execute Process Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\Merge With Db" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="193,42"
+          Id="Package\Bank Send Mail - Failure"
+          TopLeft="270,617.5" />
+        <NodeLayout
+          Size="204,42"
+          Id="Package\Bank Send Mail - Succssed"
+          TopLeft="5.50000000000011,617.5" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Begin"
+          TopLeft="295.5,5.5" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Commit Bank"
+          TopLeft="91.5000000000001,515.5" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Execute Process Task"
+          TopLeft="276.5,209.5" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Merge With Db"
+          TopLeft="291.5,413.5" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Rollback Bank"
+          TopLeft="294,515.5" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\Select and Set MaxPage"
+          TopLeft="113.5,311.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Select max Date"
+          TopLeft="288.5,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="366.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="337.833333333333,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-128.333333333333,60"
+              Start="0,0"
+              End="-128.333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3171806167401" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3171806167401"
+                    Point2="0,24.3171806167401"
+                    Point3="-4,24.3171806167401" />
+                  <mssgle:LineSegment
+                    End="-124.333333333333,24.3171806167401" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-124.333333333333,24.3171806167401"
+                    Point2="-128.333333333333,24.3171806167401"
+                    Point3="-128.333333333333,28.3171806167401" />
+                  <mssgle:LineSegment
+                    End="-128.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="209.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="133.333333333333,60"
+              Start="0,0"
+              End="133.333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.6200527704486" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.6200527704486"
+                    Point2="0,35.6200527704486"
+                    Point3="4,35.6200527704486" />
+                  <mssgle:LineSegment
+                    End="129.333333333333,35.6200527704486" />
+                  <mssgle:CubicBezierSegment
+                    Point1="129.333333333333,35.6200527704486"
+                    Point2="133.333333333333,35.6200527704486"
+                    Point3="133.333333333333,39.6200527704486" />
+                  <mssgle:LineSegment
+                    End="133.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="366.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="342.833333333333,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-180.333333333333,60"
+              Start="0,0"
+              End="-180.333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3799472295514" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3799472295514"
+                    Point2="0,24.3799472295514"
+                    Point3="-4,24.3799472295514" />
+                  <mssgle:LineSegment
+                    End="-176.333333333333,24.3799472295514" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-176.333333333333,24.3799472295514"
+                    Point2="-180.333333333333,24.3799472295514"
+                    Point3="-180.333333333333,28.3799472295514" />
+                  <mssgle:LineSegment
+                    End="-180.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="162.5,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-55,60"
+              Start="0,0"
+              End="-55,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-51,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-51,30"
+                    Point2="-55,30"
+                    Point3="-55,34" />
+                  <mssgle:LineSegment
+                    End="-55,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="366.5,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="390.166666666667,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23.6666666666666,60"
+              Start="0,0"
+              End="-23.6666666666666,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.3799472295514" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.3799472295514"
+                    Point2="0,24.3799472295514"
+                    Point3="-4,24.3799472295514" />
+                  <mssgle:LineSegment
+                    End="-19.6666666666666,24.3799472295514" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.6666666666666,24.3799472295514"
+                    Point2="-23.6666666666666,24.3799472295514"
+                    Point3="-23.6666666666666,28.3799472295514" />
+                  <mssgle:LineSegment
+                    End="-23.6666666666666,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-27.0746809895833,29.3799472295514,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="392.666666666667,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,162"
+              Start="0,0"
+              End="0,154.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,154.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

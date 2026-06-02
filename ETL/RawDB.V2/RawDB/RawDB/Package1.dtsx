@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/25/2022 4:15:15 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BOLBOLI-PC"
+  DTS:CreatorName="MOBINSB\bolboli"
+  DTS:DTSID="{6D927F02-4704-4A89-857E-F9DE5B6CE4D0}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionGUID="{5A0D9A2B-80D3-46CA-A74A-A8AE440E59A8}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables />
+</DTS:Executable>

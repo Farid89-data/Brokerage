@@ -1,0 +1,26 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="WebApi"
+  DTS:DTSID="{FFC3F21D-5507-4408-AF67-E561BD1794FE}"
+  DTS:CreationName="HTTP">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="http://service.tsetmc.com/WebService/TsePublicV2.asmx?WSDL">
+      <DTS:HttpConnection
+        DTS:ServerURL="http://service.tsetmc.com/WebService/TsePublicV2.asmx?WSDL">
+        <DTS:Property
+          DTS:Name="ServerPassword"
+          Sensitive="1"
+          p5:Salt="fcBu2tnGbi8="
+          p5:IV="+Q5ABuFrl7SBQVufExM7gQ=="
+          p5:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" xmlns:p5="www.microsoft.com/SqlServer/SSIS">c1JsskL/UIFhiHIHYyocBWPSWoP1SzG115QIJ8le8vujdtQZLUUx36hJTl2AsC0mfdeRcyiFGIdGX0BLj7r8uXZWEISzL0I21Ixij8cpiZPMJCx3A7rD+zJ32HCsqF/+KjokuZhy8/2typvMOxBoq5vo3HeNuaBAfSEpzIRndNg=</DTS:Property>
+        <DTS:Property
+          DTS:Name="ProxyPassword"
+          Sensitive="1"
+          p5:Salt="93lZC0MxlvA="
+          p5:IV="35m3hqnDfImjc9L27jJiaA=="
+          p5:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" xmlns:p5="www.microsoft.com/SqlServer/SSIS">8J9CQYDZary0uPEc5Jsyi6VvFEip/ya6mt0QojCAINajYmWc5lmsXW/N+FqyP/bUHuAU36mMWp+f/fQ+lvTLrfhiE38wcyi+1Zas22GXrUgNHXrQ3tP7uZ4vVeNDA5c1P4YC4tKXOhPCQ+Q8bC/mlanftWHcwBjGIMv3V5Qg+oA=</DTS:Property>
+      </DTS:HttpConnection>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

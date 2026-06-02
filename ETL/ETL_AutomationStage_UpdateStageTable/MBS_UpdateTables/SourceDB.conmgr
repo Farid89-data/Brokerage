@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SourceDB"
+  DTS:DTSID="{303CFB20-53A5-417F-A768-D9FB5D09183F}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=192.168.65.11;Initial Catalog=RawDB;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{303CFB20-53A5-417F-A768-D9FB5D09183F}192.168.60.11.Automation.BiUser;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

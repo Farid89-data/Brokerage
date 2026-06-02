@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "grqmp6J1Sec=",
+  "success": true,
+  "projectFilePath": "C:\\ETL Repos\\WebApi\\GetCustomerV2\\GetCustomerV2\\GetCustomerV2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bolboli.MOBINSB\\.nuget\\packages\\restsharp\\106.15.0\\restsharp.106.15.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json.",
+      "projectPath": "C:\\ETL Repos\\WebApi\\GetCustomerV2\\GetCustomerV2\\GetCustomerV2.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\ETL Repos\\WebApi\\GetCustomerV2\\GetCustomerV2\\GetCustomerV2.csproj",
+      "targetGraphs": []
+    }
+  ]
+}

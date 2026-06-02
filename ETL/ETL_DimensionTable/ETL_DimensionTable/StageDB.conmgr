@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="StageDB"
+  DTS:DTSID="{67048846-090F-4BFA-824D-4D8BB471F18C}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=192.168.65.11;Initial Catalog=Automation;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{67048846-090F-4BFA-824D-4D8BB471F18C}192.168.65.11.Automation;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

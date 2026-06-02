@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "0O7iPe7oSdCIcuGt87CbdbzIR8ZlPst+naTXeGAwUL8lD/yb8zdxzjcsWpDBxJEwiUnho4qhv9lS9rhzG1q1CQ==",
+  "success": true,
+  "projectFilePath": "C:\\ETL Repos\\WebApi\\LeftCustomerByChangeBrokerDetail\\LeftCustomerByChangeBrokerDetail\\LeftCustomerByChangeBrokerDetail.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bolboli.MOBINSB\\.nuget\\packages\\restsharp\\106.15.0\\restsharp.106.15.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,590 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/28/2022 5:31:59 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BOLBOLI-PC"
+  DTS:CreatorName="MOBINSB\bolboli"
+  DTS:DTSID="{02E4A5E7-4BCB-479A-BE7F-D5B7B3A60FE8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.845.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ChangeBrokerAttachment"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="67"
+  DTS:VersionGUID="{28FE0F10-A3E4-466F-A781-9FBE20B235AD}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1B1EF030-C71E-48A3-A272-8290FFDACA33}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="GETDATE()"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="EndDate">
+      <DTS:VariableValue
+        DTS:DataType="7">10/15/2022 8:56:25 AM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8801D5BA-60AD-4001-8338-87153F3FC2DB}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="MaxPage">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{07AB6F1F-9F54-4AB8-95AC-02E806CCE710}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Page">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{37D24A9D-117E-412C-B1E0-ADB90DCAAC56}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="PageSize">
+      <DTS:VariableValue
+        DTS:DataType="3">50000</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{894FB2AC-0016-4F06-83C8-B3B3808162E0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="StartDate">
+      <DTS:VariableValue
+        DTS:DataType="7">8/22/2022 9:53:00 AM</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Bank Send Mail - Failure"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:DelayValidation="True"
+      DTS:Description="Script Task"
+      DTS:DTSID="{3CA5221E-D071-4509-9200-DFF5F57C5BFC}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Bank Send Mail - Failure"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData />
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Bank Send Mail - Succssed"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:DelayValidation="True"
+      DTS:Description="Script Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{6748E3EC-3487-465B-959C-DFC6FC7284D2}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Bank Send Mail - Succssed"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData />
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Begin"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{61C0F843-E87E-4533-8F74-B9BE2325DB7E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Begin"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2C29B200-2F22-487B-A7EB-B2FCA432F505}"
+          SQLTask:SqlStatementSource="BEGIN TRANSACTION ;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Commit Bank"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{BD68979B-25C6-47EF-BC08-5E47B7BC8A9A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Commit Bank"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2C29B200-2F22-487B-A7EB-B2FCA432F505}"
+          SQLTask:SqlStatementSource="COMMIT TRANSACTION ;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\For Loop Container"
+      DTS:AssignExpression="@Page =@Page + 1"
+      DTS:CreationName="STOCK:FORLOOP"
+      DTS:Description="For Loop Container"
+      DTS:DTSID="{11FCBB75-4BC4-4BE3-BC58-23D80A5EDBF5}"
+      DTS:EvalExpression="@Page&lt;=@MaxPage"
+      DTS:ExecutableType="STOCK:FORLOOP"
+      DTS:InitExpression="@Page = 1"
+      DTS:LocaleID="-1"
+      DTS:MaxConcurrent="1"
+      DTS:ObjectName="For Loop Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\For Loop Container\Execute Process Task"
+          DTS:CreationName="Microsoft.ExecuteProcess"
+          DTS:Description="Execute Process Task"
+          DTS:DTSID="{BB940999-F91E-4323-AD9F-1C3CD3A4E4D7}"
+          DTS:ExecutableType="Microsoft.ExecuteProcess"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute Process Task"
+          DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="Arguments">(DT_WSTR,10)(DT_DBDATE) @[User::StartDate] + " " + (DT_WSTR,10)(DT_DBDATE)  @[User::EndDate] + " " +(DT_WSTR,10)  @[User::PageSize]  + " " +(DT_WSTR,10) @[User::Page]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <ExecuteProcessData
+              Executable="C:\WebApiRequests\ChangeBrokerAttachment\ChangeBrokerAttachment.exe"
+              Arguments="2022-08-22 2022-10-15 50000 1"
+              WorkingDirectory="C:\WebApiRequests\ChangeBrokerAttachment" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\For Loop Container\Merge With Db"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{0137819E-8544-49AD-AE1C-290AFCECA6D0}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Merge With Db"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{2C29B200-2F22-487B-A7EB-B2FCA432F505}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="Declare @JSON nvarchar(max)&#xA;SELECT @JSON=BulkColumn&#xA;FROM OPENROWSET (BULK 'C:\WebApiRequests\ChangeBrokerAttachment\jsondata.txt', SINGLE_NCLOB) import&#xA;&#xA;MERGE Rawdb.[bi].[ChangeBrokerAttachment] AS TARGET&#xA;USING (SELECT &#xA;      *&#x9;   &#xA;FROM OPENJSON (@JSON,'$.Items' )&#xA;WITH &#xA;(&#xA;&#xA;     &#xA;      CustomerId INT       '$.CustomerId'&#xA;      ,Id INT       '$.Id'&#xA;     ,CustomerName NVARCHAR(50)       '$.CustomerName'&#xA;     ,NationalCode NVARCHAR(50)       '$.NationalCode'&#xA;     ,AccDetailCode NVARCHAR(50)       '$.AccDetailCode'&#xA;     ,UserId INT       '$.UserId'&#xA;     ,UserInputPersonName NVARCHAR(50)       '$.UserInputPersonName'&#xA;     ,DateTime DATE       '$.DateTime'&#xA;     ,PersianDateTime NVARCHAR(50)       '$.PersianDateTime'&#xA;     ,InstrumentId INT       '$.InstrumentId'&#xA;     ,CsdInstrumentName NVARCHAR(50)       '$.CsdInstrumentName'&#xA;     ,StateId INT       '$.StateId'&#xA;     ,StateName NVARCHAR(50)       '$.StateName'&#xA;     ,RequestSourceId INT       '$.RequestSourceId'&#xA;     ,RequestSourceName NVARCHAR(50)       '$.RequestSourceName'&#xA;     ,CompanyBranchId INT       '$.CompanyBranchId'&#xA;     ,CustomerCompanyBranchName NVARCHAR(50)       '$.CustomerCompanyBranchName'&#xA;     ,HasStockcertificate BIT       '$.HasStockcertificate'&#xA;     ,StockcertificateInsertDateTime DATE       '$.StockcertificateInsertDateTime'&#xA;     ,PersianStockcertificateInsertDateTime NVARCHAR(50)       '$.PersianStockcertificateInsertDateTime'&#xA;     ,HasChangeBrokerForm BIT       '$.HasChangeBrokerForm'&#xA;     ,ChangeBrokerFormInsertDateTime DATE       '$.ChangeBrokerFormInsertDateTime'&#xA;     ,PersianChangeBrokerFormInsertDateTime NVARCHAR(50)       '$.PersianChangeBrokerFormInsertDateTime'&#xA;&#xA;&#xA;&#xA;)) Source &#xA;ON (&#xA;Target.Id = SOURCE.Id )&#xA;WHEN NOT MATCHED BY TARGET THEN &#xA;INSERT(&#xA;&#xA;       [Id]&#xA;      ,[Customerid]&#xA;      ,[Customername]&#xA;      ,[Nationalcode]&#xA;      ,[Accdetailcode]&#xA;      ,[Userid]&#xA;      ,[Userinputpersonname]&#xA;      ,[Datetime]&#xA;      ,[Persiandatetime]&#xA;      ,[Instrumentid]&#xA;      ,[Csdinstrumentname]&#xA;      ,[Stateid]&#xA;      ,[Statename]&#xA;      ,[Requestsourceid]&#xA;      ,[Requestsourcename]&#xA;      ,[Companybranchid]&#xA;      ,[Customercompanybranchname]&#xA;      ,[Hasstockcertificate]&#xA;      ,[Stockcertificateinsertdatetime]&#xA;      ,[Persianstockcertificateinsertdatetime]&#xA;      ,[Haschangebrokerform]&#xA;      ,[Changebrokerforminsertdatetime]&#xA;      ,[Persianchangebrokerforminsertdatetime]&#xA;&#xA;&#xA;)&#xA;VALUES(&#xA;&#xA;       Source.[Id]&#xA;      ,Source.[Customerid]&#xA;      ,Source.[Customername]&#xA;      ,Source.[Nationalcode]&#xA;      ,Source.[Accdetailcode]&#xA;      ,Source.[Userid]&#xA;      ,Source.[Userinputpersonname]&#xA;      ,Source.[Datetime]&#xA;      ,Source.[Persiandatetime]&#xA;      ,Source.[Instrumentid]&#xA;      ,Source.[Csdinstrumentname]&#xA;      ,Source.[Stateid]&#xA;      ,Source.[Statename]&#xA;      ,Source.[Requestsourceid]&#xA;      ,Source.[Requestsourcename]&#xA;      ,Source.[Companybranchid]&#xA;      ,Source.[Customercompanybranchname]&#xA;      ,Source.[Hasstockcertificate]&#xA;      ,Source.[Stockcertificateinsertdatetime]&#xA;      ,Source.[Persianstockcertificateinsertdatetime]&#xA;      ,Source.[Haschangebrokerform]&#xA;      ,Source.[Changebrokerforminsertdatetime]&#xA;      ,Source.[Persianchangebrokerforminsertdatetime]&#xA;&#xA;&#xA;)&#xA;WHEN MATCHED AND TARGET.HashValue &lt;&gt; HASHBYTES('MD5', CONCAT_WS('|'&#xA;      ,Source.[Id]&#xA;      ,Source.[Customerid]&#xA;      ,Source.[Customername]&#xA;      ,Source.[Nationalcode]&#xA;      ,Source.[Accdetailcode]&#xA;      ,Source.[Userid]&#xA;      ,Source.[Userinputpersonname]&#xA;      ,Source.[Datetime]&#xA;      ,Source.[Persiandatetime]&#xA;      ,Source.[Instrumentid]&#xA;      ,Source.[Csdinstrumentname]&#xA;      ,Source.[Stateid]&#xA;      ,Source.[Statename]&#xA;      ,Source.[Requestsourceid]&#xA;      ,Source.[Requestsourcename]&#xA;      ,Source.[Companybranchid]&#xA;      ,Source.[Customercompanybranchname]&#xA;      ,Source.[Hasstockcertificate]&#xA;      ,Source.[Stockcertificateinsertdatetime]&#xA;      ,Source.[Persianstockcertificateinsertdatetime]&#xA;      ,Source.[Haschangebrokerform]&#xA;      ,Source.[Changebrokerforminsertdatetime]&#xA;      ,Source.[Persianchangebrokerforminsertdatetime]&#xA;&#xA;&#x9;  &#xA;&#x9;  ))&#xA;THEN UPDATE SET &#xA;&#xA;       Target.[Id] =Source.[Id]&#xA;      ,Target.[Customerid] =Source.[Customerid]&#xA;      ,Target.[Customername] =Source.[Customername]&#xA;      ,Target.[Nationalcode] =Source.[Nationalcode]&#xA;      ,Target.[Accdetailcode] =Source.[Accdetailcode]&#xA;      ,Target.[Userid] =Source.[Userid]&#xA;      ,Target.[Userinputpersonname] =Source.[Userinputpersonname]&#xA;      ,Target.[Datetime] =Source.[Datetime]&#xA;      ,Target.[Persiandatetime] =Source.[Persiandatetime]&#xA;      ,Target.[Instrumentid] =Source.[Instrumentid]&#xA;      ,Target.[Csdinstrumentname] =Source.[Csdinstrumentname]&#xA;      ,Target.[Stateid] =Source.[Stateid]&#xA;      ,Target.[Statename] =Source.[Statename]&#xA;      ,Target.[Requestsourceid] =Source.[Requestsourceid]&#xA;      ,Target.[Requestsourcename] =Source.[Requestsourcename]&#xA;      ,Target.[Companybranchid] =Source.[Companybranchid]&#xA;      ,Target.[Customercompanybranchname] =Source.[Customercompanybranchname]&#xA;      ,Target.[Hasstockcertificate] =Source.[Hasstockcertificate]&#xA;      ,Target.[Stockcertificateinsertdatetime] =Source.[Stockcertificateinsertdatetime]&#xA;      ,Target.[Persianstockcertificateinsertdatetime] =Source.[Persianstockcertificateinsertdatetime]&#xA;      ,Target.[Haschangebrokerform] =Source.[Haschangebrokerform]&#xA;      ,Target.[Changebrokerforminsertdatetime] =Source.[Changebrokerforminsertdatetime]&#xA;      ,Target.[Persianchangebrokerforminsertdatetime] =Source.[Persianchangebrokerforminsertdatetime]&#xA;&#xA;;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\For Loop Container\Select and Set MaxPage"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{79D10B68-3F56-4182-8FD0-8DF4230EE983}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Select and Set MaxPage"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{2C29B200-2F22-487B-A7EB-B2FCA432F505}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="Declare @JSON nvarchar(max)&#xA;SELECT @JSON=BulkColumn&#xA;FROM OPENROWSET (BULK 'C:\WebApiRequests\ChangeBrokerAttachment\jsondata.txt', SINGLE_NCLOB) import&#xA;&#xA; SELECT *&#xA;FROM OPENJSON (@JSON)&#xA;  WITH( &#xA;   TotalPages int '$.Paged.TotalPages'&#xA; ) "
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::MaxPage" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\For Loop Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{96D50597-3948-4593-AD97-F93046D3472E}"
+          DTS:From="Package\For Loop Container\Execute Process Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\For Loop Container\Select and Set MaxPage" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\For Loop Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{F32B4BE4-FE79-4405-ADE8-FFD47CA85EA9}"
+          DTS:From="Package\For Loop Container\Select and Set MaxPage"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\For Loop Container\Merge With Db" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Rollback Bank"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0548114B-8313-4C05-9D2D-98AF66FBB3DD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Rollback Bank"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2C29B200-2F22-487B-A7EB-B2FCA432F505}"
+          SQLTask:SqlStatementSource="rollback TRANSACTION ;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Select max Date"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C25AD868-2BA4-4125-9ED7-7D7AA58B2540}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Select max Date"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2C29B200-2F22-487B-A7EB-B2FCA432F505}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="SELECT isnull(convert(date,max([dateTime])),'2022-03-22')&#xA;&#xA;  FROM RawDB.bi.ChangeBrokerAttachment"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::StartDate" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{81F45E75-466D-4A88-9EFC-4C9D77D573FD}"
+      DTS:From="Package\Begin"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Select max Date" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{34AAB276-E3C1-428C-9D2E-4AA42D85A41A}"
+      DTS:From="Package\For Loop Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Rollback Bank"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{C15DE5A2-F7A3-43A3-BA75-B8AAD8FAD560}"
+      DTS:From="Package\For Loop Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Commit Bank" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{8B8B19DF-DA7E-4346-9B27-83BFEFBF0C52}"
+      DTS:From="Package\Select max Date"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\For Loop Container" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{4CFC7899-FC20-469E-9FE2-8832AC776A06}"
+      DTS:From="Package\Commit Bank"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Bank Send Mail - Succssed" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{C6EF2D47-6972-471F-B0CF-4FECBD5DA123}"
+      DTS:From="Package\Rollback Bank"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Bank Send Mail - Failure" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="193,42"
+          Id="Package\Bank Send Mail - Failure"
+          TopLeft="5.50000000000011,721.5" />
+        <NodeLayout
+          Size="204,42"
+          Id="Package\Bank Send Mail - Succssed"
+          TopLeft="259,721.5" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Begin"
+          TopLeft="290,5.5" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Commit Bank"
+          TopLeft="290,619.5" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\For Loop Container\Execute Process Task"
+          TopLeft="11.5,5.5" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\For Loop Container\Merge With Db"
+          TopLeft="22,209.5" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\For Loop Container\Select and Set MaxPage"
+          TopLeft="5.50000000000003,107.5" />
+        <EdgeLayout
+          Id="Package\For Loop Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="101.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\For Loop Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="99.25,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="203,307"
+          Size="203,350"
+          Id="Package\For Loop Container"
+          TopLeft="259.5,209.5" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Rollback Bank"
+          TopLeft="84.5000000000001,619.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Select max Date"
+          TopLeft="283,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="361,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="328.5,559.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-171.5,60"
+              Start="0,0"
+              End="-171.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2815249266862" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2815249266862"
+                    Point2="0,24.2815249266862"
+                    Point3="-4,24.2815249266862" />
+                  <mssgle:LineSegment
+                    End="-167.5,24.2815249266862" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-167.5,24.2815249266862"
+                    Point2="-171.5,24.2815249266862"
+                    Point3="-171.5,28.2815249266862" />
+                  <mssgle:LineSegment
+                    End="-171.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-100.99134765625,29.2815249266862,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="393.5,559.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-32.5,60"
+              Start="0,0"
+              End="-32.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2815249266862" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2815249266862"
+                    Point2="0,24.2815249266862"
+                    Point3="-4,24.2815249266862" />
+                  <mssgle:LineSegment
+                    End="-28.5,24.2815249266862" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-28.5,24.2815249266862"
+                    Point2="-32.5,24.2815249266862"
+                    Point3="-32.5,28.2815249266862" />
+                  <mssgle:LineSegment
+                    End="-32.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="361,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="361,661.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="157,661.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-55,60"
+              Start="0,0"
+              End="-55,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-51,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-51,30"
+                    Point2="-55,30"
+                    Point3="-55,34" />
+                  <mssgle:LineSegment
+                    End="-55,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

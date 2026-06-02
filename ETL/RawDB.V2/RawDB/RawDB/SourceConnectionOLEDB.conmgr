@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SourceConnectionOLEDB"
+  DTS:DTSID="{D8919D31-CD92-4410-9B5B-7A28DCB0EA06}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=192.168.60.11;User ID=biuser;Initial Catalog=Automation;Provider=SQLOLEDB.1;Persist Security Info=True;Application Name=SSIS-SourcDB_TO_RawDB-{D8919D31-CD92-4410-9B5B-7A28DCB0EA06}SourceConnectionOLEDB;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1"
+        p4:Salt="sho+tbgo1L4="
+        p4:IV="KieEdBPZNUB+DLSGFohRGQ=="
+        p4:Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" xmlns:p4="www.microsoft.com/SqlServer/SSIS">ZEKmQzl7VrrfsV0OmQcxHLm9ptZpPHCucw6BjTB64XrhnmAazYtZws27HfLAXYE585X1slrqhD9ykuARlZnnleYXEWP8VnQ4k5xVqSVr40crGHs6+lUWhZGsNa6bwLuiByubFLEUABQD99vs5b7ISXeACG2g4BGqMaRJ/sjxFry3TzaC6TGVNPza8DMki/L/</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

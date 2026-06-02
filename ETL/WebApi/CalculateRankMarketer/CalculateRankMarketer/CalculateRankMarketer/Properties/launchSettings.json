@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "CalculateRankMarketer": {
+      "commandName": "Project",
+      "commandLineArgs": "2022-09-20 2022-09-30 1.00 1.00 1.00"
+    },
+    "Profile 1": {
+      "commandName": "Executable"
+    }
+  }
+}

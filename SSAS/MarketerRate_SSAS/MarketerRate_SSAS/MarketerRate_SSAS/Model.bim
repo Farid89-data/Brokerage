@@ -1,0 +1,535 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1500,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/192 168 65 11;automationdw",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "192.168.65.11",
+            "database": "automationdw"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "Windows",
+          "kind": "SQL",
+          "path": "192.168.65.11;automationdw",
+          "Username": "mobinsb\\bolboli",
+          "EncryptConnection": false
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "DimMarketer",
+        "columns": [
+          {
+            "name": "MarketerId",
+            "dataType": "int64",
+            "sourceColumn": "MarketerId"
+          },
+          {
+            "name": "IsActive",
+            "dataType": "int64",
+            "sourceColumn": "IsActive"
+          },
+          {
+            "name": "MarketerName",
+            "dataType": "string",
+            "sourceColumn": "MarketerName"
+          },
+          {
+            "name": "PersonTypeId",
+            "dataType": "int64",
+            "sourceColumn": "PersonTypeId"
+          },
+          {
+            "name": "IsActiveName",
+            "dataType": "string",
+            "sourceColumn": "IsActiveName"
+          },
+          {
+            "name": "PersonTypeName",
+            "dataType": "string",
+            "sourceColumn": "PersonTypeName"
+          },
+          {
+            "name": "Email",
+            "dataType": "string",
+            "sourceColumn": "Email"
+          },
+          {
+            "name": "MarketerTypeId",
+            "dataType": "int64",
+            "sourceColumn": "MarketerTypeId"
+          },
+          {
+            "name": "MarketerTypeName",
+            "dataType": "string",
+            "sourceColumn": "MarketerTypeName"
+          },
+          {
+            "name": "BranchId",
+            "dataType": "int64",
+            "sourceColumn": "BranchId"
+          },
+          {
+            "name": "BranchName",
+            "dataType": "string",
+            "sourceColumn": "BranchName"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Value.NativeQuery(#\"SQL/192 168 65 11;automationdw\", \"SELECT [MarketerId]",
+                "      ,[IsActive]",
+                "      ,[MarketerName]",
+                "      ,[PersonTypeId]",
+                "      ,[IsActiveName]",
+                "      ,[PersonTypeName]",
+                "      ,[Email]",
+                "      ,[MarketerTypeId]",
+                "      ,[MarketerTypeName]",
+                "      ,[BranchId]",
+                "      ,[BranchName]",
+                "  FROM [AutomationDW].[dbo].[DimMarketer]\")",
+                "in",
+                "    Source"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimDatePersianMonth",
+        "columns": [
+          {
+            "name": "PersianYearMonthInt",
+            "dataType": "int64",
+            "sourceColumn": "PersianYearMonthInt"
+          },
+          {
+            "name": "PersianYearInt",
+            "dataType": "int64",
+            "sourceColumn": "PersianYearInt"
+          },
+          {
+            "name": "PersianMonthNo",
+            "dataType": "int64",
+            "sourceColumn": "PersianMonthNo"
+          },
+          {
+            "name": "PersianMonthName",
+            "dataType": "string",
+            "sourceColumn": "PersianMonthName"
+          },
+          {
+            "name": "WorkDays",
+            "dataType": "int64",
+            "sourceColumn": "WorkDays"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Value.NativeQuery(#\"SQL/192 168 65 11;automationdw\", \"SELECT [PersianYearMonthInt]",
+                "      ,[PersianYearInt]",
+                "      ,[PersianMonthNo]",
+                "      ,[PersianMonthName]",
+                "      ,[WorkDays]",
+                "  FROM [AutomationDW].[dbo].[DimDatePersianMonth]\")",
+                "in",
+                "    Source"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "BcomMarketer",
+        "columns": [
+          {
+            "name": "PersianYearMonthInt",
+            "dataType": "int64",
+            "sourceColumn": "PersianYearMonthInt"
+          },
+          {
+            "name": "MarketerTypeId",
+            "dataType": "int64",
+            "sourceColumn": "MarketerTypeId"
+          },
+          {
+            "name": "MarketerId",
+            "dataType": "int64",
+            "sourceColumn": "MarketerId"
+          },
+          {
+            "name": "Bcom",
+            "dataType": "double",
+            "sourceColumn": "Bcom"
+          },
+          {
+            "name": "PercentileBcom",
+            "dataType": "double",
+            "sourceColumn": "PercentileBcom"
+          },
+          {
+            "name": "PercentileRankBcom",
+            "dataType": "int64",
+            "sourceColumn": "PercentileRankBcom"
+          },
+          {
+            "type": "calculated",
+            "name": "OverallBcom",
+            "dataType": "double",
+            "isDataTypeInferred": true,
+            "expression": "CALCULATE(sum(BcomMarketer[Bcom]),ALLEXCEPT(BcomMarketer,BcomMarketer[PersianYearMonthInt],BcomMarketer[MarketerTypeId]))"
+          },
+          {
+            "type": "calculated",
+            "name": "RatioBcom",
+            "dataType": "double",
+            "isDataTypeInferred": true,
+            "expression": " ROUNDUP( BcomMarketer[Bcom]/BcomMarketer[OverallBcom],4)"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Value.NativeQuery(#\"SQL/192 168 65 11;automationdw\", \"SELECT dd.PersianYearMonthInt,dm.MarketerTypeId,dc.MarketerId,SUM(ft.bcom) AS Bcom",
+                ", PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(ft.bcom)) AS PercentileBcom",
+                ",CASE  WHEN PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(ft.bcom)) <= 1 AND PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(ft.bcom)) > 0.75 THEN 1",
+                "WHEN PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(ft.bcom)) <= 0.75 AND PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(ft.bcom)) > 0.5 THEN 2",
+                "WHEN PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(ft.bcom)) <= 0.5 AND PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(ft.bcom)) > 0.25 THEN 3",
+                "ELSE 4 END AS PercentileRankBcom ",
+                "FROM FactTrade ft",
+                "JOIN DimDate dd ON ft.Date = dd.GregorianDate",
+                "JOIN DimCustomer dc ON dc.CustomerId=ft.CustomerId",
+                "JOIN DimMarketer dm ON dc.MarketerId=dm.MarketerId",
+                "WHERE dd.PersianYearMonthInt>=140201 AND ft.IsCanceled = 0 AND dc.MarketerId <> -1",
+                "GROUP BY dd.PersianYearMonthInt,dm.MarketerTypeId,dc.MarketerId\")",
+                "in",
+                "    Source"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "TotalRatio",
+            "expression": " (0.75 *sum( BcomMarketer[RatioBcom]))+(0.15 *sum(CBMarketer[RatioCBCount]))+(0.1*sum(RegCountMarketer[RatioRegCount]))"
+          }
+        ]
+      },
+      {
+        "name": "CBMarketer",
+        "columns": [
+          {
+            "name": "PersianYearMonthInt",
+            "dataType": "int64",
+            "sourceColumn": "PersianYearMonthInt"
+          },
+          {
+            "name": "MarketerTypeId",
+            "dataType": "int64",
+            "sourceColumn": "MarketerTypeId"
+          },
+          {
+            "name": "MarketerId",
+            "dataType": "int64",
+            "sourceColumn": "MarketerId"
+          },
+          {
+            "name": "CBCount",
+            "dataType": "int64",
+            "sourceColumn": "CBCount"
+          },
+          {
+            "name": "PercentileCBCount",
+            "dataType": "double",
+            "sourceColumn": "PercentileCBCount"
+          },
+          {
+            "name": "PercentileRankCBCount",
+            "dataType": "int64",
+            "sourceColumn": "PercentileRankCBCount"
+          },
+          {
+            "type": "calculated",
+            "name": "OverallCBCount",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": "CALCULATE(sum(CBMarketer[CBCount]),ALLEXCEPT(CBMarketer,CBMarketer[PersianYearMonthInt],CBMarketer[MarketerTypeId]))"
+          },
+          {
+            "type": "calculated",
+            "name": "RatioCBCount",
+            "dataType": "double",
+            "isDataTypeInferred": true,
+            "expression": "if(ISBLANK(ROUNDUP(CBMarketer[CBCount]/CBMarketer[OverallCBCount],4)),0,ROUNDUP(CBMarketer[CBCount]/CBMarketer[OverallCBCount],4))"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Value.NativeQuery(#\"SQL/192 168 65 11;automationdw\", \"",
+                "SELECT dd.PersianYearMonthInt,dm.MarketerTypeId,dc.MarketerId, COUNT(*) AS CBCount ,",
+                "PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by COUNT(*)) AS PercentileCBCount",
+                ",CASE  WHEN PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by COUNT(*)) <= 1 AND PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by COUNT(*)) > 0.75 THEN 1",
+                "WHEN PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by COUNT(*)) <= 0.75 AND PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by COUNT(*)) > 0.5 THEN 2",
+                "WHEN PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by COUNT(*)) <= 0.5 AND PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by COUNT(*)) > 0.25 THEN 3",
+                "ELSE 4 END AS PercentileRankCBCount ",
+                "",
+                "FROM FactChangeBroker fcb",
+                "JOIN DimDate dd ON dd.GregorianDate=fcb.Date",
+                "JOIN DimCustomer dc ON dc.CustomerId=fcb.CustomerId",
+                "JOIN DimMarketer dm ON dc.MarketerId=dm.MarketerId",
+                "WHERE dd.PersianYearMonthInt>=140201 AND  fcb.ChangeBrokerStateId = 4 AND dc.MarketerId <>-1",
+                "GROUP BY dd.PersianYearMonthInt,dm.MarketerTypeId,dc.MarketerId\")",
+                "in",
+                "    Source"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "RegCountMarketer",
+        "columns": [
+          {
+            "name": "PersianYearMonthInt",
+            "dataType": "int64",
+            "sourceColumn": "PersianYearMonthInt"
+          },
+          {
+            "name": "MarketerTypeId",
+            "dataType": "int64",
+            "sourceColumn": "MarketerTypeId"
+          },
+          {
+            "name": "MarketerId",
+            "dataType": "int64",
+            "sourceColumn": "MarketerId"
+          },
+          {
+            "name": "RegCount",
+            "dataType": "int64",
+            "sourceColumn": "RegCount"
+          },
+          {
+            "name": "PercentileRegCount",
+            "dataType": "double",
+            "sourceColumn": "PercentileRegCount"
+          },
+          {
+            "name": "PercentileRankRegCount",
+            "dataType": "int64",
+            "sourceColumn": "PercentileRankRegCount"
+          },
+          {
+            "type": "calculated",
+            "name": "OverallRegCount",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": " CALCULATE(sum(RegCountMarketer[RegCount]),ALLEXCEPT(RegCountMarketer,RegCountMarketer[PersianYearMonthInt],RegCountMarketer[MarketerTypeId]))"
+          },
+          {
+            "type": "calculated",
+            "name": "RatioRegCount",
+            "dataType": "double",
+            "isDataTypeInferred": true,
+            "expression": "ROUNDUP( RegCountMarketer[RegCount]/RegCountMarketer[OverallRegCount],4)"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Value.NativeQuery(#\"SQL/192 168 65 11;automationdw\", \"SELECT  dd.PersianYearMonthInt,dm.MarketerTypeId,dc.MarketerId,SUM(dc.IsStockMarketCustomer) AS RegCount ",
+                ",PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(dc.IsStockMarketCustomer)) AS PercentileRegCount",
+                ",CASE  WHEN PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(dc.IsStockMarketCustomer)) <= 1 AND PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(dc.IsStockMarketCustomer)) > 0.75 THEN 1",
+                "WHEN PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(dc.IsStockMarketCustomer)) <= 0.75 AND PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(dc.IsStockMarketCustomer)) > 0.5 THEN 2",
+                "WHEN PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(dc.IsStockMarketCustomer)) <= 0.5 AND PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(dc.IsStockMarketCustomer)) > 0.25 THEN 3",
+                "ELSE 4 END AS PercentileRankRegCount ",
+                "",
+                "FROM DimCustomer dc",
+                "JOIN DimDate dd ON dd.GregorianDate=dc.StartDate",
+                "JOIN DimMarketer dm ON dc.MarketerId=dm.MarketerId",
+                "",
+                "WHERE dd.PersianYearMonthInt>=140201 AND dc.MarketerId <>-1",
+                "GROUP BY dd.PersianYearMonthInt,dm.MarketerTypeId,dc.MarketerId\")",
+                "in",
+                "    Source"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "7b4cf54a-0b59-4a95-a9c2-659fa18d65ea",
+        "fromTable": "BcomMarketer",
+        "fromColumn": "MarketerId",
+        "toTable": "DimMarketer",
+        "toColumn": "MarketerId"
+      },
+      {
+        "name": "125553e5-1467-4e99-933b-c5a5acf650dc",
+        "fromTable": "RegCountMarketer",
+        "fromColumn": "MarketerId",
+        "toTable": "DimMarketer",
+        "toColumn": "MarketerId"
+      },
+      {
+        "name": "e3f3003e-0553-4485-9886-ae20a22c3792",
+        "fromTable": "CBMarketer",
+        "fromColumn": "MarketerId",
+        "toTable": "DimMarketer",
+        "toColumn": "MarketerId"
+      },
+      {
+        "name": "be410558-8cfe-44da-866d-f451a49fd7bf",
+        "fromTable": "BcomMarketer",
+        "fromColumn": "PersianYearMonthInt",
+        "toTable": "DimDatePersianMonth",
+        "toColumn": "PersianYearMonthInt"
+      },
+      {
+        "name": "c103cdaa-7be8-42df-9961-a69d32f3e1a2",
+        "fromTable": "CBMarketer",
+        "fromColumn": "PersianYearMonthInt",
+        "toTable": "DimDatePersianMonth",
+        "toColumn": "PersianYearMonthInt"
+      },
+      {
+        "name": "73f3b027-97c5-4674-9f04-43bc05b8bd38",
+        "fromTable": "RegCountMarketer",
+        "fromColumn": "PersianYearMonthInt",
+        "toTable": "DimDatePersianMonth",
+        "toColumn": "PersianYearMonthInt"
+      }
+    ],
+    "expressions": [
+      {
+        "name": "BcomMarketer",
+        "kind": "m",
+        "expression": [
+          "let",
+          "    Source = Value.NativeQuery(#\"SQL/192 168 65 11;automationdw\", \"SELECT dd.PersianYearMonthInt,dm.MarketerTypeId,dc.MarketerId,SUM(ft.bcom) AS Bcom",
+          ", PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(ft.bcom)) AS PercentileBcom",
+          ",CASE  WHEN PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(ft.bcom)) <= 1 AND PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(ft.bcom)) > 0.75 THEN 1",
+          "WHEN PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(ft.bcom)) <= 0.75 AND PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(ft.bcom)) > 0.5 THEN 2",
+          "WHEN PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(ft.bcom)) <= 0.5 AND PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(ft.bcom)) > 0.25 THEN 3",
+          "ELSE 4 END AS PercentileRankBcom ",
+          "FROM FactTrade ft",
+          "JOIN DimDate dd ON ft.Date = dd.GregorianDate",
+          "JOIN DimCustomer dc ON dc.CustomerId=ft.CustomerId",
+          "JOIN DimMarketer dm ON dc.MarketerId=dm.MarketerId",
+          "WHERE dd.PersianYearMonthInt>=140201 AND ft.IsCanceled = 0 AND dc.MarketerId <> -1",
+          "GROUP BY dd.PersianYearMonthInt,dm.MarketerTypeId,dc.MarketerId\")",
+          "in",
+          "    Source"
+        ]
+      },
+      {
+        "name": "CBMarketer",
+        "kind": "m",
+        "expression": [
+          "let",
+          "    Source = Value.NativeQuery(#\"SQL/192 168 65 11;automationdw\", \"",
+          "SELECT dd.PersianYearMonthInt,dm.MarketerTypeId,dc.MarketerId, COUNT(*) AS CBCount ,",
+          "PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by COUNT(*)) AS PercentileCBCount",
+          ",CASE  WHEN PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by COUNT(*)) <= 1 AND PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by COUNT(*)) > 0.75 THEN 1",
+          "WHEN PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by COUNT(*)) <= 0.75 AND PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by COUNT(*)) > 0.5 THEN 2",
+          "WHEN PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by COUNT(*)) <= 0.5 AND PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by COUNT(*)) > 0.25 THEN 3",
+          "ELSE 4 END AS PercentileRankCBCount ",
+          "",
+          "FROM FactChangeBroker fcb",
+          "JOIN DimDate dd ON dd.GregorianDate=fcb.Date",
+          "JOIN DimCustomer dc ON dc.CustomerId=fcb.CustomerId",
+          "JOIN DimMarketer dm ON dc.MarketerId=dm.MarketerId",
+          "WHERE dd.PersianYearMonthInt>=140201 AND  fcb.ChangeBrokerStateId = 4 AND dc.MarketerId <>-1",
+          "GROUP BY dd.PersianYearMonthInt,dm.MarketerTypeId,dc.MarketerId\")",
+          "in",
+          "    Source"
+        ]
+      },
+      {
+        "name": "RegCountMarketer",
+        "kind": "m",
+        "expression": [
+          "let",
+          "    Source = Value.NativeQuery(#\"SQL/192 168 65 11;automationdw\", \"SELECT  dd.PersianYearMonthInt,dm.MarketerTypeId,dc.MarketerId,SUM(dc.IsStockMarketCustomer) AS RegCount ",
+          ",PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(dc.IsStockMarketCustomer)) AS PercentileRegCount",
+          ",CASE  WHEN PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(dc.IsStockMarketCustomer)) <= 1 AND PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(dc.IsStockMarketCustomer)) > 0.75 THEN 1",
+          "WHEN PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(dc.IsStockMarketCustomer)) <= 0.75 AND PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(dc.IsStockMarketCustomer)) > 0.5 THEN 2",
+          "WHEN PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(dc.IsStockMarketCustomer)) <= 0.5 AND PERCENT_RANK() OVER (PARTITION BY dm.MarketerTypeId ORDER by SUM(dc.IsStockMarketCustomer)) > 0.25 THEN 3",
+          "ELSE 4 END AS PercentileRankRegCount ",
+          "",
+          "FROM DimCustomer dc",
+          "JOIN DimDate dd ON dd.GregorianDate=dc.StartDate",
+          "JOIN DimMarketer dm ON dc.MarketerId=dm.MarketerId",
+          "",
+          "WHERE dd.PersianYearMonthInt>=140201 AND dc.MarketerId <>-1",
+          "GROUP BY dd.PersianYearMonthInt,dm.MarketerTypeId,dc.MarketerId\")",
+          "in",
+          "    Source"
+        ]
+      },
+      {
+        "name": "DimDatePersianMonth",
+        "kind": "m",
+        "expression": [
+          "let",
+          "    Source = Value.NativeQuery(#\"SQL/192 168 65 11;automationdw\", \"SELECT [PersianYearMonthInt]",
+          "      ,[PersianYearInt]",
+          "      ,[PersianMonthNo]",
+          "      ,[PersianMonthName]",
+          "      ,[WorkDays]",
+          "  FROM [AutomationDW].[dbo].[DimDatePersianMonth]\")",
+          "in",
+          "    Source"
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "600"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

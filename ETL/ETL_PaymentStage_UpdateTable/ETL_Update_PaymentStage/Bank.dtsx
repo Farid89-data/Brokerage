@@ -1,0 +1,880 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/23/2020 2:47:08 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BI-APP"
+  DTS:CreatorName="BI-APP\negahbani"
+  DTS:DTSID="{C01A9FB1-3E98-4B14-BB9A-911AD7D60D3D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.132"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Bank"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{92F5AFF8-005A-47A6-9280-BF02412BC8DB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Bank"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{A32347FA-BD81-47BE-91A4-7C9BECC65391}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Bank">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Bank\Insert In to Stage - Bank"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{571A933A-43CB-40D5-B21B-FEBDE4C8A025}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Insert In to Stage - Bank"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:EventHandlers>
+            <DTS:EventHandler
+              DTS:refId="Package\Bank\Insert In to Stage - Bank.EventHandlers[OnError]"
+              DTS:CreationName="OnError"
+              DTS:DTSID="{3ADBE0B1-6BBF-4CC7-BA74-272C7BED1B6B}"
+              DTS:EventID="0"
+              DTS:EventName="OnError"
+              DTS:LocaleID="-1">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:Description="The propagate property of the event"
+                  DTS:DTSID="{2E410D25-4A20-442E-A4AC-E0FDEF8E383C}"
+                  DTS:IncludeInDebugDump="6789"
+                  DTS:Namespace="System"
+                  DTS:ObjectName="Propagate">
+                  <DTS:VariableValue
+                    DTS:DataType="11">-1</DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:Executables />
+            </DTS:EventHandler>
+          </DTS:EventHandlers>
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Bank\Insert In to Stage - Bank\Cleaning-Replace Null"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Cleaning-Replace Null"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Bank\Insert In to Stage - Bank\Cleaning-Replace Null.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Bank\Insert In to Stage - Bank\Cleaning-Replace Null.Inputs[Derived Column Input].Columns[Id]"
+                          cachedDataType="i4"
+                          cachedName="Id"
+                          cachedSortKeyPosition="1"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Output].Columns[Id]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REPLACENULL](#{Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Output].Columns[Id]},-1)</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACENULL(Id,-1)</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Bank\Insert In to Stage - Bank\Cleaning-Replace Null.Inputs[Derived Column Input].Columns[BankName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="BankName"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Output].Columns[BankName]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REPLACENULL](#{Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Output].Columns[BankName]},"نامشخص")</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACENULL(BankName,"نامشخص")</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Bank\Insert In to Stage - Bank\Cleaning-Replace Null.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Bank\Insert In to Stage - Bank\Cleaning-Replace Null.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Bank\Insert In to Stage - Bank\Cleaning-Replace Null.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Bank\Insert In to Stage - Bank\Cleaning-Replace Null.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Bank\Insert In to Stage - Bank\Cleaning-Replace Null.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Bank\Insert In to Stage - Bank\Cleaning-Replace Null.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Bank\Insert In to Stage - Bank\Cleaning-Replace Null.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Bank\Insert In to Stage - Bank\Cleaning-Replace Null.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Bank\Insert In to Stage - Bank\Insert into Stage Db"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Insert into Stage Db"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Bank]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Bank\Insert In to Stage - Bank\Insert into Stage Db.Connections[OleDbConnection]"
+                      connectionManagerID="{D6276866-746A-4B80-8195-30375899DA46}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[StageDB]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Bank\Insert In to Stage - Bank\Insert into Stage Db.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Bank\Insert In to Stage - Bank\Insert into Stage Db.Inputs[OLE DB Destination Input].Columns[Id]"
+                          cachedDataType="i4"
+                          cachedName="Id"
+                          cachedSortKeyPosition="1"
+                          externalMetadataColumnId="Package\Bank\Insert In to Stage - Bank\Insert into Stage Db.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                          lineageId="Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Output].Columns[Id]" />
+                        <inputColumn
+                          refId="Package\Bank\Insert In to Stage - Bank\Insert into Stage Db.Inputs[OLE DB Destination Input].Columns[BankName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="BankName"
+                          externalMetadataColumnId="Package\Bank\Insert In to Stage - Bank\Insert into Stage Db.Inputs[OLE DB Destination Input].ExternalColumns[BankName]"
+                          lineageId="Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Output].Columns[BankName]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Bank\Insert In to Stage - Bank\Insert into Stage Db.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                          dataType="i4"
+                          name="Id" />
+                        <externalMetadataColumn
+                          refId="Package\Bank\Insert In to Stage - Bank\Insert into Stage Db.Inputs[OLE DB Destination Input].ExternalColumns[BankName]"
+                          dataType="wstr"
+                          length="100"
+                          name="BankName" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Bank\Insert In to Stage - Bank\Insert into Stage Db.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Bank\Insert In to Stage - Bank\Insert into Stage Db.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Bank\Insert In to Stage - Bank\Insert into Stage Db.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Bank\Insert In to Stage - Bank\Insert into Stage Db.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Bank\Insert In to Stage - Bank\Insert into Stage Db.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Bank\Insert In to Stage - Bank\Insert into Stage Db.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Bank\Insert In to Stage - Bank\Read From Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Read From Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[bi].[Bank]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
+  FROM [Automation].[bi].[Bank]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Bank\Insert In to Stage - Bank\Read From Source.Connections[OleDbConnection]"
+                      connectionManagerID="{4C0FEE3F-C8DD-4FB8-80BC-CEE442A764DD}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[SourceDB]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Output]"
+                      isSorted="true"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Output].Columns[Id]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                          lineageId="Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Output].Columns[Id]"
+                          name="Id"
+                          sortKeyPosition="1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Output].Columns[BankName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Output].ExternalColumns[BankName]"
+                          length="100"
+                          lineageId="Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Output].Columns[BankName]"
+                          name="BankName"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                          dataType="i4"
+                          name="Id" />
+                        <externalMetadataColumn
+                          refId="Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Output].ExternalColumns[BankName]"
+                          dataType="wstr"
+                          length="100"
+                          name="BankName" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Error Output].Columns[Id]"
+                          dataType="i4"
+                          lineageId="Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Error Output].Columns[Id]"
+                          name="Id" />
+                        <outputColumn
+                          refId="Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                        <outputColumn
+                          refId="Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Error Output].Columns[BankName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Error Output].Columns[BankName]"
+                          name="BankName" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Bank\Insert In to Stage - Bank.Paths[Derived Column Output]"
+                  endId="Package\Bank\Insert In to Stage - Bank\Insert into Stage Db.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Bank\Insert In to Stage - Bank\Cleaning-Replace Null.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Bank\Insert In to Stage - Bank.Paths[OLE DB Source Output]"
+                  endId="Package\Bank\Insert In to Stage - Bank\Cleaning-Replace Null.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Bank\Insert In to Stage - Bank\Read From Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Bank\Truncate Stage table - Bank"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A2410354-1066-4C4D-B0E3-EF80A59B506A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate Stage table - Bank"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D6276866-746A-4B80-8195-30375899DA46}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [Bank]&#xA;INSERT INTO Bank VALUES (-1,N'نامشخص')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Bank.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{A2933114-53FA-4354-AC8F-D02BC1B2A30D}"
+          DTS:From="Package\Bank\Truncate Stage table - Bank"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Bank\Insert In to Stage - Bank" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Begin Transaction Bank"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8C4BF107-DA16-4342-9E3B-D224EE8C7D22}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Begin Transaction Bank"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D6276866-746A-4B80-8195-30375899DA46}"
+          SQLTask:SqlStatementSource="BEGIN TRANSACTION&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Commit Transaction Bank"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{751183D3-A2C9-4E6E-A298-F1CD6D5FE9A7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Commit Transaction Bank"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\Commit Transaction Bank.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{A9CCE1D2-8ED5-45C6-84E0-D5D5A6AAD464}"
+          DTS:EventID="1342177280"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{E86E7E95-5764-4F97-8211-FB422A27B1E9}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables />
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D6276866-746A-4B80-8195-30375899DA46}"
+          SQLTask:SqlStatementSource="IF @@TRANCOUNT&gt;0&#xA; COMMIT TRANSACTION" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Rollback Bank"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{f09c9990-7d79-4aee-b897-07eb3737e258}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Rollback Bank"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D6276866-746A-4B80-8195-30375899DA46}"
+          SQLTask:SqlStatementSource="IF @@TRANCOUNT&gt;0&#xA; ROLLBACK TRANSACTION" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{98A6692A-16D0-46A7-9E10-22FBECAC6D64}"
+      DTS:From="Package\Begin Transaction Bank"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Bank" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{6FB5F3F8-BAFB-4F6C-8B93-5866ED360ACE}"
+      DTS:From="Package\Bank"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Commit Transaction Bank" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{2F3660DB-4BF5-458E-905F-35D33347668A}"
+      DTS:From="Package\Bank"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Rollback Bank"
+      DTS:Value="1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{44653216-D5D2-46F3-9CE0-3CF9E9096EE6}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{73408767-5032-441D-A5B9-78D98ECE7B03}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables />
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Bank\Insert In to Stage - Bank"
+          TopLeft="13,107.5" />
+        <NodeLayout
+          Size="211,42"
+          Id="Package\Bank\Truncate Stage table - Bank"
+          TopLeft="5.50000000000001,5.5" />
+        <EdgeLayout
+          Id="Package\Bank.PrecedenceConstraints[Constraint]"
+          TopLeft="111,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="222,205"
+          Size="222,248"
+          Id="Package\Bank"
+          TopLeft="227.5,107.5" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Begin Transaction Bank"
+          TopLeft="243.5,5.5" />
+        <NodeLayout
+          Size="160,52"
+          Id="Package\Commit Transaction Bank"
+          TopLeft="134.5,443.5" />
+        <NodeLayout
+          Size="145,55"
+          Id="Package\Rollback Bank"
+          TopLeft="375,440.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="338.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="302.833333333333,355.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-88.3333333333333,88"
+              Start="0,0"
+              End="-88.3333333333333,80.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5778175313059" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5778175313059"
+                    Point2="0,35.5778175313059"
+                    Point3="-4,35.5778175313059" />
+                  <mssgle:LineSegment
+                    End="-84.3333333333333,35.5778175313059" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-84.3333333333333,35.5778175313059"
+                    Point2="-88.3333333333333,35.5778175313059"
+                    Point3="-88.3333333333333,39.5778175313059" />
+                  <mssgle:LineSegment
+                    End="-88.3333333333333,80.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="374.166666666667,355.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="73.3333333333334,85"
+              Start="0,0"
+              End="73.3333333333334,77.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.3649373881932" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.3649373881932"
+                    Point2="0,34.3649373881932"
+                    Point3="4,34.3649373881932" />
+                  <mssgle:LineSegment
+                    End="69.3333333333334,34.3649373881932" />
+                  <mssgle:CubicBezierSegment
+                    Point1="69.3333333333334,34.3649373881932"
+                    Point2="73.3333333333334,34.3649373881932"
+                    Point3="73.3333333333334,38.3649373881932" />
+                  <mssgle:LineSegment
+                    End="73.3333333333334,77.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="21.4253190104167,39.3649373881932,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="118,42"
+          Id="{0B85CF57-6317-4932-8B82-970970F3ADCB}"
+          TopLeft="325,206" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Bank\Insert In to Stage - Bank">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Bank\Insert In to Stage - Bank\Read From Source"
+          TopLeft="338,24.5" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Bank\Insert In to Stage - Bank\Cleaning-Replace Null"
+          TopLeft="330.5,126.5" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Bank\Insert In to Stage - Bank\Insert into Stage Db"
+          TopLeft="334,228.5" />
+        <EdgeLayout
+          Id="Package\Bank\Insert In to Stage - Bank.Paths[OLE DB Source Output]"
+          TopLeft="421,66.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Bank\Insert In to Stage - Bank.Paths[Derived Column Output]"
+          TopLeft="421,168.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\Bank\Insert In to Stage - Bank.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="118,42"
+          Id="{79E1D1EB-70E3-46CB-8ADA-91258447C4F7}"
+          TopLeft="366,272" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\Bank\Insert In to Stage - Bank\Read From Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Bank\Insert In to Stage - Bank\Insert into Stage Db">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <DtsEventHandler
+    design-time-name="Package\Commit Transaction Bank.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="118,42"
+          Id="{40242275-C2E4-429E-8373-B3D67F8AE4C9}"
+          TopLeft="303,275" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

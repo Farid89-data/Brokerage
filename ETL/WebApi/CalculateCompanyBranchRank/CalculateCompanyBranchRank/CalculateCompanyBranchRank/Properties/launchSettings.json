@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CalculateCompanyBranchRank": {
+      "commandName": "Project",
+      "commandLineArgs": "2022-09-20 2022-09-30 0.75 0.1 0.15"
+    }
+  }
+}

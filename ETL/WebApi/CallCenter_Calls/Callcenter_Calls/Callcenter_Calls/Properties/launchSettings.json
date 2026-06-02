@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Callcenter_Calls": {
+      "commandName": "Project",
+      "commandLineArgs": "2022-01-01 2022-12-03"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DW"
+  DTS:DTSID="{00BB60CC-9FA4-49A1-82A0-4E564A3BB3DE}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=192.168.65.11;Initial Catalog=AutomationDW;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{00BB60CC-9FA4-49A1-82A0-4E564A3BB3DE}192.168.65.11.AutomationDW;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

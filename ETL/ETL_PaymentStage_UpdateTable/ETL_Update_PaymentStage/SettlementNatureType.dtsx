@@ -1,0 +1,766 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/23/2020 2:47:08 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BI-APP"
+  DTS:CreatorName="BI-APP\negahbani"
+  DTS:DTSID="{411AE3B0-0FE2-4103-A144-B28D8BBDE932}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="SettlementNatureType"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{401F3B11-A21A-4ABE-8057-09774557F5E5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Begin Transaction SettlementNatureType"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3FBC731D-5069-4111-B294-49C6E7ADCD26}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Begin Transaction SettlementNatureType"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D6276866-746A-4B80-8195-30375899DA46}"
+          SQLTask:SqlStatementSource="BEGIN TRANSACTION&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Commit Transaction SettlementNatureType"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F7A289C4-6A34-4560-BCC1-B205C0865981}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Commit Transaction SettlementNatureType"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\Commit Transaction SettlementNatureType.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{26974106-4426-4D12-A3BE-CB1BEF531EB7}"
+          DTS:EventID="1342177280"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{CB2D3F22-77D3-4654-8851-C7875C8E5DDC}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables />
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D6276866-746A-4B80-8195-30375899DA46}"
+          SQLTask:SqlStatementSource="IF @@TRANCOUNT&gt;0&#xA; COMMIT TRANSACTION" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Rollback SettlementNatureType"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{72a3dbf2-1abc-494d-85ff-21f561b40864}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Rollback SettlementNatureType"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D6276866-746A-4B80-8195-30375899DA46}"
+          SQLTask:SqlStatementSource="IF @@TRANCOUNT&gt;0&#xA; ROLLBACK TRANSACTION" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SettlementNatureType"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{2ADB6103-F6EC-411B-99ED-3449239CA0DA}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SettlementNatureType">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SettlementNatureType\Truncate SettlementNatureType"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{C565A4AB-68AD-435E-8E77-CC0629AB4D57}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate SettlementNatureType"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D6276866-746A-4B80-8195-30375899DA46}"
+              SQLTask:SqlStatementSource="truncate table [PaymentStage].[dbo].[SettlementNatureType];&#xA;&#xA;insert into [PaymentStage].[dbo].[SettlementNatureType] values(-1,N'نامشخص')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{A06A9581-86DB-493C-AC9D-C4CCFB335ABD}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update Insert Delete - SettlementNatureType"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:EventHandlers>
+            <DTS:EventHandler
+              DTS:refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType.EventHandlers[OnError]"
+              DTS:CreationName="OnError"
+              DTS:DTSID="{1C360202-8FCE-4BD8-B712-BC1ADA067A27}"
+              DTS:EventID="0"
+              DTS:EventName="OnError"
+              DTS:LocaleID="-1">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:Description="The propagate property of the event"
+                  DTS:DTSID="{446CC24E-B91B-4A79-ADD6-6F940BEACE8A}"
+                  DTS:IncludeInDebugDump="6789"
+                  DTS:Namespace="System"
+                  DTS:ObjectName="Propagate">
+                  <DTS:VariableValue
+                    DTS:DataType="11">-1</DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:Executables />
+            </DTS:EventHandler>
+          </DTS:EventHandlers>
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[SettlementNatureType]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{D6276866-746A-4B80-8195-30375899DA46}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[StageDB]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Id]"
+                          cachedDataType="i4"
+                          cachedName="Id"
+                          externalMetadataColumnId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                          lineageId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id]" />
+                        <inputColumn
+                          refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Name]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Name"
+                          externalMetadataColumnId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                          lineageId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                          dataType="i4"
+                          name="Id" />
+                        <externalMetadataColumn
+                          refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="50"
+                          name="Name" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[bi].[SettlementNatureType]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="{4C0FEE3F-C8DD-4FB8-80BC-CEE442A764DD}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[SourceDB]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                          lineageId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id]"
+                          name="Id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          length="50"
+                          lineageId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]"
+                          name="Name"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                          dataType="i4"
+                          name="Id" />
+                        <externalMetadataColumn
+                          refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="50"
+                          name="Name" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id]"
+                          dataType="i4"
+                          lineageId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id]"
+                          name="Id" />
+                        <outputColumn
+                          refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                          name="Name" />
+                        <outputColumn
+                          refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType.Paths[OLE DB Source Output]"
+                  endId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SettlementNatureType.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{6664C3EC-D034-42DF-B862-1C1A8B427200}"
+          DTS:From="Package\SettlementNatureType\Truncate SettlementNatureType"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{15EC609E-44DC-40E1-8490-03D49A0FC08B}"
+      DTS:From="Package\SettlementNatureType"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Rollback SettlementNatureType"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{DFED4E8A-557E-4D0F-AD7F-495188871AB9}"
+      DTS:From="Package\Begin Transaction SettlementNatureType"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SettlementNatureType" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{E86A05CB-5E98-47E4-9C74-8E4BF84E83A6}"
+      DTS:From="Package\SettlementNatureType"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Commit Transaction SettlementNatureType" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{B185CFCC-EB15-4D7E-8507-3E78CD99C891}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{56499503-F313-4E0B-9217-AF6438C9AFB5}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables />
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="272,42"
+          Id="Package\Begin Transaction SettlementNatureType"
+          TopLeft="298,5.5" />
+        <NodeLayout
+          Size="282,42"
+          Id="Package\Commit Transaction SettlementNatureType"
+          TopLeft="293,415.5" />
+        <NodeLayout
+          Size="227,42"
+          Id="Package\Rollback SettlementNatureType"
+          TopLeft="5.50000000000006,415.5" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\SettlementNatureType\Truncate SettlementNatureType"
+          TopLeft="46,7.5" />
+        <NodeLayout
+          Size="293,42"
+          Id="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType"
+          TopLeft="10.5000000000001,110.5" />
+        <EdgeLayout
+          Id="Package\SettlementNatureType.PrecedenceConstraints[Constraint]"
+          TopLeft="159,49.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61"
+              Start="0,0"
+              End="0,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="324,205"
+          Size="324,248"
+          Id="Package\SettlementNatureType"
+          TopLeft="282,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="391.333333333333,355.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-272.333333333333,60"
+              Start="0,0"
+              End="-272.333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1769041769042" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1769041769042"
+                    Point2="0,24.1769041769042"
+                    Point3="-4,24.1769041769042" />
+                  <mssgle:LineSegment
+                    End="-268.333333333333,24.1769041769042" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-268.333333333333,24.1769041769042"
+                    Point2="-272.333333333333,24.1769041769042"
+                    Point3="-272.333333333333,28.1769041769042" />
+                  <mssgle:LineSegment
+                    End="-272.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-151.408014322917,29.1769041769042,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="434,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10,60"
+              Start="0,0"
+              End="10,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="6,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6,30"
+                    Point2="10,30"
+                    Point3="10,34" />
+                  <mssgle:LineSegment
+                    End="10,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="496.666666666667,355.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-62.6666666666666,60"
+              Start="0,0"
+              End="-62.6666666666666,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1769041769042" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1769041769042"
+                    Point2="0,24.1769041769042"
+                    Point3="-4,24.1769041769042" />
+                  <mssgle:LineSegment
+                    End="-58.6666666666666,24.1769041769042" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-58.6666666666666,24.1769041769042"
+                    Point2="-62.6666666666666,24.1769041769042"
+                    Point3="-62.6666666666666,28.1769041769042" />
+                  <mssgle:LineSegment
+                    End="-62.6666666666666,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="118,42"
+          Id="{DEE95073-17C6-442E-9C8F-7351005DAA09}"
+          TopLeft="325,206" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package\Commit Transaction SettlementNatureType.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="118,42"
+          Id="{E7E79D3A-93F3-433D-87C3-A31907BD2711}"
+          TopLeft="303,275" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source"
+          TopLeft="326,140" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Destination"
+          TopLeft="350,329" />
+        <EdgeLayout
+          Id="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType.Paths[OLE DB Source Output]"
+          TopLeft="401,182">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="34.5,147"
+              Start="0,0"
+              End="34.5,139.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,69.5"
+                    Point2="0,73.5"
+                    Point3="4,73.5" />
+                  <mssgle:LineSegment
+                    End="30.5,73.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.5,73.5"
+                    Point2="34.5,73.5"
+                    Point3="34.5,77.5" />
+                  <mssgle:LineSegment
+                    End="34.5,139.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="118,42"
+          Id="{65EE33AE-B3B3-48F3-85A3-6585AAD7969B}"
+          TopLeft="366,272" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SettlementNatureType\Update Insert Delete - SettlementNatureType\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

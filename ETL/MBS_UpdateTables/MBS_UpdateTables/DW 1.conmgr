@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DW 1"
+  DTS:DTSID="{452F97A7-54A9-4084-9292-D16F5E6FCF9B}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=192.168.65.11;Initial Catalog=AutomationDW;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-TradeDW-{452F97A7-54A9-4084-9292-D16F5E6FCF9B}192.168.65.11.AutomationDW;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

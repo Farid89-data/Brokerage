@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "GetSettlement": {
+      "commandName": "Project",
+      "commandLineArgs": "2022-08-10 2022-08-20 8000 1"
+    }
+  }
+}

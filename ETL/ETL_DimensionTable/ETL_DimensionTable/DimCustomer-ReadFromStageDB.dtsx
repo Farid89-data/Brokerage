@@ -1,0 +1,2081 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/1/2020 3:56:50 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BI-APP"
+  DTS:CreatorName="BI-APP\negahbani"
+  DTS:DTSID="{C66D8A40-AA00-4A84-8000-0CADCD9CE352}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.132"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{E387474A-6290-4A90-8DEB-2EECBF1C577F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{6A92F4FD-C81D-404D-A836-01461F6D222E}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\Users\negahbani\Desktop\dimCustomer.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Id"
+              DTS:DTSID="{5360B01D-534B-4FD7-B3ED-86B792385634}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PersonId"
+              DTS:DTSID="{940CBF74-F537-403F-8D5A-6DD56558C144}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ClubMemberId"
+              DTS:DTSID="{928560D3-6313-4D96-B45F-091B9C42416A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IsClubMember"
+              DTS:DTSID="{DA36AAB4-D6E1-4ACA-89FD-CD5EBEE97FC1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IsClubMemberName"
+              DTS:DTSID="{A4E2ECC3-B7F6-456D-A3E2-DA25E4201F30}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IsFromSejam"
+              DTS:DTSID="{3E04E4DC-9460-4820-8517-2683F0907E02}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IsFromSejamName"
+              DTS:DTSID="{F3A5B33D-49B1-4F8C-BF95-5EB4123F7A53}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PersonTypeId"
+              DTS:DTSID="{B198FBB0-8EB1-40B6-B422-40E6DC1AACB3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PersonTypeName"
+              DTS:DTSID="{BB89C4F1-3C62-4249-A91A-BA3B48AAD85E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PersonName"
+              DTS:DTSID="{515A1729-D717-4DE6-8706-4C45A628DA90}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GenderId"
+              DTS:DTSID="{B9429706-1FFB-4CD6-AB6D-B37B6A2105FC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomerGenderName"
+              DTS:DTSID="{0A97458E-DA8C-4E21-AE79-A178FEDB685D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MarriedStateId"
+              DTS:DTSID="{9CD691E4-179F-4E43-9DD8-4C815DF20E3A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MarriedStateName"
+              DTS:DTSID="{B4100841-8A19-41D0-8942-E038F09CB049}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MilitaryStateId"
+              DTS:DTSID="{48E3EC5B-50A9-4510-B150-0F77CFABE13B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MilitaryStateName"
+              DTS:DTSID="{81046902-486D-4884-99D2-207388CD7139}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FatherName"
+              DTS:DTSID="{05541878-0D72-4CAE-8B30-E773896036C0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NationalCode"
+              DTS:DTSID="{8C746792-6D17-47B9-AC65-37ECB0E58628}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BirthDate"
+              DTS:DTSID="{8DB665DF-3E31-4733-AC8B-4654D55A892D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RegistrationDate"
+              DTS:DTSID="{948324BD-3CE3-4788-B120-D050A05F348F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BirthCityId"
+              DTS:DTSID="{F9F036BE-2C5F-428E-A1BD-5D5C45E4CA7E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BirthCityName"
+              DTS:DTSID="{F3C47C71-EBC9-4DDD-8043-7684AF4E1C3A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RegistrationCityId"
+              DTS:DTSID="{55FF94E5-13FC-47EE-B16E-595EA5182EF0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RegistrationCityIName"
+              DTS:DTSID="{AC521A8D-FCF8-41BB-8814-0428CC08DB39}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EconomicCode"
+              DTS:DTSID="{B052D4D1-1370-4E9F-9E78-EA1B696ED3AD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StockIntroductionId"
+              DTS:DTSID="{63B8AE38-5BD3-4000-8AC1-5D3DC44B10F3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StockIntroductionName"
+              DTS:DTSID="{95771B4B-282F-47FD-9F61-FCA32F3E64BF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IntroducerGenderId"
+              DTS:DTSID="{85184A34-C12E-442C-A3E4-23FCC6C8F508}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IntroducerGendeName"
+              DTS:DTSID="{48284796-E30C-4F29-AA38-6B5E4021F83D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IntroducerHomeLocationId"
+              DTS:DTSID="{76914ACB-D027-437C-8DC9-EF10CA5AA559}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IntroducerHomeLocationName"
+              DTS:DTSID="{166F9EA5-A5F8-4652-B315-B3EF1811694D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="JobId"
+              DTS:DTSID="{6B46745F-622E-42FA-838E-3A998246729A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="JobName"
+              DTS:DTSID="{B50EE947-6FC0-4330-A893-1707D93A845C}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{1102EE86-C005-437B-8E56-EFB82E682642}"
+      DTS:ObjectName="Flat File Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\Users\negahbani\Desktop\dimCustomer.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Id"
+              DTS:DTSID="{4B2FE0BC-FB46-49AA-972B-DD16BB0BB449}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PersonId"
+              DTS:DTSID="{02AFC1C0-6F18-428F-96B3-9A00216E3801}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ClubMemberId"
+              DTS:DTSID="{D6C595E5-BF34-4DBF-9E8F-695892431C3C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IsClubMember"
+              DTS:DTSID="{689AB53C-9B4E-4E84-9521-92C9B85241FE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IsClubMemberName"
+              DTS:DTSID="{351E70D0-5A67-4211-AFDA-877B1AC4DCF8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IsFromSejam"
+              DTS:DTSID="{C6DB4C93-1C1A-4E08-9924-B5474228C835}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IsFromSejamName"
+              DTS:DTSID="{BD835B54-9735-4C1B-966B-1C9CC57A986F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PersonTypeId"
+              DTS:DTSID="{4A83136A-3C18-46A7-8B1C-593582FA1B2C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PersonTypeName"
+              DTS:DTSID="{AA854A26-5DC0-440C-8B91-CFF71347B085}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PersonName"
+              DTS:DTSID="{B6254BED-7D61-4C30-95E6-A6EBC18D7F55}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GenderId"
+              DTS:DTSID="{9CADD594-CFD6-4FDC-912F-B5FFB031A9DA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomerGenderName"
+              DTS:DTSID="{F7A1D58E-D964-4BEA-A633-9AB759CF376E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MarriedStateId"
+              DTS:DTSID="{0081B9C6-80A9-4546-A85B-BF37D7197381}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="6"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MarriedStateName"
+              DTS:DTSID="{A628318C-8F8A-44CF-9EC1-C53556C4CEC6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MilitaryStateId"
+              DTS:DTSID="{8F7CDDE4-FA80-4E41-847A-F9D4F22232A1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="6"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MilitaryStateName"
+              DTS:DTSID="{5C66C777-6E17-4867-B178-9743E76E8D78}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FatherName"
+              DTS:DTSID="{198C24BF-1C1E-45A1-9D5B-F8F2B04A36C7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NationalCode"
+              DTS:DTSID="{5B268C80-050A-47FF-A71C-1A75923611EB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BirthDate"
+              DTS:DTSID="{7DFAAA5C-AB72-478A-B5BD-C134A7B95A73}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RegistrationDate"
+              DTS:DTSID="{307CB224-019A-4915-BCCB-5C904A0AB566}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BirthCityId"
+              DTS:DTSID="{0A5E7A63-A121-4BE6-850D-3E3F4A668FD5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BirthCityName"
+              DTS:DTSID="{690D21A3-7667-450E-885B-F18063C0D668}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RegistrationCityId"
+              DTS:DTSID="{5A946662-C9B7-4B15-B611-06F9F27DEC0C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RegistrationCityIName"
+              DTS:DTSID="{80CD55F7-8C5D-417E-BA02-C1CA1549BD6B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EconomicCode"
+              DTS:DTSID="{23E2E476-CA32-46A1-B146-33ACA234F2EB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StockIntroductionId"
+              DTS:DTSID="{09F7676C-4CDA-4C9D-BEFF-32D1DA20A5B6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StockIntroductionName"
+              DTS:DTSID="{A58F7E36-AA6A-490D-861A-35483AF7DE7E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IntroducerGenderId"
+              DTS:DTSID="{9D5FA1D1-6694-418E-995C-181F70F3E96F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IntroducerGendeName"
+              DTS:DTSID="{69B4E5AD-AF62-4BC8-9D43-F41CB35DAC56}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IntroducerHomeLocationId"
+              DTS:DTSID="{FD747E3C-B68D-4C47-8C57-D0B6C29A287B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IntroducerHomeLocationName"
+              DTS:DTSID="{DCAD763D-A740-4025-BFA8-BDC5E4FFC865}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="JobId"
+              DTS:DTSID="{2E376D4C-5D19-4A80-96B1-B927F764912D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="JobName"
+              DTS:DTSID="{537E02CE-4570-46C2-AF7D-23A65426622B}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{87DA6B1B-418C-4110-9402-BE157CB98823}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\DimCustomer (DW)"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DimCustomer (DW)"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[DimCustomer]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\DimCustomer (DW).Connections[OleDbConnection]"
+                  connectionManagerID="{00BB60CC-9FA4-49A1-82A0-4E564A3BB3DE}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[DimCustomerID]"
+                      cachedDataType="i4"
+                      cachedName="DimCustomerID"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[DimCustomerID]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[DimCustomerID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[CustomerId]"
+                      cachedDataType="i4"
+                      cachedName="CustomerId"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[CustomerId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[CustomerId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[PersonId]"
+                      cachedDataType="i4"
+                      cachedName="PersonId"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[PersonId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[PersonId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[ClubMemberId]"
+                      cachedDataType="i4"
+                      cachedName="ClubMemberId"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[ClubMemberId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[ClubMemberId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[IsClubMember]"
+                      cachedDataType="i4"
+                      cachedName="IsClubMember"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[IsClubMember]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[IsClubMember]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[IsClubMemberName]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="IsClubMemberName"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[IsClubMemberName]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[IsClubMemberName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[IsFromSejam]"
+                      cachedDataType="i4"
+                      cachedName="IsFromSejam"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[IsFromSejam]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[IsFromSejam]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[IsFromSejamName]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="IsFromSejamName"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[IsFromSejamName]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[IsFromSejamName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[PersonTypeId]"
+                      cachedDataType="i4"
+                      cachedName="PersonTypeId"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[PersonTypeId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[PersonTypeId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[PersonTypeName]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="PersonTypeName"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[PersonTypeName]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[PersonTypeName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[PersonName]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="PersonName"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[PersonName]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[PersonName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[GenderId]"
+                      cachedDataType="i4"
+                      cachedName="GenderId"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[GenderId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[GenderId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[CustomerGenderName]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="CustomerGenderName"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[CustomerGenderName]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[CustomerGenderName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[MarriedStateId]"
+                      cachedDataType="i4"
+                      cachedName="MarriedStateId"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[MarriedStateId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[MarriedStateId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[MarriedStateName]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="MarriedStateName"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[MarriedStateName]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[MarriedStateName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[MilitaryStateId]"
+                      cachedDataType="i4"
+                      cachedName="MilitaryStateId"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[MilitaryStateId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[MilitaryStateId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[MilitaryStateName]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="MilitaryStateName"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[MilitaryStateName]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[MilitaryStateName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[FatherName]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="FatherName"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[FatherName]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[FatherName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[NationalCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="NationalCode"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[NationalCode]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[NationalCode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[BirthDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="BirthDate"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[BirthDate]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[BirthDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[RegistrationDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="RegistrationDate"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[RegistrationDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[BirthCityId]"
+                      cachedDataType="i4"
+                      cachedName="BirthCityId"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[BirthCityId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[BirthCityId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[BirthCityName]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="BirthCityName"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[BirthCityName]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[BirthCityName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[RegistrationCityId]"
+                      cachedDataType="i4"
+                      cachedName="RegistrationCityId"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[RegistrationCityId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[RegistrationCityId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[EconomicCode]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="EconomicCode"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[EconomicCode]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[EconomicCode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[StockIntroductionId]"
+                      cachedDataType="i4"
+                      cachedName="StockIntroductionId"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[StockIntroductionId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[StockIntroductionId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[StockIntroductionName]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="StockIntroductionName"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[StockIntroductionName]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[StockIntroductionName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[IntroducerGenderId]"
+                      cachedDataType="i4"
+                      cachedName="IntroducerGenderId"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[IntroducerGenderId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[IntroducerGenderId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[IntroducerHomeLocationId]"
+                      cachedDataType="i4"
+                      cachedName="IntroducerHomeLocationId"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[IntroducerHomeLocationId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[IntroducerHomeLocationId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[JobId]"
+                      cachedDataType="i4"
+                      cachedName="JobId"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[JobId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[JobId]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].Columns[JobName]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="JobName"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[JobName]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[JobName]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[DimCustomerID]"
+                      dataType="i4"
+                      name="DimCustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[CustomerId]"
+                      dataType="i4"
+                      name="CustomerId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[PersonId]"
+                      dataType="i4"
+                      name="PersonId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[ClubMemberId]"
+                      dataType="i4"
+                      name="ClubMemberId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[IsClubMember]"
+                      dataType="i4"
+                      name="IsClubMember" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[IsClubMemberName]"
+                      dataType="wstr"
+                      length="20"
+                      name="IsClubMemberName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[IsFromSejam]"
+                      dataType="i4"
+                      name="IsFromSejam" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[IsFromSejamName]"
+                      dataType="wstr"
+                      length="20"
+                      name="IsFromSejamName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[PersonTypeId]"
+                      dataType="i4"
+                      name="PersonTypeId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[PersonTypeName]"
+                      dataType="wstr"
+                      length="50"
+                      name="PersonTypeName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[PersonName]"
+                      dataType="wstr"
+                      length="100"
+                      name="PersonName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[GenderId]"
+                      dataType="i4"
+                      name="GenderId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[CustomerGenderName]"
+                      dataType="wstr"
+                      length="50"
+                      name="CustomerGenderName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[MarriedStateId]"
+                      dataType="i4"
+                      name="MarriedStateId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[MarriedStateName]"
+                      dataType="wstr"
+                      length="50"
+                      name="MarriedStateName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[MilitaryStateId]"
+                      dataType="i4"
+                      name="MilitaryStateId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[MilitaryStateName]"
+                      dataType="wstr"
+                      length="50"
+                      name="MilitaryStateName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[FatherName]"
+                      dataType="wstr"
+                      length="30"
+                      name="FatherName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[NationalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="NationalCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[BirthDate]"
+                      dataType="wstr"
+                      length="10"
+                      name="BirthDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                      dataType="wstr"
+                      length="10"
+                      name="RegistrationDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[BirthCityId]"
+                      dataType="i4"
+                      name="BirthCityId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[BirthCityName]"
+                      dataType="wstr"
+                      length="30"
+                      name="BirthCityName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[RegistrationCityId]"
+                      dataType="i4"
+                      name="RegistrationCityId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[EconomicCode]"
+                      dataType="wstr"
+                      length="30"
+                      name="EconomicCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[StockIntroductionId]"
+                      dataType="i4"
+                      name="StockIntroductionId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[StockIntroductionName]"
+                      dataType="wstr"
+                      length="50"
+                      name="StockIntroductionName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[IntroducerGenderId]"
+                      dataType="i4"
+                      name="IntroducerGenderId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[IntroducerHomeLocationId]"
+                      dataType="i4"
+                      name="IntroducerHomeLocationId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[JobId]"
+                      dataType="i4"
+                      name="JobId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[JobName]"
+                      dataType="wstr"
+                      length="50"
+                      name="JobName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[BirthStateName]"
+                      dataType="wstr"
+                      length="20"
+                      name="BirthStateName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[RegistrationCityName]"
+                      dataType="wstr"
+                      length="30"
+                      name="RegistrationCityName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[RegistrationStateName]"
+                      dataType="wstr"
+                      length="20"
+                      name="RegistrationStateName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[IntroducerGenderName]"
+                      dataType="wstr"
+                      length="50"
+                      name="IntroducerGenderName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[IntroducerHomeCityName]"
+                      dataType="wstr"
+                      length="30"
+                      name="IntroducerHomeCityName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[IntroducerHomeStateName]"
+                      dataType="wstr"
+                      length="20"
+                      name="IntroducerHomeStateName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[StockTypeId]"
+                      dataType="i4"
+                      name="StockTypeId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[StockTypeName]"
+                      dataType="wstr"
+                      length="50"
+                      name="StockTypeName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[BranchId]"
+                      dataType="i4"
+                      name="BranchId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[BranchName]"
+                      dataType="wstr"
+                      length="40"
+                      name="BranchName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[BranchCityName]"
+                      dataType="wstr"
+                      length="30"
+                      name="BranchCityName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[BranchStateName]"
+                      dataType="wstr"
+                      length="20"
+                      name="BranchStateName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      dataType="wstr"
+                      length="10"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[MarketerId]"
+                      dataType="i4"
+                      name="MarketerId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[MarketerName]"
+                      dataType="wstr"
+                      length="100"
+                      name="MarketerName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[MarketerGenderName]"
+                      dataType="wstr"
+                      length="50"
+                      name="MarketerGenderName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[MarketerIsActiveName]"
+                      dataType="wstr"
+                      length="20"
+                      name="MarketerIsActiveName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[MarketerPersonTypeName]"
+                      dataType="wstr"
+                      length="50"
+                      name="MarketerPersonTypeName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[InsertUserId]"
+                      dataType="i4"
+                      name="InsertUserId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[InsertUserPersonName]"
+                      dataType="wstr"
+                      length="100"
+                      name="InsertUserPersonName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[InsertUserGenderName]"
+                      dataType="wstr"
+                      length="50"
+                      name="InsertUserGenderName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[BourseCode]"
+                      dataType="wstr"
+                      length="20"
+                      name="BourseCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[ClientAccountNumber]"
+                      dataType="wstr"
+                      length="20"
+                      name="ClientAccountNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[Credit]"
+                      dataType="cy"
+                      name="Credit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[StationCredit]"
+                      dataType="cy"
+                      name="StationCredit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input].ExternalColumns[HashValue]"
+                      dataType="bytes"
+                      length="8000"
+                      name="HashValue" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DimCustomer (DW).Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimCustomer (DW).Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (DW).Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimCustomer (DW).Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\DimCustomer (StageDB)"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="DimCustomer (StageDB)"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimCustomer]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\DimCustomer (StageDB).Connections[OleDbConnection]"
+                  connectionManagerID="{67048846-090F-4BFA-824D-4D8BB471F18C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[StageDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[DimCustomerID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[DimCustomerID]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[DimCustomerID]"
+                      name="DimCustomerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[CustomerId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[CustomerId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[CustomerId]"
+                      name="CustomerId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[PersonId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[PersonId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[PersonId]"
+                      name="PersonId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[ClubMemberId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[ClubMemberId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[ClubMemberId]"
+                      name="ClubMemberId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[IsClubMember]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[IsClubMember]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[IsClubMember]"
+                      name="IsClubMember"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[IsClubMemberName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[IsClubMemberName]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[IsClubMemberName]"
+                      name="IsClubMemberName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[IsFromSejam]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[IsFromSejam]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[IsFromSejam]"
+                      name="IsFromSejam"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[IsFromSejamName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[IsFromSejamName]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[IsFromSejamName]"
+                      name="IsFromSejamName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[PersonTypeId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[PersonTypeId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[PersonTypeId]"
+                      name="PersonTypeId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[PersonTypeName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[PersonTypeName]"
+                      length="8"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[PersonTypeName]"
+                      name="PersonTypeName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[PersonName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[PersonName]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[PersonName]"
+                      name="PersonName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[GenderId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[GenderId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[GenderId]"
+                      name="GenderId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[CustomerGenderName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[CustomerGenderName]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[CustomerGenderName]"
+                      name="CustomerGenderName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[MarriedStateId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[MarriedStateId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[MarriedStateId]"
+                      name="MarriedStateId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[MarriedStateName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[MarriedStateName]"
+                      length="6"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[MarriedStateName]"
+                      name="MarriedStateName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[MilitaryStateId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[MilitaryStateId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[MilitaryStateId]"
+                      name="MilitaryStateId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[MilitaryStateName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[MilitaryStateName]"
+                      length="25"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[MilitaryStateName]"
+                      name="MilitaryStateName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[FatherName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[FatherName]"
+                      length="30"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[FatherName]"
+                      name="FatherName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[NationalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[NationalCode]"
+                      length="30"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[NationalCode]"
+                      name="NationalCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[BirthDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[BirthDate]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[BirthDate]"
+                      name="BirthDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[RegistrationDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[RegistrationDate]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[RegistrationDate]"
+                      name="RegistrationDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[BirthCityId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[BirthCityId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[BirthCityId]"
+                      name="BirthCityId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[BirthCityName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[BirthCityName]"
+                      length="30"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[BirthCityName]"
+                      name="BirthCityName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[RegistrationCityId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[RegistrationCityId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[RegistrationCityId]"
+                      name="RegistrationCityId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[RegistrationCityIName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[RegistrationCityIName]"
+                      length="30"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[RegistrationCityIName]"
+                      name="RegistrationCityIName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[EconomicCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[EconomicCode]"
+                      length="30"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[EconomicCode]"
+                      name="EconomicCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[StockIntroductionId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[StockIntroductionId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[StockIntroductionId]"
+                      name="StockIntroductionId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[StockIntroductionName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[StockIntroductionName]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[StockIntroductionName]"
+                      name="StockIntroductionName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[IntroducerGenderId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[IntroducerGenderId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[IntroducerGenderId]"
+                      name="IntroducerGenderId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[IntroducerGendeName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[IntroducerGendeName]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[IntroducerGendeName]"
+                      name="IntroducerGendeName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[IntroducerHomeLocationId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[IntroducerHomeLocationId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[IntroducerHomeLocationId]"
+                      name="IntroducerHomeLocationId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[IntroducerHomeLocationName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[IntroducerHomeLocationName]"
+                      length="30"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[IntroducerHomeLocationName]"
+                      name="IntroducerHomeLocationName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[JobId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[JobId]"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[JobId]"
+                      name="JobId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[JobName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[JobName]"
+                      length="20"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].Columns[JobName]"
+                      name="JobName"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[DimCustomerID]"
+                      dataType="i4"
+                      name="DimCustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[CustomerId]"
+                      dataType="i4"
+                      name="CustomerId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[PersonId]"
+                      dataType="i4"
+                      name="PersonId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[ClubMemberId]"
+                      dataType="i4"
+                      name="ClubMemberId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[IsClubMember]"
+                      dataType="i4"
+                      name="IsClubMember" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[IsClubMemberName]"
+                      dataType="wstr"
+                      length="15"
+                      name="IsClubMemberName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[IsFromSejam]"
+                      dataType="i4"
+                      name="IsFromSejam" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[IsFromSejamName]"
+                      dataType="wstr"
+                      length="15"
+                      name="IsFromSejamName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[PersonTypeId]"
+                      dataType="i4"
+                      name="PersonTypeId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[PersonTypeName]"
+                      dataType="wstr"
+                      length="8"
+                      name="PersonTypeName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[PersonName]"
+                      dataType="wstr"
+                      length="100"
+                      name="PersonName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[GenderId]"
+                      dataType="i4"
+                      name="GenderId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[CustomerGenderName]"
+                      dataType="wstr"
+                      length="10"
+                      name="CustomerGenderName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[MarriedStateId]"
+                      dataType="i4"
+                      name="MarriedStateId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[MarriedStateName]"
+                      dataType="wstr"
+                      length="6"
+                      name="MarriedStateName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[MilitaryStateId]"
+                      dataType="i4"
+                      name="MilitaryStateId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[MilitaryStateName]"
+                      dataType="wstr"
+                      length="25"
+                      name="MilitaryStateName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[FatherName]"
+                      dataType="wstr"
+                      length="30"
+                      name="FatherName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[NationalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="NationalCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[BirthDate]"
+                      dataType="dbTimeStamp"
+                      name="BirthDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[RegistrationDate]"
+                      dataType="dbTimeStamp"
+                      name="RegistrationDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[BirthCityId]"
+                      dataType="i4"
+                      name="BirthCityId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[BirthCityName]"
+                      dataType="wstr"
+                      length="30"
+                      name="BirthCityName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[RegistrationCityId]"
+                      dataType="i4"
+                      name="RegistrationCityId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[RegistrationCityIName]"
+                      dataType="wstr"
+                      length="30"
+                      name="RegistrationCityIName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[EconomicCode]"
+                      dataType="wstr"
+                      length="30"
+                      name="EconomicCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[StockIntroductionId]"
+                      dataType="i4"
+                      name="StockIntroductionId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[StockIntroductionName]"
+                      dataType="wstr"
+                      length="10"
+                      name="StockIntroductionName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[IntroducerGenderId]"
+                      dataType="i4"
+                      name="IntroducerGenderId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[IntroducerGendeName]"
+                      dataType="wstr"
+                      length="10"
+                      name="IntroducerGendeName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[IntroducerHomeLocationId]"
+                      dataType="i4"
+                      name="IntroducerHomeLocationId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[IntroducerHomeLocationName]"
+                      dataType="wstr"
+                      length="30"
+                      name="IntroducerHomeLocationName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[JobId]"
+                      dataType="i4"
+                      name="JobId" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output].ExternalColumns[JobName]"
+                      dataType="wstr"
+                      length="20"
+                      name="JobName" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[DimCustomerID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[DimCustomerID]"
+                      name="DimCustomerID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[CustomerId]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[CustomerId]"
+                      name="CustomerId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[PersonId]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[PersonId]"
+                      name="PersonId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[ClubMemberId]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[ClubMemberId]"
+                      name="ClubMemberId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[IsClubMember]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[IsClubMember]"
+                      name="IsClubMember" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[IsClubMemberName]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[IsClubMemberName]"
+                      name="IsClubMemberName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[IsFromSejam]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[IsFromSejam]"
+                      name="IsFromSejam" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[IsFromSejamName]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[IsFromSejamName]"
+                      name="IsFromSejamName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[PersonTypeId]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[PersonTypeId]"
+                      name="PersonTypeId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[PersonTypeName]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[PersonTypeName]"
+                      name="PersonTypeName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[PersonName]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[PersonName]"
+                      name="PersonName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[GenderId]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[GenderId]"
+                      name="GenderId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[CustomerGenderName]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[CustomerGenderName]"
+                      name="CustomerGenderName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[MarriedStateId]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[MarriedStateId]"
+                      name="MarriedStateId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[MarriedStateName]"
+                      dataType="wstr"
+                      length="6"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[MarriedStateName]"
+                      name="MarriedStateName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[MilitaryStateId]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[MilitaryStateId]"
+                      name="MilitaryStateId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[MilitaryStateName]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[MilitaryStateName]"
+                      name="MilitaryStateName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[FatherName]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[FatherName]"
+                      name="FatherName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[NationalCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[NationalCode]"
+                      name="NationalCode" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[BirthDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[BirthDate]"
+                      name="BirthDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[RegistrationDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[RegistrationDate]"
+                      name="RegistrationDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[BirthCityId]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[BirthCityId]"
+                      name="BirthCityId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[BirthCityName]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[BirthCityName]"
+                      name="BirthCityName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[RegistrationCityId]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[RegistrationCityId]"
+                      name="RegistrationCityId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[RegistrationCityIName]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[RegistrationCityIName]"
+                      name="RegistrationCityIName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[EconomicCode]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[EconomicCode]"
+                      name="EconomicCode" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[StockIntroductionId]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[StockIntroductionId]"
+                      name="StockIntroductionId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[StockIntroductionName]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[StockIntroductionName]"
+                      name="StockIntroductionName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[IntroducerGenderId]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[IntroducerGenderId]"
+                      name="IntroducerGenderId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[IntroducerGendeName]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[IntroducerGendeName]"
+                      name="IntroducerGendeName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[IntroducerHomeLocationId]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[IntroducerHomeLocationId]"
+                      name="IntroducerHomeLocationId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[IntroducerHomeLocationName]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[IntroducerHomeLocationName]"
+                      name="IntroducerHomeLocationName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[JobId]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[JobId]"
+                      name="JobId" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[JobName]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[JobName]"
+                      name="JobName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\DimCustomer (DW).Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\DimCustomer (StageDB).Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Data Flow Task"
+          TopLeft="627,319" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Data Flow Task\DimCustomer (StageDB)"
+          TopLeft="508,70" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Data Flow Task\DimCustomer (DW)"
+          TopLeft="718,280" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="605,112">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="198.5,168"
+              Start="0,0"
+              End="198.5,160.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,80" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,80"
+                    Point2="0,84"
+                    Point3="4,84" />
+                  <mssgle:LineSegment
+                    End="194.5,84" />
+                  <mssgle:CubicBezierSegment
+                    Point1="194.5,84"
+                    Point2="198.5,84"
+                    Point3="198.5,88" />
+                  <mssgle:LineSegment
+                    End="198.5,160.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\DimCustomer (DW)">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\DimCustomer (StageDB)">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

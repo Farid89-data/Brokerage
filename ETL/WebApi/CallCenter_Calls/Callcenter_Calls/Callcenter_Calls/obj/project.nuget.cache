@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "QNFjgpy9z/V0HyksrM8gnAHkHo1EdypQ/m6TYs5Lx4qRYlEsmh/jg8Dm8drSUwACCupLcL0GN4OsM7AsxqXkzg==",
+  "success": true,
+  "projectFilePath": "C:\\ETL Repos\\WebApi\\CallCenter_Calls\\Callcenter_Calls\\Callcenter_Calls\\Callcenter_Calls.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bolboli.MOBINSB\\.nuget\\packages\\restsharp\\106.15.0\\restsharp.106.15.0.nupkg.sha512"
+  ],
+  "logs": []
+}

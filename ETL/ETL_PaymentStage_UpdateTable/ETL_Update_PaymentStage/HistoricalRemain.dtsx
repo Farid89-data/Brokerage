@@ -1,0 +1,1139 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/23/2020 2:47:08 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BI-APP"
+  DTS:CreatorName="BI-APP\negahbani"
+  DTS:DTSID="{24858202-0DF9-436A-B78A-D0233B7AD4EC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.132"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{8E18EEE3-4D4A-40CB-812E-04932590C100}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Begin Transaction HistoricalRemain"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{eb776e9f-50ab-468f-8206-68249a1bd300}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Begin Transaction HistoricalRemain"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D6276866-746A-4B80-8195-30375899DA46}"
+          SQLTask:SqlStatementSource="BEGIN TRANSACTION&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Commit Transaction HistoricalRemain"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{71a19751-0587-46c4-b6af-794d54315579}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Commit Transaction HistoricalRemain"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\Commit Transaction HistoricalRemain.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{8ab610f4-aa40-4758-9c3e-31df9b486cb3}"
+          DTS:EventID="1342177280"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{2babc344-de98-4daa-a92d-2e3959eb3ad4}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables />
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D6276866-746A-4B80-8195-30375899DA46}"
+          SQLTask:SqlStatementSource="IF @@TRANCOUNT&gt;0&#xA; COMMIT TRANSACTION" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Rollback HistoricalRemain"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{135309ae-4414-4d38-ae7e-d3f251ba7814}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Rollback HistoricalRemain"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D6276866-746A-4B80-8195-30375899DA46}"
+          SQLTask:SqlStatementSource="IF @@TRANCOUNT&gt;0&#xA; ROLLBACK TRANSACTION" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{a66b779e-a263-4da5-9883-414eee377c4e}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\delete table HistoricalRemain"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6B37711C-6201-47DB-BCEB-CE9E2F59A250}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="delete table HistoricalRemain"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{D6276866-746A-4B80-8195-30375899DA46}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [PaymentStage].[dbo].[HistoricalRemain]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{251f4412-8d2c-41ae-99fe-96171924e1b7}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update Insert Delete - HistoricalRemain"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:EventHandlers>
+            <DTS:EventHandler
+              DTS:refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain.EventHandlers[OnError]"
+              DTS:CreationName="OnError"
+              DTS:DTSID="{4f34d3da-b3d6-499a-b9da-9d195c6df213}"
+              DTS:EventID="0"
+              DTS:EventName="OnError"
+              DTS:LocaleID="-1">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:Description="The propagate property of the event"
+                  DTS:DTSID="{49f68cb0-2b9b-4ab6-8a7d-25d8d0623366}"
+                  DTS:IncludeInDebugDump="6789"
+                  DTS:Namespace="System"
+                  DTS:ObjectName="Propagate">
+                  <DTS:VariableValue
+                    DTS:DataType="11">-1</DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:Executables />
+            </DTS:EventHandler>
+          </DTS:EventHandlers>
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\Derived Column.Inputs[Derived Column Input].Columns[Cost]"
+                          cachedDataType="numeric"
+                          cachedName="Cost"
+                          cachedPrecision="38"
+                          cachedScale="15"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cost]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REPLACENULL](#{Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cost]},0)</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACENULL(Cost,0)</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\Derived Column.Inputs[Derived Column Input].Columns[CustomerId]"
+                          cachedDataType="i4"
+                          cachedName="CustomerId"
+                          cachedSortKeyPosition="1"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerId]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REPLACENULL](#{Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerId]},-1)</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACENULL(CustomerId,-1)</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\Derived Column.Inputs[Derived Column Input].Columns[DampingRemain]"
+                          cachedDataType="numeric"
+                          cachedName="DampingRemain"
+                          cachedPrecision="22"
+                          cachedScale="9"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[DampingRemain]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REPLACENULL](#{Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[DampingRemain]},0)</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACENULL(DampingRemain,0)</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\Derived Column.Inputs[Derived Column Input].Columns[Date]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="Date"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REPLACENULL](#{Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]},"1921-03-21")</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACENULL(Date,"1921-03-21")</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\Derived Column.Inputs[Derived Column Input].Columns[Remain]"
+                          cachedDataType="numeric"
+                          cachedName="Remain"
+                          cachedPrecision="22"
+                          cachedScale="9"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[Remain]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REPLACENULL](#{Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[Remain]},0)</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACENULL(Remain,0)</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\Derived Column.Inputs[Derived Column Input].Columns[StockTypeId]"
+                          cachedDataType="i4"
+                          cachedName="StockTypeId"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[StockTypeId]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REPLACENULL](#{Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[StockTypeId]},-1)</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACENULL(StockTypeId,-1)</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\Derived Column.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[HistoricalRemain]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{D6276866-746A-4B80-8195-30375899DA46}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[StageDB]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Date]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="Date"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StockTypeId]"
+                          cachedDataType="i4"
+                          cachedName="StockTypeId"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StockTypeId]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[StockTypeId]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerId]"
+                          cachedDataType="i4"
+                          cachedName="CustomerId"
+                          cachedSortKeyPosition="1"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerId]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerId]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Remain]"
+                          cachedDataType="numeric"
+                          cachedName="Remain"
+                          cachedPrecision="22"
+                          cachedScale="9"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Remain]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[Remain]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DampingRemain]"
+                          cachedDataType="numeric"
+                          cachedName="DampingRemain"
+                          cachedPrecision="22"
+                          cachedScale="9"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DampingRemain]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[DampingRemain]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Cost]"
+                          cachedDataType="numeric"
+                          cachedName="Cost"
+                          cachedPrecision="38"
+                          cachedScale="15"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cost]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cost]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                          dataType="wstr"
+                          length="10"
+                          name="Date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StockTypeId]"
+                          dataType="i4"
+                          name="StockTypeId" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerId]"
+                          dataType="i4"
+                          name="CustomerId" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Remain]"
+                          dataType="numeric"
+                          name="Remain"
+                          precision="22"
+                          scale="9" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DampingRemain]"
+                          dataType="numeric"
+                          name="DampingRemain"
+                          precision="22"
+                          scale="9" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cost]"
+                          dataType="numeric"
+                          name="Cost"
+                          precision="38"
+                          scale="15" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[bi].[HistoricalRemain]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="{4C0FEE3F-C8DD-4FB8-80BC-CEE442A764DD}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[SourceDB]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output]"
+                      isSorted="true"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                          length="10"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]"
+                          name="Date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[StockTypeId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StockTypeId]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[StockTypeId]"
+                          name="StockTypeId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerId]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerId]"
+                          name="CustomerId"
+                          sortKeyPosition="1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[Remain]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Remain]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[Remain]"
+                          name="Remain"
+                          precision="22"
+                          scale="9"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[DampingRemain]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DampingRemain]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[DampingRemain]"
+                          name="DampingRemain"
+                          precision="22"
+                          scale="9"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cost]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Cost]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cost]"
+                          name="Cost"
+                          precision="38"
+                          scale="15"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                          dataType="wstr"
+                          length="10"
+                          name="Date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StockTypeId]"
+                          dataType="i4"
+                          name="StockTypeId" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerId]"
+                          dataType="i4"
+                          name="CustomerId" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Remain]"
+                          dataType="numeric"
+                          name="Remain"
+                          precision="22"
+                          scale="9" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DampingRemain]"
+                          dataType="numeric"
+                          name="DampingRemain"
+                          precision="22"
+                          scale="9" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Cost]"
+                          dataType="numeric"
+                          name="Cost"
+                          precision="38"
+                          scale="15" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date]"
+                          name="Date" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StockTypeId]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StockTypeId]"
+                          name="StockTypeId" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerId]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerId]"
+                          name="CustomerId" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Remain]"
+                          dataType="numeric"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Remain]"
+                          name="Remain"
+                          precision="22"
+                          scale="9" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DampingRemain]"
+                          dataType="numeric"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DampingRemain]"
+                          name="DampingRemain"
+                          precision="22"
+                          scale="9" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Cost]"
+                          dataType="numeric"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Cost]"
+                          name="Cost"
+                          precision="38"
+                          scale="15" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain.Paths[Derived Column Output]"
+                  endId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Sequence Container\Update Insert Delete - HistoricalRemain.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\Derived Column.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{2FB0F602-AD99-48CD-B572-3D3BE7ED634E}"
+          DTS:From="Package\Sequence Container\delete table HistoricalRemain"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Sequence Container\Update Insert Delete - HistoricalRemain" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{9D9B3325-38B4-40F9-A873-F2BF0C230ACD}"
+      DTS:From="Package\Sequence Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Rollback HistoricalRemain"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{9C85A064-6EF3-401C-B332-73698A45F592}"
+      DTS:From="Package\Begin Transaction HistoricalRemain"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Sequence Container" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{CF95DAD0-5663-434E-A732-4DDF658B03B8}"
+      DTS:From="Package\Sequence Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Commit Transaction HistoricalRemain" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{F6A0FB82-ED21-4F6C-BA4E-ED8428450E8D}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{2434D888-F3B9-4FA9-8435-4BC1EDB68FDF}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables />
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="245,42"
+          Id="Package\Begin Transaction HistoricalRemain"
+          TopLeft="271,5.5" />
+        <NodeLayout
+          Size="255,42"
+          Id="Package\Commit Transaction HistoricalRemain"
+          TopLeft="266,415.5" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Rollback HistoricalRemain"
+          TopLeft="5.50000000000006,415.5" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\Sequence Container\delete table HistoricalRemain"
+          TopLeft="30.5,5.5" />
+        <NodeLayout
+          Size="266,42"
+          Id="Package\Sequence Container\Update Insert Delete - HistoricalRemain"
+          TopLeft="5.50000000000003,107.5" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="138.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="277,204"
+          Size="277,248"
+          Id="Package\Sequence Container"
+          TopLeft="255,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="348.666666666667,355.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-243.166666666667,60"
+              Start="0,0"
+              End="-243.166666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2067480258435" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2067480258435"
+                    Point2="0,24.2067480258435"
+                    Point3="-4,24.2067480258435" />
+                  <mssgle:LineSegment
+                    End="-239.166666666667,24.2067480258435" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-239.166666666667,24.2067480258435"
+                    Point2="-243.166666666667,24.2067480258435"
+                    Point3="-243.166666666667,28.2067480258435" />
+                  <mssgle:LineSegment
+                    End="-243.166666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-136.824680989583,29.2067480258435,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="393.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="438.333333333333,355.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-44.8333333333333,60"
+              Start="0,0"
+              End="-44.8333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2067480258435" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2067480258435"
+                    Point2="0,24.2067480258435"
+                    Point3="-4,24.2067480258435" />
+                  <mssgle:LineSegment
+                    End="-40.8333333333333,24.2067480258435" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-40.8333333333333,24.2067480258435"
+                    Point2="-44.8333333333333,24.2067480258435"
+                    Point3="-44.8333333333333,28.2067480258435" />
+                  <mssgle:LineSegment
+                    End="-44.8333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="118,42"
+          Id="{FEE14CDB-3507-43A3-B4B7-6F154B377D8E}"
+          TopLeft="391,245" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package\Commit Transaction HistoricalRemain.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="118,42"
+          Id="{71e3d77f-8c0b-4020-beca-9ace0279a187}"
+          TopLeft="303,275" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Update Insert Delete - HistoricalRemain">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source"
+          TopLeft="164,139" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination"
+          TopLeft="329,347" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Sequence Container\Update Insert Delete - HistoricalRemain\Derived Column"
+          TopLeft="376,235" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Update Insert Delete - HistoricalRemain.Paths[OLE DB Source Output]"
+          TopLeft="239,181">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="214,54"
+              Start="0,0"
+              End="214,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23"
+                    Point2="0,27"
+                    Point3="4,27" />
+                  <mssgle:LineSegment
+                    End="210,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="210,27"
+                    Point2="214,27"
+                    Point3="214,31" />
+                  <mssgle:LineSegment
+                    End="214,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Update Insert Delete - HistoricalRemain.Paths[Derived Column Output]"
+          TopLeft="453,277">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-38.5,70"
+              Start="0,0"
+              End="-38.5,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31"
+                    Point2="0,35"
+                    Point3="-4,35" />
+                  <mssgle:LineSegment
+                    End="-34.5,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-34.5,35"
+                    Point2="-38.5,35"
+                    Point3="-38.5,39" />
+                  <mssgle:LineSegment
+                    End="-38.5,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\Sequence Container\Update Insert Delete - HistoricalRemain.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="118,42"
+          Id="{2cbd7883-61f5-464c-a935-6aca0896d553}"
+          TopLeft="366,272" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Update Insert Delete - HistoricalRemain\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

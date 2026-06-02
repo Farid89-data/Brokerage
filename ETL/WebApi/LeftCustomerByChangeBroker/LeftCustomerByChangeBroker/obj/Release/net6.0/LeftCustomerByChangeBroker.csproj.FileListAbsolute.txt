@@ -1,0 +1,17 @@
+C:\ETL Repos\WebApi\LeftCustomerByChangeBroker\LeftCustomerByChangeBroker\bin\Release\net6.0\LeftCustomerByChangeBroker.exe
+C:\ETL Repos\WebApi\LeftCustomerByChangeBroker\LeftCustomerByChangeBroker\bin\Release\net6.0\LeftCustomerByChangeBroker.deps.json
+C:\ETL Repos\WebApi\LeftCustomerByChangeBroker\LeftCustomerByChangeBroker\bin\Release\net6.0\LeftCustomerByChangeBroker.runtimeconfig.json
+C:\ETL Repos\WebApi\LeftCustomerByChangeBroker\LeftCustomerByChangeBroker\bin\Release\net6.0\LeftCustomerByChangeBroker.dll
+C:\ETL Repos\WebApi\LeftCustomerByChangeBroker\LeftCustomerByChangeBroker\bin\Release\net6.0\LeftCustomerByChangeBroker.pdb
+C:\ETL Repos\WebApi\LeftCustomerByChangeBroker\LeftCustomerByChangeBroker\bin\Release\net6.0\RestSharp.dll
+C:\ETL Repos\WebApi\LeftCustomerByChangeBroker\LeftCustomerByChangeBroker\obj\Release\net6.0\LeftCustomerByChangeBroker.csproj.AssemblyReference.cache
+C:\ETL Repos\WebApi\LeftCustomerByChangeBroker\LeftCustomerByChangeBroker\obj\Release\net6.0\LeftCustomerByChangeBroker.GeneratedMSBuildEditorConfig.editorconfig
+C:\ETL Repos\WebApi\LeftCustomerByChangeBroker\LeftCustomerByChangeBroker\obj\Release\net6.0\LeftCustomerByChangeBroker.AssemblyInfoInputs.cache
+C:\ETL Repos\WebApi\LeftCustomerByChangeBroker\LeftCustomerByChangeBroker\obj\Release\net6.0\LeftCustomerByChangeBroker.AssemblyInfo.cs
+C:\ETL Repos\WebApi\LeftCustomerByChangeBroker\LeftCustomerByChangeBroker\obj\Release\net6.0\LeftCustomerByChangeBroker.csproj.CoreCompileInputs.cache
+C:\ETL Repos\WebApi\LeftCustomerByChangeBroker\LeftCustomerByChangeBroker\obj\Release\net6.0\LeftCustomerByChangeBroker.csproj.CopyComplete
+C:\ETL Repos\WebApi\LeftCustomerByChangeBroker\LeftCustomerByChangeBroker\obj\Release\net6.0\LeftCustomerByChangeBroker.dll
+C:\ETL Repos\WebApi\LeftCustomerByChangeBroker\LeftCustomerByChangeBroker\obj\Release\net6.0\refint\LeftCustomerByChangeBroker.dll
+C:\ETL Repos\WebApi\LeftCustomerByChangeBroker\LeftCustomerByChangeBroker\obj\Release\net6.0\LeftCustomerByChangeBroker.pdb
+C:\ETL Repos\WebApi\LeftCustomerByChangeBroker\LeftCustomerByChangeBroker\obj\Release\net6.0\LeftCustomerByChangeBroker.genruntimeconfig.cache
+C:\ETL Repos\WebApi\LeftCustomerByChangeBroker\LeftCustomerByChangeBroker\obj\Release\net6.0\ref\LeftCustomerByChangeBroker.dll

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="HTTP Connection Manager 1"
+  DTS:DTSID="{DF402924-BA26-4348-B7B1-A888D90B5DA1}"
+  DTS:CreationName="HTTP">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="http://service.tsetmc.com/WebService/TsePublicV2.asmx?WSDL">
+      <DTS:HttpConnection
+        DTS:ServerURL="http://service.tsetmc.com/WebService/TsePublicV2.asmx?WSDL">
+        <DTS:Property
+          DTS:Name="ServerPassword"
+          Sensitive="1"></DTS:Property>
+        <DTS:Property
+          DTS:Name="ProxyPassword"
+          Sensitive="1"></DTS:Property>
+      </DTS:HttpConnection>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

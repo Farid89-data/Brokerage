@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "GetCompanyBranch/1.0.0": {
+        "dependencies": {
+          "RestSharp": "106.15.0.0"
+        },
+        "runtime": {
+          "GetCompanyBranch.dll": {}
+        }
+      },
+      "RestSharp/106.15.0.0": {
+        "runtime": {
+          "RestSharp.dll": {
+            "assemblyVersion": "106.15.0.0",
+            "fileVersion": "106.15.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GetCompanyBranch/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RestSharp/106.15.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

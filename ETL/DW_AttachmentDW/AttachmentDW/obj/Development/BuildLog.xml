@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProjectInfo>
+    <Name>AttachmentDW</Name>
+    <LastWriteTime>2020-12-13T05:39:42.4725047Z</LastWriteTime>
+    <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
+    <Salt>4O/vA2f1</Salt>
+    <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARjSITXY8pkW8SkQ+YQCu0QAAAAACAAAAAAADZgAAwAAAABAAAADiBsoCg5tDDN70XSoM/08zAAAAAASAAACgAAAAEAAAAB7PP2cFeUUtTd2T5Q4v72AoAAAAzVg4vOBfNykC27btvGUZTMCuGzGnB+BXRWQ4PG14K5nyq1ukJLAbbBQAAAD7tb4bdwfgw99vBhAEF3egdyC1ng==</LastKnownProtectedHashedPassword>
+  </ProjectInfo>
+  <LastBuildInfos>
+    <ProjectBuildItemInfo>
+      <Name>FactCustomerAttachment.dtsx</Name>
+      <LastWriteTime>2020-12-13T05:56:53.526591Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithPassword</LastKnownProtectionLevel>
+      <Salt>F9/5rkn3</Salt>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARjSITXY8pkW8SkQ+YQCu0QAAAAACAAAAAAADZgAAwAAAABAAAABLDt1PO0KSC8pIgU8YkOcXAAAAAASAAACgAAAAEAAAAOc5C0tDmkcyI83FA1jCXSooAAAAndoNDqAtvpp4q90f2JvFCaNpIDkmq2t8hsrI5ELb8vGZ+HGGCk48NhQAAACUSaOW9qS5SaVF/dqqqHxbP1qv3A==</LastKnownProtectedHashedPassword>
+    </ProjectBuildItemInfo>
+  </LastBuildInfos>
+</BuildLog>

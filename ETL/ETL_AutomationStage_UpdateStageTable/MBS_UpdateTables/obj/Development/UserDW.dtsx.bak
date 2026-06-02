@@ -1,0 +1,2740 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/6/2020 3:00:56 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="BI-APP"
+  DTS:CreatorName="BI-APP\negahbani"
+  DTS:DTSID="{564D7D40-5452-40B8-8D87-9D33EF4BD722}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.132"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="UserDW"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="49"
+  DTS:VersionGUID="{6640168A-6237-4EA4-A9EC-77D76EA7CF71}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8FA6644A-9EA7-46A6-A96A-C363A7C31E6A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="UserId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Begin Transaction"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DE32BB5E-9EEC-4BCE-9F62-EA744658C53B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Begin Transaction"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{15141950-A101-40CA-BDE3-42F82F1371C0}"
+          SQLTask:SqlStatementSource="BEGIN TRANSACTION&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Commit Transaction"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E3BF1FD3-F288-41D8-846F-96ACF5B717E3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Commit Transaction"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\Commit Transaction.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{B31BD87C-F47E-4631-86B4-3F2F01DD0C0C}"
+          DTS:EventID="1342177280"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{149C8E64-2CF7-49C4-B64C-BF1453F0A397}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables />
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{15141950-A101-40CA-BDE3-42F82F1371C0}"
+          SQLTask:SqlStatementSource="IF @@TRANCOUNT&gt;0&#xA; COMMIT TRANSACTION" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Rollback"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5c751740-0077-4975-8e12-b11b9d35bc7c}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Rollback"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{15141950-A101-40CA-BDE3-42F82F1371C0}"
+          SQLTask:SqlStatementSource="IF @@TRANCOUNT&gt;0&#xA; ROLLBACK TRANSACTION" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Send Mail - Failure"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="Script Task"
+      DTS:DTSID="{3d9f6b6a-2dd5-4388-886b-8139b00219a4}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Send Mail - Failure"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_b1ec8ae463364f1f897e7e584f830abe"
+          VSTAMajorVersion="15"
+          VSTAMinorVersion="0"
+          Language="CSharp">
+          <ProjectItem
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_c80418c59e19483d87650f93a9e8eece")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_c80418c59e19483d87650f93a9e8eece")]
+[assembly: AssemblyCopyright("Copyright @  2020")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.resx"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+          <ProjectItem
+            Name="ST_b1ec8ae463364f1f897e7e584f830abe.csproj"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2ade8c57-09c0-44e3-a254-652c598e75dd}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_c80418c59e19483d87650f93a9e8eece</RootNamespace>
+    <AssemblyName>ST_b1ec8ae463364f1f897e7e584f830abe</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="ScriptTask" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
+        <Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex=""></Host>
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST150</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
+          <ProjectItem
+            Name="ScriptMain.cs"
+            Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
+/* The Script Task allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services control flow. 
+ * 
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script task. */
+#endregion
+
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Windows.Forms;
+using System.Net.Mail;
+using System.Net;
+#endregion
+
+namespace ST_c80418c59e19483d87650f93a9e8eece
+{
+    /// <summary>
+    /// ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+    /// or parent of this class.
+    /// </summary>
+	[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+	public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+	{
+        #region Help:  Using Integration Services variables and parameters in a script
+        /* To use a variable in this script, first ensure that the variable has been added to 
+         * either the list contained in the ReadOnlyVariables property or the list contained in 
+         * the ReadWriteVariables property of this script task, according to whether or not your
+         * code needs to write to the variable.  To add the variable, save this script, close this instance of
+         * Visual Studio, and update the ReadOnlyVariables and 
+         * ReadWriteVariables properties in the Script Transformation Editor window.
+         * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+         * 
+         * Example of reading from a variable:
+         *  DateTime startTime = (DateTime) Dts.Variables["System::StartTime"].Value;
+         * 
+         * Example of writing to a variable:
+         *  Dts.Variables["User::myStringVariable"].Value = "new value";
+         * 
+         * Example of reading from a package parameter:
+         *  int batchId = (int) Dts.Variables["$Package::batchId"].Value;
+         *  
+         * Example of reading from a project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].Value;
+         * 
+         * Example of reading from a sensitive project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].GetSensitiveValue();
+         * */
+
+        #endregion
+
+        #region Help:  Firing Integration Services events from a script
+        /* This script task can fire events for logging purposes.
+         * 
+         * Example of firing an error event:
+         *  Dts.Events.FireError(18, "Process Values", "Bad value", "", 0);
+         * 
+         * Example of firing an information event:
+         *  Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, ref fireAgain)
+         * 
+         * Example of firing a warning event:
+         *  Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0);
+         * */
+        #endregion
+
+        #region Help:  Using Integration Services connection managers in a script
+        /* Some types of connection managers can be used in this script task.  See the topic 
+         * "Working with Connection Managers Programatically" for details.
+         * 
+         * Example of using an ADO.Net connection manager:
+         *  object rawConnection = Dts.Connections["Sales DB"].AcquireConnection(Dts.Transaction);
+         *  SqlConnection myADONETConnection = (SqlConnection)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Sales DB"].ReleaseConnection(rawConnection);
+         *
+         * Example of using a File connection manager
+         *  object rawConnection = Dts.Connections["Prices.zip"].AcquireConnection(Dts.Transaction);
+         *  string filePath = (string)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Prices.zip"].ReleaseConnection(rawConnection);
+         * */
+        #endregion
+
+
+		/// <summary>
+        /// This method is called when this script task executes in the control flow.
+        /// Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+        /// To open Help, press F1.
+        /// </summary>
+		public void Main()
+		{
+            var fromAddress = new MailAddress("mobinbireporter@gmail.com", "MobinSb Bi Reporter");
+            var toAddress = new MailAddress("ms.ngb.1398@gmail.com", "");
+            var toaddress2 = new MailAddress("mojtababmobin@gmail.com", "");
+
+
+            const string fromPassword = "M0BinSsi$2021FrMb!@#";
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromAddress.Address, fromPassword),
+                Timeout = 20000
+            };
+            MailMessage mailmsg = new MailMessage();
+            mailmsg.IsBodyHtml = true;
+            mailmsg.Subject = "*MSB_TableUpdate/UserDW* Failed";
+            mailmsg.Body = "This is to notify you that *MSB_TableUpdate/UserDW* Table Updated Unsuccessfully :(";
+            mailmsg.From = new MailAddress(fromAddress.ToString());
+            mailmsg.To.Add(toAddress);
+            {
+                smtp.Send(mailmsg);
+            }
+
+            Dts.TaskResult = (int)ScriptResults.Success;
+		}
+
+        #region ScriptResults declaration
+        /// <summary>
+        /// This enum provides a convenient shorthand within the scope of this class for setting the
+        /// result of the script.
+        /// 
+        /// This code was generated automatically.
+        /// </summary>
+        enum ScriptResults
+        {
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+        #endregion
+
+	}
+}]]></ProjectItem>
+          <ProjectItem
+            Name="Project"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_b1ec8ae463364f1f897e7e584f830abe</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_b1ec8ae463364f1f897e7e584f830abe</msb:DisplayName>
+    <msb:ProjectId>{57AAB9DE-525C-454A-AF60-0A1ED6455D43}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_b1ec8ae463364f1f897e7e584f830abe.csproj" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="ScriptMain.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_c80418c59e19483d87650f93a9e8eece.Properties.Settings.get_Default():ST_c80418c59e19483d87650f93a9e8eece.Properties.Sett" +
+    "ings")]
+
+namespace ST_c80418c59e19483d87650f93a9e8eece.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_c80418c59e19483d87650f93a9e8eece.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_c80418c59e19483d87650f93a9e8eece.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_c80418c59e19483d87650f93a9e8eece.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_c80418c59e19483d87650f93a9e8eece.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_c80418c59e19483d87650f93a9e8eece.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <BinaryItem
+            Name="ST_b1ec8ae463364f1f897e7e584f830abe.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAK90RGAAAAAAAAAAAOAAIiALATAAABIAAAAIAAAAAAAAyjEA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAHgxAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAA0BEAAAAgAAAAEgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAHgEAAAAQAAAAAYAAAAUAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAGgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAACs
+MQAAAAAAAEgAAAACAAUAmCEAACgPAAABAAAAAAAAAMAwAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwBADUAAAAAQAAEXIBAABwcjUAAHBzEAAACgpyXQAAcHKJ
+AABwcxAAAAoLcosAAHByiQAAcHMQAAAKJnMRAAAKJXK7AABwbxIAAAolIEsCAABvEwAACiUXbxQA
+AAolFm8VAAAKJRZvFgAACiUGbxcAAApy2QAAcHMYAAAKbxkAAAolICBOAABvGgAACnMbAAAKDAgX
+bxwAAAoIcgMBAHBvHQAACghyQwEAcG8eAAAKCAZvHwAACnMgAAAKbyEAAAoIbyIAAAoHbyMAAAoI
+byQAAAoCKCUAAAoWbyYAAAoqHgIoJwAACioeAigoAAAKKq5+AQAABC0ecuwBAHDQAwAAAigpAAAK
+byoAAApzKwAACoABAAAEfgEAAAQqGn4CAAAEKh4CgAIAAAQqGn4DAAAEKh4CKCwAAAoqLnMIAAAG
+gAMAAAQqAABCU0pCAQABAAAAAAAMAAAAdjQuMC4zMDMxOQAAAAAFAGwAAAA4BAAAI34AAKQEAACA
+BgAAI1N0cmluZ3MAAAAAJAsAAGACAAAjVVMAhA0AABAAAAAjR1VJRAAAAJQNAACUAQAAI0Jsb2IA
+AAAAAAAAAgAAAVcdogkJAwAAAPoBMwAWAAABAAAAIwAAAAUAAAAGAAAACQAAAAEAAAAsAAAAAgAA
+ABAAAAABAAAAAgAAAAMAAAAEAAAAAQAAAAEAAAADAAAAAQAAAAEAAAAAANADAQAAAAAABgBJAtoE
+BgDYAtoEBgCVAccEDwBOBQAABgDCAWsEBgAsAmsEBgANAmsEBgC/AmsEBgBpAmsEBgCCAmsEBgDZ
+AWsEBgD0AfwCCgCdAj4DCgAUAT4DDgDTBcADDgCvAMADBgAlBBUEBgB4AccEBgD1BRUEBgCqBPoE
+BgCaBFYEDgBIAaoDDgCpAaoDDgAwAUEEBgBdAdoEDgAuBsADDgBEAMADDgBnAwgGDgBLBggGDgB9
+BMADBgABAHkDCgCYAz4DBgDfABUEBgC7ABUEBgB3BmsEAAAAAA4AAAAAAAEAAQABABAANgR7ADkA
+AQABAAAAEAABBV0FTQABAAMAAAEQAIwFXQVhAAMABwADAQAA5wUAAEUABAAKABEAKgSWABEABAGa
+ABEAnwCeAAYGFwCiAFaAvwWlAFaA5AClAFAgAAAAAIYAPAQGAAEAMCEAAAAAhhi6BAYAAQA4IQAA
+AACDGLoEBgABAEAhAAAAAJMIpgSpAAEAbCEAAAAAkwjsAK4AAQBzIQAAAACTCPgAswABAHshAAAA
+AJYIEwa5AAIAgiEAAAAAhhi6BAYAAgCKIQAAAACRGMAEvgACAAAAAQD2AgkAugQBABEAugQGABkA
+ugQKACkAugQQADEAugQQADkAugQQAEEAugQQAEkAugQQAFEAugQQAFkAugQQAGEAugQQAGkAugQG
+AJEAugQGALkAugQVAMkAugQGAHkAugQkANEAugQGANEAQgYQANEAOQYBANEABwQqANEAMQAvANEA
+pQUqAHkAxwU1AOEAugQkANEAlQU5ANEAXgYBAIEAugQGAIEA+AMqAIEA/AUQAIEAagYQAJkAFgM1
+AHkAugQQAIEAHAQ/AIEAkwRFAAwAKABRANEALABXAHEA3wVdAAEBHwYBAHEAugQGAJkAugQGAAkB
+zQBjAAkBcwZsAKEAugRyAMEAugQGAAgAFACMAAgAGACRACkAcwD5AC4ACwDRAC4AEwDaAC4AGwD5
+AC4AIwACAS4AKwArAS4AMwArAS4AOwArAS4AQwACAS4ASwAxAS4AUwArAS4AWwBIAUMAYwCRAEkA
+cwD5AGEAewCRAGMAawCRABsAAwABAAQAAwAAAKoEwgAAAAwBxwAAABcGzAACAAQAAwACAAUABQAB
+AAYABQACAAcABwBKAASAAAABAAAAOB4zRwAAAAAAAFcAAAAEAAAAAAAAAAAAAAB6AB8AAAAAAA8A
+AAAAAAAAAAAAAIMAHwMAAAAABAAAAAAAAAAAAAAAegAVBAAAAAAAAAAAAQAAAAsFAAAFAAIAAAAA
+Q29sbGVjdGlvbmAxADxNb2R1bGU+AHZhbHVlX18AbXNjb3JsaWIAQWRkAFNlbmQAc2V0X0RlbGl2
+ZXJ5TWV0aG9kAFNtdHBEZWxpdmVyeU1ldGhvZABTVF9iMWVjOGFlNDYzMzY0ZjFmODk3ZTdlNTg0
+ZjgzMGFiZQBTVF9jODA0MThjNTllMTk0ODNkODc2NTBmOTNhOWU4ZWVjZQBkZWZhdWx0SW5zdGFu
+Y2UATWFpbE1lc3NhZ2UAUnVudGltZVR5cGVIYW5kbGUAR2V0VHlwZUZyb21IYW5kbGUAVHlwZQBG
+YWlsdXJlAGdldF9DdWx0dXJlAHNldF9DdWx0dXJlAHJlc291cmNlQ3VsdHVyZQBWU1RBUlRTY3Jp
+cHRPYmplY3RNb2RlbEJhc2UAQXBwbGljYXRpb25TZXR0aW5nc0Jhc2UARWRpdG9yQnJvd3NhYmxl
+U3RhdGUAQ29tcGlsZXJHZW5lcmF0ZWRBdHRyaWJ1dGUARGVidWdnZXJOb25Vc2VyQ29kZUF0dHJp
+YnV0ZQBEZWJ1Z2dhYmxlQXR0cmlidXRlAEVkaXRvckJyb3dzYWJsZUF0dHJpYnV0ZQBBc3NlbWJs
+eVRpdGxlQXR0cmlidXRlAEFzc2VtYmx5VHJhZGVtYXJrQXR0cmlidXRlAFRhcmdldEZyYW1ld29y
+a0F0dHJpYnV0ZQBBc3NlbWJseUNvbmZpZ3VyYXRpb25BdHRyaWJ1dGUAQXNzZW1ibHlEZXNjcmlw
+dGlvbkF0dHJpYnV0ZQBDb21waWxhdGlvblJlbGF4YXRpb25zQXR0cmlidXRlAEFzc2VtYmx5UHJv
+ZHVjdEF0dHJpYnV0ZQBBc3NlbWJseUNvcHlyaWdodEF0dHJpYnV0ZQBTU0lTU2NyaXB0VGFza0Vu
+dHJ5UG9pbnRBdHRyaWJ1dGUAQXNzZW1ibHlDb21wYW55QXR0cmlidXRlAFJ1bnRpbWVDb21wYXRp
+YmlsaXR5QXR0cmlidXRlAHZhbHVlAFN5c3RlbS5SdW50aW1lLlZlcnNpb25pbmcAVG9TdHJpbmcA
+TWljcm9zb2Z0LlNxbFNlcnZlci5TY3JpcHRUYXNrAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlRh
+c2tzLlNjcmlwdFRhc2sATmV0d29ya0NyZWRlbnRpYWwAU3lzdGVtLkNvbGxlY3Rpb25zLk9iamVj
+dE1vZGVsAFNjcmlwdE9iamVjdE1vZGVsAFN5c3RlbS5Db21wb25lbnRNb2RlbABTeXN0ZW0uTmV0
+Lk1haWwAU1RfYjFlYzhhZTQ2MzM2NGYxZjg5N2U3ZTU4NGY4MzBhYmUuZGxsAHNldF9Jc0JvZHlI
+dG1sAHNldF9FbmFibGVTc2wAU3lzdGVtAHNldF9Gcm9tAEVudW0AcmVzb3VyY2VNYW4AU2NyaXB0
+TWFpbgBTeXN0ZW0uQ29uZmlndXJhdGlvbgBTeXN0ZW0uR2xvYmFsaXphdGlvbgBTeXN0ZW0uUmVm
+bGVjdGlvbgBNYWlsQWRkcmVzc0NvbGxlY3Rpb24AZ2V0X1RvAEN1bHR1cmVJbmZvAGdldF9SZXNv
+dXJjZU1hbmFnZXIALmN0b3IALmNjdG9yAFN5c3RlbS5EaWFnbm9zdGljcwBTeXN0ZW0uUnVudGlt
+ZS5Db21waWxlclNlcnZpY2VzAFN5c3RlbS5SZXNvdXJjZXMAU1RfYzgwNDE4YzU5ZTE5NDgzZDg3
+NjUwZjkzYTllOGVlY2UuUHJvcGVydGllcy5SZXNvdXJjZXMucmVzb3VyY2VzAERlYnVnZ2luZ01v
+ZGVzAFNUX2M4MDQxOGM1OWUxOTQ4M2Q4NzY1MGY5M2E5ZThlZWNlLlByb3BlcnRpZXMAU2V0dGlu
+Z3MAc2V0X0NyZWRlbnRpYWxzAHNldF9Vc2VEZWZhdWx0Q3JlZGVudGlhbHMAU3VjY2VzcwBnZXRf
+QWRkcmVzcwBNYWlsQWRkcmVzcwBnZXRfRHRzAFNjcmlwdFJlc3VsdHMAT2JqZWN0AHNldF9TdWJq
+ZWN0AFN5c3RlbS5OZXQAZ2V0X0RlZmF1bHQAc2V0X1Rhc2tSZXN1bHQAU210cENsaWVudABzZXRf
+UG9ydABzZXRfSG9zdABJQ3JlZGVudGlhbHNCeUhvc3QAc2V0X1RpbWVvdXQAc2V0X0JvZHkAZ2V0
+X0Fzc2VtYmx5AAAzbQBvAGIAaQBuAGIAaQByAGUAcABvAHIAdABlAHIAQABnAG0AYQBpAGwALgBj
+AG8AbQAAJ00AbwBiAGkAbgBTAGIAIABCAGkAIABSAGUAcABvAHIAdABlAHIAACttAHMALgBuAGcA
+YgAuADEAMwA5ADgAQABnAG0AYQBpAGwALgBjAG8AbQAAAQAvbQBvAGoAdABhAGIAYQBiAG0AbwBi
+AGkAbgBAAGcAbQBhAGkAbAAuAGMAbwBtAAAdcwBtAHQAcAAuAGcAbQBhAGkAbAAuAGMAbwBtAAAp
+TQAwAEIAaQBuAFMAcwBpACQAMgAwADIAMQBGAHIATQBiACEAQAAjAAA/KgBNAFMAQgBfAFQAYQBi
+AGwAZQBVAHAAZABhAHQAZQAvAFUAcwBlAHIARABXACoAIABGAGEAaQBsAGUAZAAAgKdUAGgAaQBz
+ACAAaQBzACAAdABvACAAbgBvAHQAaQBmAHkAIAB5AG8AdQAgAHQAaABhAHQAIAAqAE0AUwBCAF8A
+VABhAGIAbABlAFUAcABkAGEAdABlAC8AVQBzAGUAcgBEAFcAKgAgAFQAYQBiAGwAZQAgAFUAcABk
+AGEAdABlAGQAIABVAG4AcwB1AGMAYwBlAHMAcwBmAHUAbABsAHkAIAA6ACgAAHFTAFQAXwBjADgA
+MAA0ADEAOABjADUAOQBlADEAOQA0ADgAMwBkADgANwA2ADUAMABmADkAMwBhADkAZQA4AGUAZQBj
+AGUALgBQAHIAbwBwAGUAcgB0AGkAZQBzAC4AUgBlAHMAbwB1AHIAYwBlAHMAAAAAbD9cSC5+L0Oi
+NW2neWqp9gAEIAEBCAMgAAEFIAEBEREEIAEBDgUgAQERWQgHAxI9Ej0SQQUgAgEODgQgAQECBSAB
+ARFtAyAADgUgAQESdQUgAQESPQQgABJ5BhUSfQESPQUgAQETAAUgAQESQQUgABKAgQgAARKAhRGA
+iQUgABKAjQcgAgEOEoCNCLd6XFYZNOCJCImEXc2AgMyRBAAAAAAEAQAAAAMGElEDBhJVAwYSEAIG
+CAMGERQEAAASUQQAABJVBQABARJVBAAAEhADAAABBAgAElEECAASVQQIABIQCAEACAAAAAAAHgEA
+AQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAAACgBACNTVF9jODA0MThjNTllMTk0
+ODNkODc2NTBmOTNhOWU4ZWVjZQAABQEAAAAAFgEAEUNvcHlyaWdodCBAICAyMDIwAABJAQAaLk5F
+VEZyYW1ld29yayxWZXJzaW9uPXY0LjcBAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEi5ORVQgRnJh
+bWV3b3JrIDQuNwAAtAAAAM7K774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVh
+ZGVyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tl
+eVRva2VuPWI3N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VT
+ZXQCAAAAAAAAAAAAAABQQURQQURQtAAAAKAxAAAAAAAAAAAAALoxAAAAIAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAACsMQAAAAAAAAAAAAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAAAAD/JQAgABAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAEAEAAAABgAAIAAAAAAAAAAAAAAAAAAAAEAAQAAADAAAIAAAAAAAAAAAAAAAAAAAAEAAAAA
+AEgAAABYQAAAGgQAAAAAAAAAAAAAGgQ0AAAAVgBTAF8AVgBFAFIAUwBJAE8ATgBfAEkATgBGAE8A
+AAAAAL0E7/4AAAEAAAABADNHOB4AAAEAM0c4Hj8AAAAAAAAABAAAAAIAAAAAAAAAAAAAAAAAAABE
+AAAAAQBWAGEAcgBGAGkAbABlAEkAbgBmAG8AAAAAACQABAAAAFQAcgBhAG4AcwBsAGEAdABpAG8A
+bgAAAAAAAACwBHoDAAABAFMAdAByAGkAbgBnAEYAaQBsAGUASQBuAGYAbwAAAFYDAAABADAAMAAw
+ADAAMAA0AGIAMAAAABoAAQABAEMAbwBtAG0AZQBuAHQAcwAAAAAAAAAiAAEAAQBDAG8AbQBwAGEA
+bgB5AE4AYQBtAGUAAAAAAAAAAABwACQAAQBGAGkAbABlAEQAZQBzAGMAcgBpAHAAdABpAG8AbgAA
+AAAAUwBUAF8AYwA4ADAANAAxADgAYwA1ADkAZQAxADkANAA4ADMAZAA4ADcANgA1ADAAZgA5ADMA
+YQA5AGUAOABlAGUAYwBlAAAAPgAPAAEARgBpAGwAZQBWAGUAcgBzAGkAbwBuAAAAAAAxAC4AMAAu
+ADcANwAzADYALgAxADgAMgAyADcAAAAAAHAAKAABAEkAbgB0AGUAcgBuAGEAbABOAGEAbQBlAAAA
+UwBUAF8AYgAxAGUAYwA4AGEAZQA0ADYAMwAzADYANABmADEAZgA4ADkANwBlADcAZQA1ADgANABm
+ADgAMwAwAGEAYgBlAC4AZABsAGwAAABIABIAAQBMAGUAZwBhAGwAQwBvAHAAeQByAGkAZwBoAHQA
+AABDAG8AcAB5AHIAaQBnAGgAdAAgAEAAIAAgADIAMAAyADAAAAAqAAEAAQBMAGUAZwBhAGwAVABy
+AGEAZABlAG0AYQByAGsAcwAAAAAAAAAAAHgAKAABAE8AcgBpAGcAaQBuAGEAbABGAGkAbABlAG4A
+YQBtAGUAAABTAFQAXwBiADEAZQBjADgAYQBlADQANgAzADMANgA0AGYAMQBmADgAOQA3AGUANwBl
+ADUAOAA0AGYAOAAzADAAYQBiAGUALgBkAGwAbAAAAGgAJAABAFAAcgBvAGQAdQBjAHQATgBhAG0A
+ZQAAAAAAUwBUAF8AYwA4ADAANAAxADgAYwA1ADkAZQAxADkANAA4ADMAZAA4ADcANgA1ADAAZgA5
+ADMAYQA5AGUAOABlAGUAYwBlAAAAQgAPAAEAUAByAG8AZAB1AGMAdABWAGUAcgBzAGkAbwBuAAAA
+MQAuADAALgA3ADcAMwA2AC4AMQA4ADIAMgA3AAAAAABGAA8AAQBBAHMAcwBlAG0AYgBsAHkAIABW
+AGUAcgBzAGkAbwBuAAAAMQAuADAALgA3ADcAMwA2AC4AMQA4ADIAMgA3AAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAADAAAAMwxAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
+        </ScriptProject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Send Mail - Succssed"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="Script Task"
+      DTS:DTSID="{02178226-e198-43f9-b9dd-f0d3dc455500}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Send Mail - Succssed"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_4be54e7beb73477ead5c96204f188ab7"
+          VSTAMajorVersion="15"
+          VSTAMinorVersion="0"
+          Language="CSharp">
+          <ProjectItem
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.resx"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+          <ProjectItem
+            Name="ST_4be54e7beb73477ead5c96204f188ab7.csproj"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2ade8c57-09c0-44e3-a254-652c598e75dd}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_c80418c59e19483d87650f93a9e8eece</RootNamespace>
+    <AssemblyName>ST_4be54e7beb73477ead5c96204f188ab7</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="ScriptTask" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
+        <Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex=""></Host>
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST150</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
+          <ProjectItem
+            Name="ScriptMain.cs"
+            Encoding="UTF8"><![CDATA[ #region Help:  Introduction to the script task
+/* The Script Task allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services control flow. 
+ * 
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script task. */
+#endregion
+
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Windows.Forms;
+using System.Net.Mail;
+using System.Net;
+#endregion
+
+namespace ST_c80418c59e19483d87650f93a9e8eece
+{
+    /// <summary>
+    /// ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+    /// or parent of this class.
+    /// </summary>
+	[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+	public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+	{
+        #region Help:  Using Integration Services variables and parameters in a script
+        /* To use a variable in this script, first ensure that the variable has been added to 
+         * either the list contained in the ReadOnlyVariables property or the list contained in 
+         * the ReadWriteVariables property of this script task, according to whether or not your
+         * code needs to write to the variable.  To add the variable, save this script, close this instance of
+         * Visual Studio, and update the ReadOnlyVariables and 
+         * ReadWriteVariables properties in the Script Transformation Editor window.
+         * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+         * 
+         * Example of reading from a variable:
+         *  DateTime startTime = (DateTime) Dts.Variables["System::StartTime"].Value;
+         * 
+         * Example of writing to a variable:
+         *  Dts.Variables["User::myStringVariable"].Value = "new value";
+         * 
+         * Example of reading from a package parameter:
+         *  int batchId = (int) Dts.Variables["$Package::batchId"].Value;
+         *  
+         * Example of reading from a project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].Value;
+         * 
+         * Example of reading from a sensitive project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].GetSensitiveValue();
+         * */
+
+        #endregion
+
+        #region Help:  Firing Integration Services events from a script
+        /* This script task can fire events for logging purposes.
+         * 
+         * Example of firing an error event:
+         *  Dts.Events.FireError(18, "Process Values", "Bad value", "", 0);
+         * 
+         * Example of firing an information event:
+         *  Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, ref fireAgain)
+         * 
+         * Example of firing a warning event:
+         *  Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0);
+         * */
+        #endregion
+
+        #region Help:  Using Integration Services connection managers in a script
+        /* Some types of connection managers can be used in this script task.  See the topic 
+         * "Working with Connection Managers Programatically" for details.
+         * 
+         * Example of using an ADO.Net connection manager:
+         *  object rawConnection = Dts.Connections["Sales DB"].AcquireConnection(Dts.Transaction);
+         *  SqlConnection myADONETConnection = (SqlConnection)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Sales DB"].ReleaseConnection(rawConnection);
+         *
+         * Example of using a File connection manager
+         *  object rawConnection = Dts.Connections["Prices.zip"].AcquireConnection(Dts.Transaction);
+         *  string filePath = (string)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Prices.zip"].ReleaseConnection(rawConnection);
+         * */
+        #endregion
+
+
+		/// <summary>
+        /// This method is called when this script task executes in the control flow.
+        /// Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+        /// To open Help, press F1.
+        /// </summary>
+		public void Main()
+		{
+            var fromAddress = new MailAddress("mobinbireporter@gmail.com", "MobinSb Bi Reporter");
+            var toAddress = new MailAddress("ms.ngb.1398@gmail.com", "");
+            var toaddress2 = new MailAddress("mojtababmobin@gmail.com", "");
+
+            const string fromPassword = "M0BinSsi$2021FrMb!@#";
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromAddress.Address, fromPassword),
+                Timeout = 20000
+            };
+            MailMessage mailmsg = new MailMessage();
+            mailmsg.IsBodyHtml = true;
+            mailmsg.Subject = "*MSB_TableUpdate/UserDW* Succeed";
+            mailmsg.Body = "This is to notify you that *MSB_TableUpdate/UserDW* Table Updated Successfully :)";
+            mailmsg.From = new MailAddress(fromAddress.ToString());
+            mailmsg.To.Add(toAddress);
+            mailmsg.To.Add(toaddress2);
+            {
+                smtp.Send(mailmsg);
+            }
+
+            Dts.TaskResult = (int)ScriptResults.Success;
+		}
+
+        #region ScriptResults declaration
+        /// <summary>
+        /// This enum provides a convenient shorthand within the scope of this class for setting the
+        /// result of the script.
+        /// 
+        /// This code was generated automatically.
+        /// </summary>
+        enum ScriptResults
+        {
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+        #endregion
+
+	}
+}]]></ProjectItem>
+          <ProjectItem
+            Name="Project"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_4be54e7beb73477ead5c96204f188ab7</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_4be54e7beb73477ead5c96204f188ab7</msb:DisplayName>
+    <msb:ProjectId>{90AA5A93-38BC-407C-88D8-FB5C1F210487}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_4be54e7beb73477ead5c96204f188ab7.csproj" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="ScriptMain.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_c80418c59e19483d87650f93a9e8eece.Properties.Settings.get_Default():ST_c80418c59e19483d87650f93a9e8eece.Properties.Sett" +
+    "ings")]
+
+namespace ST_c80418c59e19483d87650f93a9e8eece.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_c80418c59e19483d87650f93a9e8eece")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_c80418c59e19483d87650f93a9e8eece")]
+[assembly: AssemblyCopyright("Copyright @  2020")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_c80418c59e19483d87650f93a9e8eece.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_c80418c59e19483d87650f93a9e8eece.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_c80418c59e19483d87650f93a9e8eece.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_c80418c59e19483d87650f93a9e8eece.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_c80418c59e19483d87650f93a9e8eece.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <BinaryItem
+            Name="ST_4be54e7beb73477ead5c96204f188ab7.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAJJ0RGAAAAAAAAAAAOAAIiALATAAABIAAAAIAAAAAAAA0jEA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAIAxAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAA2BEAAAAgAAAAEgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAHgEAAAAQAAAAAYAAAAUAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAGgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAAC0
+MQAAAAAAAEgAAAACAAUApCEAACQPAAABAAAAAAAAAMgwAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwBADgAAAAAQAAEXIBAABwcjUAAHBzEAAACgpyXQAAcHKJ
+AABwcxAAAAoLcosAAHByiQAAcHMQAAAKDHMRAAAKJXK7AABwbxIAAAolIEsCAABvEwAACiUXbxQA
+AAolFm8VAAAKJRZvFgAACiUGbxcAAApy2QAAcHMYAAAKbxkAAAolICBOAABvGgAACnMbAAAKDQkX
+bxwAAAoJcgMBAHBvHQAACglyRQEAcG8eAAAKCQZvHwAACnMgAAAKbyEAAAoJbyIAAAoHbyMAAAoJ
+byIAAAoIbyMAAAoJbyQAAAoCKCUAAAoWbyYAAAoqHgIoJwAACioeAigoAAAKKq5+AQAABC0ecuoB
+AHDQAwAAAigpAAAKbyoAAApzKwAACoABAAAEfgEAAAQqGn4CAAAEKh4CgAIAAAQqGn4DAAAEKh4C
+KCwAAAoqLnMIAAAGgAMAAAQqAABCU0pCAQABAAAAAAAMAAAAdjQuMC4zMDMxOQAAAAAFAGwAAAA4
+BAAAI34AAKQEAACABgAAI1N0cmluZ3MAAAAAJAsAAFwCAAAjVVMAgA0AABAAAAAjR1VJRAAAAJAN
+AACUAQAAI0Jsb2IAAAAAAAAAAgAAAVcdogkJAwAAAPoBMwAWAAABAAAAIwAAAAUAAAAGAAAACQAA
+AAEAAAAsAAAAAgAAABAAAAABAAAAAgAAAAMAAAAEAAAAAQAAAAEAAAADAAAAAQAAAAEAAAAAANAD
+AQAAAAAABgBJAtoEBgDYAtoEBgCVAccEDwBOBQAABgDCAWsEBgAsAmsEBgANAmsEBgC/AmsEBgBp
+AmsEBgCCAmsEBgDZAWsEBgD0AfwCCgCdAj4DCgAUAT4DDgDTBcADDgCvAMADBgAlBBUEBgB4AccE
+BgD1BRUEBgCqBPoEBgCaBFYEDgBIAaoDDgCpAaoDDgAwAUEEBgBdAdoEDgAuBsADDgBoAMADDgBn
+AwgGDgBLBggGDgB9BMADBgABAHkDCgCYAz4DBgDfABUEBgC7ABUEBgB3BmsEAAAAADIAAAAAAAEA
+AQABABAANgR7ADkAAQABAAAAEAABBV0FTQABAAMAAAEQAIwFXQVhAAMABwADAQAA5wUAAEUABAAK
+ABEAKgSYABEABAGcABEAnwCgAAYGOwCkAFaAvwWnAFaA5ACnAFAgAAAAAIYAPAQGAAEAPCEAAAAA
+hhi6BAYAAQBEIQAAAACDGLoEBgABAEwhAAAAAJMIpgSrAAEAeCEAAAAAkwjsALAAAQB/IQAAAACT
+CPgAtQABAIchAAAAAJYIEwa7AAIAjiEAAAAAhhi6BAYAAgCWIQAAAACRGMAEwAACAAAAAQD2AgkA
+ugQBABEAugQGABkAugQKACkAugQQADEAugQQADkAugQQAEEAugQQAEkAugQQAFEAugQQAFkAugQQ
+AGEAugQQAGkAugQGAJEAugQGALkAugQVAMkAugQGAHkAugQmANEAugQGANEAQgYQANEAOQYBANEA
+BwQsANEAVQAxANEApQUsAHkAxwU3AOEAugQmANEAlQU7ANEAXgYBAIEAugQGAIEA+AMsAIEA/AUQ
+AIEAagYQAJkAFgM3AHkAugQQAIEAHARBAIEAkwRHAAwATABTANEAUABZAHEA3wVfAAEBHwYBAHEA
+ugQGAJkAugQGAAkBzQBlAAkBcwZuAKEAugR0AMEAugQGAAgAFACOAAgAGACTACkAcwD7AC4ACwDT
+AC4AEwDcAC4AGwD7AC4AIwAEAS4AKwAtAS4AMwAtAS4AOwAtAS4AQwAEAS4ASwAzAS4AUwAtAS4A
+WwBKAUMAYwCTAEkAcwD7AGEAewCTAGMAawCTABsAAwABAAQAAwAAAKoExAAAAAwByQAAABcGzgAC
+AAQAAwACAAUABQABAAYABQACAAcABwBMAASAAAABAAAAOB4lRwAAAAAAAA4AAAAEAAAAAAAAAAAA
+AAB8AEMAAAAAAA8AAAAAAAAAAAAAAIUAHwMAAAAABAAAAAAAAAAAAAAAfAAVBAAAAAAAAAAAAQAA
+AAsFAAAFAAIAAAAAQ29sbGVjdGlvbmAxAFNUXzRiZTU0ZTdiZWI3MzQ3N2VhZDVjOTYyMDRmMTg4
+YWI3ADxNb2R1bGU+AHZhbHVlX18AbXNjb3JsaWIAQWRkAFNlbmQAc2V0X0RlbGl2ZXJ5TWV0aG9k
+AFNtdHBEZWxpdmVyeU1ldGhvZABTVF9jODA0MThjNTllMTk0ODNkODc2NTBmOTNhOWU4ZWVjZQBk
+ZWZhdWx0SW5zdGFuY2UATWFpbE1lc3NhZ2UAUnVudGltZVR5cGVIYW5kbGUAR2V0VHlwZUZyb21I
+YW5kbGUAVHlwZQBGYWlsdXJlAGdldF9DdWx0dXJlAHNldF9DdWx0dXJlAHJlc291cmNlQ3VsdHVy
+ZQBWU1RBUlRTY3JpcHRPYmplY3RNb2RlbEJhc2UAQXBwbGljYXRpb25TZXR0aW5nc0Jhc2UARWRp
+dG9yQnJvd3NhYmxlU3RhdGUAQ29tcGlsZXJHZW5lcmF0ZWRBdHRyaWJ1dGUARGVidWdnZXJOb25V
+c2VyQ29kZUF0dHJpYnV0ZQBEZWJ1Z2dhYmxlQXR0cmlidXRlAEVkaXRvckJyb3dzYWJsZUF0dHJp
+YnV0ZQBBc3NlbWJseVRpdGxlQXR0cmlidXRlAEFzc2VtYmx5VHJhZGVtYXJrQXR0cmlidXRlAFRh
+cmdldEZyYW1ld29ya0F0dHJpYnV0ZQBBc3NlbWJseUNvbmZpZ3VyYXRpb25BdHRyaWJ1dGUAQXNz
+ZW1ibHlEZXNjcmlwdGlvbkF0dHJpYnV0ZQBDb21waWxhdGlvblJlbGF4YXRpb25zQXR0cmlidXRl
+AEFzc2VtYmx5UHJvZHVjdEF0dHJpYnV0ZQBBc3NlbWJseUNvcHlyaWdodEF0dHJpYnV0ZQBTU0lT
+U2NyaXB0VGFza0VudHJ5UG9pbnRBdHRyaWJ1dGUAQXNzZW1ibHlDb21wYW55QXR0cmlidXRlAFJ1
+bnRpbWVDb21wYXRpYmlsaXR5QXR0cmlidXRlAHZhbHVlAFN5c3RlbS5SdW50aW1lLlZlcnNpb25p
+bmcAVG9TdHJpbmcATWljcm9zb2Z0LlNxbFNlcnZlci5TY3JpcHRUYXNrAE1pY3Jvc29mdC5TcWxT
+ZXJ2ZXIuRHRzLlRhc2tzLlNjcmlwdFRhc2sATmV0d29ya0NyZWRlbnRpYWwAU3lzdGVtLkNvbGxl
+Y3Rpb25zLk9iamVjdE1vZGVsAFNjcmlwdE9iamVjdE1vZGVsAFN5c3RlbS5Db21wb25lbnRNb2Rl
+bABTeXN0ZW0uTmV0Lk1haWwAU1RfNGJlNTRlN2JlYjczNDc3ZWFkNWM5NjIwNGYxODhhYjcuZGxs
+AHNldF9Jc0JvZHlIdG1sAHNldF9FbmFibGVTc2wAU3lzdGVtAHNldF9Gcm9tAEVudW0AcmVzb3Vy
+Y2VNYW4AU2NyaXB0TWFpbgBTeXN0ZW0uQ29uZmlndXJhdGlvbgBTeXN0ZW0uR2xvYmFsaXphdGlv
+bgBTeXN0ZW0uUmVmbGVjdGlvbgBNYWlsQWRkcmVzc0NvbGxlY3Rpb24AZ2V0X1RvAEN1bHR1cmVJ
+bmZvAGdldF9SZXNvdXJjZU1hbmFnZXIALmN0b3IALmNjdG9yAFN5c3RlbS5EaWFnbm9zdGljcwBT
+eXN0ZW0uUnVudGltZS5Db21waWxlclNlcnZpY2VzAFN5c3RlbS5SZXNvdXJjZXMAU1RfYzgwNDE4
+YzU5ZTE5NDgzZDg3NjUwZjkzYTllOGVlY2UuUHJvcGVydGllcy5SZXNvdXJjZXMucmVzb3VyY2Vz
+AERlYnVnZ2luZ01vZGVzAFNUX2M4MDQxOGM1OWUxOTQ4M2Q4NzY1MGY5M2E5ZThlZWNlLlByb3Bl
+cnRpZXMAU2V0dGluZ3MAc2V0X0NyZWRlbnRpYWxzAHNldF9Vc2VEZWZhdWx0Q3JlZGVudGlhbHMA
+U3VjY2VzcwBnZXRfQWRkcmVzcwBNYWlsQWRkcmVzcwBnZXRfRHRzAFNjcmlwdFJlc3VsdHMAT2Jq
+ZWN0AHNldF9TdWJqZWN0AFN5c3RlbS5OZXQAZ2V0X0RlZmF1bHQAc2V0X1Rhc2tSZXN1bHQAU210
+cENsaWVudABzZXRfUG9ydABzZXRfSG9zdABJQ3JlZGVudGlhbHNCeUhvc3QAc2V0X1RpbWVvdXQA
+c2V0X0JvZHkAZ2V0X0Fzc2VtYmx5AAAzbQBvAGIAaQBuAGIAaQByAGUAcABvAHIAdABlAHIAQABn
+AG0AYQBpAGwALgBjAG8AbQAAJ00AbwBiAGkAbgBTAGIAIABCAGkAIABSAGUAcABvAHIAdABlAHIA
+ACttAHMALgBuAGcAYgAuADEAMwA5ADgAQABnAG0AYQBpAGwALgBjAG8AbQAAAQAvbQBvAGoAdABh
+AGIAYQBiAG0AbwBiAGkAbgBAAGcAbQBhAGkAbAAuAGMAbwBtAAAdcwBtAHQAcAAuAGcAbQBhAGkA
+bAAuAGMAbwBtAAApTQAwAEIAaQBuAFMAcwBpACQAMgAwADIAMQBGAHIATQBiACEAQAAjAABBKgBN
+AFMAQgBfAFQAYQBiAGwAZQBVAHAAZABhAHQAZQAvAFUAcwBlAHIARABXACoAIABTAHUAYwBjAGUA
+ZQBkAACAo1QAaABpAHMAIABpAHMAIAB0AG8AIABuAG8AdABpAGYAeQAgAHkAbwB1ACAAdABoAGEA
+dAAgACoATQBTAEIAXwBUAGEAYgBsAGUAVQBwAGQAYQB0AGUALwBVAHMAZQByAEQAVwAqACAAVABh
+AGIAbABlACAAVQBwAGQAYQB0AGUAZAAgAFMAdQBjAGMAZQBzAHMAZgB1AGwAbAB5ACAAOgApAABx
+UwBUAF8AYwA4ADAANAAxADgAYwA1ADkAZQAxADkANAA4ADMAZAA4ADcANgA1ADAAZgA5ADMAYQA5
+AGUAOABlAGUAYwBlAC4AUAByAG8AcABlAHIAdABpAGUAcwAuAFIAZQBzAG8AdQByAGMAZQBzAACl
++oZDipI8SJkrP5YzhcWiAAQgAQEIAyAAAQUgAQEREQQgAQEOBSABARFZCgcEEj0SPRI9EkEFIAIB
+Dg4EIAEBAgUgAQERbQMgAA4FIAEBEnUFIAEBEj0EIAASeQYVEn0BEj0FIAEBEwAFIAEBEkEFIAAS
+gIEIAAESgIURgIkFIAASgI0HIAIBDhKAjQi3elxWGTTgiQiJhF3NgIDMkQQAAAAABAEAAAADBhJR
+AwYSVQMGEhACBggDBhEUBAAAElEEAAASVQUAAQESVQQAABIQAwAAAQQIABJRBAgAElUECAASEAgB
+AAgAAAAAAB4BAAEAVAIWV3JhcE5vbkV4Y2VwdGlvblRocm93cwEIAQACAAAAAAAoAQAjU1RfYzgw
+NDE4YzU5ZTE5NDgzZDg3NjUwZjkzYTllOGVlY2UAAAUBAAAAABYBABFDb3B5cmlnaHQgQCAgMjAy
+MAAASQEAGi5ORVRGcmFtZXdvcmssVmVyc2lvbj12NC43AQBUDhRGcmFtZXdvcmtEaXNwbGF5TmFt
+ZRIuTkVUIEZyYW1ld29yayA0Lje0AAAAzsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVz
+b3VyY2VSZWFkZXIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwg
+UHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVS
+ZXNvdXJjZVNldAIAAAAAAAAAAAAAAFBBRFBBRFC0AAAAqDEAAAAAAAAAAAAAwjEAAAAgAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAALQxAAAAAAAAAAAAAAAAX0NvckRsbE1haW4AbXNjb3JlZS5kbGwAAAAA
+AP8lACAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAEAEAAAABgAAIAAAAAAAAAAAAAAAAAAAAEAAQAAADAAAIAAAAAAAAAAAAAAAAAAAAEAAAAA
+AEgAAABYQAAAGgQAAAAAAAAAAAAAGgQ0AAAAVgBTAF8AVgBFAFIAUwBJAE8ATgBfAEkATgBGAE8A
+AAAAAL0E7/4AAAEAAAABACVHOB4AAAEAJUc4Hj8AAAAAAAAABAAAAAIAAAAAAAAAAAAAAAAAAABE
+AAAAAQBWAGEAcgBGAGkAbABlAEkAbgBmAG8AAAAAACQABAAAAFQAcgBhAG4AcwBsAGEAdABpAG8A
+bgAAAAAAAACwBHoDAAABAFMAdAByAGkAbgBnAEYAaQBsAGUASQBuAGYAbwAAAFYDAAABADAAMAAw
+ADAAMAA0AGIAMAAAABoAAQABAEMAbwBtAG0AZQBuAHQAcwAAAAAAAAAiAAEAAQBDAG8AbQBwAGEA
+bgB5AE4AYQBtAGUAAAAAAAAAAABwACQAAQBGAGkAbABlAEQAZQBzAGMAcgBpAHAAdABpAG8AbgAA
+AAAAUwBUAF8AYwA4ADAANAAxADgAYwA1ADkAZQAxADkANAA4ADMAZAA4ADcANgA1ADAAZgA5ADMA
+YQA5AGUAOABlAGUAYwBlAAAAPgAPAAEARgBpAGwAZQBWAGUAcgBzAGkAbwBuAAAAAAAxAC4AMAAu
+ADcANwAzADYALgAxADgAMgAxADMAAAAAAHAAKAABAEkAbgB0AGUAcgBuAGEAbABOAGEAbQBlAAAA
+UwBUAF8ANABiAGUANQA0AGUANwBiAGUAYgA3ADMANAA3ADcAZQBhAGQANQBjADkANgAyADAANABm
+ADEAOAA4AGEAYgA3AC4AZABsAGwAAABIABIAAQBMAGUAZwBhAGwAQwBvAHAAeQByAGkAZwBoAHQA
+AABDAG8AcAB5AHIAaQBnAGgAdAAgAEAAIAAgADIAMAAyADAAAAAqAAEAAQBMAGUAZwBhAGwAVABy
+AGEAZABlAG0AYQByAGsAcwAAAAAAAAAAAHgAKAABAE8AcgBpAGcAaQBuAGEAbABGAGkAbABlAG4A
+YQBtAGUAAABTAFQAXwA0AGIAZQA1ADQAZQA3AGIAZQBiADcAMwA0ADcANwBlAGEAZAA1AGMAOQA2
+ADIAMAA0AGYAMQA4ADgAYQBiADcALgBkAGwAbAAAAGgAJAABAFAAcgBvAGQAdQBjAHQATgBhAG0A
+ZQAAAAAAUwBUAF8AYwA4ADAANAAxADgAYwA1ADkAZQAxADkANAA4ADMAZAA4ADcANgA1ADAAZgA5
+ADMAYQA5AGUAOABlAGUAYwBlAAAAQgAPAAEAUAByAG8AZAB1AGMAdABWAGUAcgBzAGkAbwBuAAAA
+MQAuADAALgA3ADcAMwA2AC4AMQA4ADIAMQAzAAAAAABGAA8AAQBBAHMAcwBlAG0AYgBsAHkAIABW
+AGUAcgBzAGkAbwBuAAAAMQAuADAALgA3ADcAMwA2AC4AMQA4ADIAMQAzAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAADAAAANQxAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</BinaryItem>
+        </ScriptProject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{6DCC05C3-3164-40DA-8DF9-B7C795EFB818}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Truncate  &amp; Insert -1 Into UserDW"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5f964fa4-11f5-4fe5-b3cd-b8888a3738b6}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate  &amp; Insert -1 Into UserDW"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:EventHandlers>
+            <DTS:EventHandler
+              DTS:refId="Package\Sequence Container\Truncate  &amp; Insert -1 Into UserDW.EventHandlers[OnError]"
+              DTS:CreationName="OnError"
+              DTS:DTSID="{cb14e436-3a41-470e-970c-09109abfc346}"
+              DTS:EventID="0"
+              DTS:EventName="OnError"
+              DTS:LocaleID="-1">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:Description="The propagate property of the event"
+                  DTS:DTSID="{616c91be-aedb-4c17-a4f4-50915750800e}"
+                  DTS:IncludeInDebugDump="6789"
+                  DTS:Namespace="System"
+                  DTS:ObjectName="Propagate">
+                  <DTS:VariableValue
+                    DTS:DataType="11">-1</DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:Executables />
+            </DTS:EventHandler>
+          </DTS:EventHandlers>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{15141950-A101-40CA-BDE3-42F82F1371C0}"
+              SQLTask:SqlStatementSource="truncate table UserDW&#xA;&#xA;INSERT INTO UserDW&#xA;(&#xA;[Id]&#xA;      ,[IsActive]&#xA;      ,[PersonName]&#xA;      ,[PersonId]&#xA;      ,[GenderId]&#xA;      ,[BirthDate]&#xA;      ,[HomeLocationId]&#xA;      ,[BranchId]&#xA;      ,[ContractStartDate]&#xA;      ,[ContractEndDate]&#xA;)&#xA;VALUES&#xA;(&#xA;-1,-1&#xA;,N'نامشخص'&#xA;,-1,-1,'1921-03-21',-1,-1,'1921-03-21','1921-03-21'&#xA;)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Update Insert Delete - UserDW"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{74518D02-8C8F-4CA6-84F2-FB2490FA494C}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update Insert Delete - UserDW"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:EventHandlers>
+            <DTS:EventHandler
+              DTS:refId="Package\Sequence Container\Update Insert Delete - UserDW.EventHandlers[OnError]"
+              DTS:CreationName="OnError"
+              DTS:DTSID="{6B9585CE-DCC9-4D5C-A33A-323E0039E713}"
+              DTS:EventID="0"
+              DTS:EventName="OnError"
+              DTS:LocaleID="-1">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:Description="The propagate property of the event"
+                  DTS:DTSID="{798E4181-8D29-4811-8A56-A6878D16E289}"
+                  DTS:IncludeInDebugDump="6789"
+                  DTS:Namespace="System"
+                  DTS:ObjectName="Propagate">
+                  <DTS:VariableValue
+                    DTS:DataType="11">-1</DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:Executables />
+            </DTS:EventHandler>
+          </DTS:EventHandlers>
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Update Insert Delete - UserDW\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Update Insert Delete - UserDW\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\Derived Column.Inputs[Derived Column Input].Columns[Id]"
+                          cachedDataType="i4"
+                          cachedName="Id"
+                          cachedSortKeyPosition="1"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[Id]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REPLACENULL](#{Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[Id]},-1)</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACENULL(Id,-1)</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\Derived Column.Inputs[Derived Column Input].Columns[IsActive]"
+                          cachedDataType="i4"
+                          cachedName="IsActive"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[IsActive]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REPLACENULL](#{Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[IsActive]},-1)</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACENULL(IsActive,-1)</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\Derived Column.Inputs[Derived Column Input].Columns[PersonName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="PersonName"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[PersonName]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REPLACENULL](#{Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[PersonName]},"نامشخص")</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACENULL(PersonName,"نامشخص")</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\Derived Column.Inputs[Derived Column Input].Columns[PersonId]"
+                          cachedDataType="i4"
+                          cachedName="PersonId"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[PersonId]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REPLACENULL](#{Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[PersonId]},-1)</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACENULL(PersonId,-1)</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\Derived Column.Inputs[Derived Column Input].Columns[GenderId]"
+                          cachedDataType="i4"
+                          cachedName="GenderId"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[GenderId]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REPLACENULL](#{Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[GenderId]},-1)</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACENULL(GenderId,-1)</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\Derived Column.Inputs[Derived Column Input].Columns[BirthDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="BirthDate"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[BirthDate]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_DBDATE)([REPLACENULL](#{Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[BirthDate]},"1921-03-21"))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_DBDATE)(REPLACENULL(BirthDate,"1921-03-21"))</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\Derived Column.Inputs[Derived Column Input].Columns[HomeLocationId]"
+                          cachedDataType="i4"
+                          cachedName="HomeLocationId"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[HomeLocationId]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REPLACENULL](#{Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[HomeLocationId]},-1)</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACENULL(HomeLocationId,-1)</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\Derived Column.Inputs[Derived Column Input].Columns[BranchId]"
+                          cachedDataType="i4"
+                          cachedName="BranchId"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[BranchId]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REPLACENULL](#{Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[BranchId]},-1)</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACENULL(BranchId,-1)</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\Derived Column.Inputs[Derived Column Input].Columns[ContractStartDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="ContractStartDate"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[ContractStartDate]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_DBDATE)([REPLACENULL](#{Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[ContractStartDate]},"1921-03-21"))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_DBDATE)(REPLACENULL(ContractStartDate,"1921-03-21"))</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\Derived Column.Inputs[Derived Column Input].Columns[ContractEndDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="ContractEndDate"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[ContractEndDate]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_DBDATE)([REPLACENULL](#{Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[ContractEndDate]},"1921-03-21"))</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_DBDATE)(REPLACENULL(ContractEndDate,"1921-03-21"))</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Update Insert Delete - UserDW\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Sequence Container\Update Insert Delete - UserDW\Derived Column.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Update Insert Delete - UserDW\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Sequence Container\Update Insert Delete - UserDW\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[UserDW]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select *
+from userdw
+order by id</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{15141950-A101-40CA-BDE3-42F82F1371C0}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[StageDB]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Id]"
+                          cachedDataType="i4"
+                          cachedName="Id"
+                          cachedSortKeyPosition="1"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[Id]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IsActive]"
+                          cachedDataType="i4"
+                          cachedName="IsActive"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsActive]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[IsActive]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PersonName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="PersonName"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PersonName]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[PersonName]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PersonId]"
+                          cachedDataType="i4"
+                          cachedName="PersonId"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PersonId]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[PersonId]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GenderId]"
+                          cachedDataType="i4"
+                          cachedName="GenderId"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GenderId]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[GenderId]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BirthDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="BirthDate"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BirthDate]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[BirthDate]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[HomeLocationId]"
+                          cachedDataType="i4"
+                          cachedName="HomeLocationId"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[HomeLocationId]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[HomeLocationId]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BranchId]"
+                          cachedDataType="i4"
+                          cachedName="BranchId"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BranchId]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[BranchId]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ContractStartDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="ContractStartDate"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContractStartDate]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[ContractStartDate]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ContractEndDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="ContractEndDate"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContractEndDate]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[ContractEndDate]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                          dataType="i4"
+                          name="Id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsActive]"
+                          dataType="i4"
+                          name="IsActive" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PersonName]"
+                          dataType="wstr"
+                          length="100"
+                          name="PersonName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PersonId]"
+                          dataType="i4"
+                          name="PersonId" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GenderId]"
+                          dataType="i4"
+                          name="GenderId" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BirthDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="BirthDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[HomeLocationId]"
+                          dataType="i4"
+                          name="HomeLocationId" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BranchId]"
+                          dataType="i4"
+                          name="BranchId" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContractStartDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="ContractStartDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContractEndDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="ContractEndDate" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="User - SourceDB"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[bi].[User]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
+  FROM [Automation].[bi].[User]
+  ORDER BY Id</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Connections[OleDbConnection]"
+                      connectionManagerID="{303CFB20-53A5-417F-A768-D9FB5D09183F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[SourceDB]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output]"
+                      isSorted="true"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[Id]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[Id]"
+                          name="Id"
+                          sortKeyPosition="1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[IsActive]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].ExternalColumns[IsActive]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[IsActive]"
+                          name="IsActive"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[PersonName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].ExternalColumns[PersonName]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[PersonName]"
+                          name="PersonName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[PersonId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].ExternalColumns[PersonId]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[PersonId]"
+                          name="PersonId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[GenderId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].ExternalColumns[GenderId]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[GenderId]"
+                          name="GenderId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[BirthDate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].ExternalColumns[BirthDate]"
+                          length="10"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[BirthDate]"
+                          name="BirthDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[HomeLocationId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].ExternalColumns[HomeLocationId]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[HomeLocationId]"
+                          name="HomeLocationId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[BranchId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].ExternalColumns[BranchId]"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[BranchId]"
+                          name="BranchId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[ContractStartDate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].ExternalColumns[ContractStartDate]"
+                          length="10"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[ContractStartDate]"
+                          name="ContractStartDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[ContractEndDate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].ExternalColumns[ContractEndDate]"
+                          length="10"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].Columns[ContractEndDate]"
+                          name="ContractEndDate"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                          dataType="i4"
+                          name="Id" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].ExternalColumns[IsActive]"
+                          dataType="i4"
+                          name="IsActive" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].ExternalColumns[PersonName]"
+                          dataType="wstr"
+                          length="100"
+                          name="PersonName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].ExternalColumns[PersonId]"
+                          dataType="i4"
+                          name="PersonId" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].ExternalColumns[GenderId]"
+                          dataType="i4"
+                          name="GenderId" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].ExternalColumns[BirthDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="BirthDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].ExternalColumns[HomeLocationId]"
+                          dataType="i4"
+                          name="HomeLocationId" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].ExternalColumns[BranchId]"
+                          dataType="i4"
+                          name="BranchId" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].ExternalColumns[ContractStartDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="ContractStartDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output].ExternalColumns[ContractEndDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="ContractEndDate" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output].Columns[Id]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output].Columns[Id]"
+                          name="Id" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output].Columns[IsActive]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output].Columns[IsActive]"
+                          name="IsActive" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output].Columns[PersonName]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output].Columns[PersonName]"
+                          name="PersonName" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output].Columns[PersonId]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output].Columns[PersonId]"
+                          name="PersonId" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output].Columns[GenderId]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output].Columns[GenderId]"
+                          name="GenderId" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output].Columns[BirthDate]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output].Columns[BirthDate]"
+                          name="BirthDate" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output].Columns[HomeLocationId]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output].Columns[HomeLocationId]"
+                          name="HomeLocationId" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output].Columns[BranchId]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output].Columns[BranchId]"
+                          name="BranchId" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output].Columns[ContractStartDate]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output].Columns[ContractStartDate]"
+                          name="ContractStartDate" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output].Columns[ContractEndDate]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output].Columns[ContractEndDate]"
+                          name="ContractEndDate" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Update Insert Delete - UserDW.Paths[Derived Column Output]"
+                  endId="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Sequence Container\Update Insert Delete - UserDW\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Sequence Container\Update Insert Delete - UserDW.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\Update Insert Delete - UserDW\Derived Column.Inputs[Derived Column Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{48F42901-E67E-4D63-A172-137CFBA85F4C}"
+          DTS:From="Package\Sequence Container\Truncate  &amp; Insert -1 Into UserDW"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\Update Insert Delete - UserDW" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{B75E50C4-58ED-49CF-8D11-78DC0491F756}"
+      DTS:From="Package\Sequence Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Rollback"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{47AF7B31-4CC5-496B-8D0D-7912644452A0}"
+      DTS:From="Package\Commit Transaction"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Send Mail - Succssed" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{C427E0E7-5072-4C29-AB48-B6C2A1A1C2D8}"
+      DTS:From="Package\Sequence Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Commit Transaction" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{8539EC45-25B9-42ED-B95C-BB92EB67E9A7}"
+      DTS:From="Package\Begin Transaction"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Sequence Container" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{A8C7C526-E244-485F-A397-82D3225BF3DB}"
+      DTS:From="Package\Rollback"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Send Mail - Failure" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{5F2D132C-6E8A-49F6-893F-452846D7F266}"
+      DTS:EventID="3"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{D8CBBE44-5119-4386-88EB-4CF673F0C754}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables />
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Begin Transaction"
+          TopLeft="31,4" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Commit Transaction"
+          TopLeft="485,109" />
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Rollback"
+          TopLeft="568,375" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Send Mail - Failure"
+          TopLeft="793,330" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Send Mail - Succssed"
+          TopLeft="784,114" />
+        <NodeLayout
+          Size="243,42"
+          Id="Package\Sequence Container\Truncate  &amp; Insert -1 Into UserDW"
+          TopLeft="28,98" />
+        <NodeLayout
+          Size="226,42"
+          Id="Package\Sequence Container\Update Insert Delete - UserDW"
+          TopLeft="31,187" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="146.75,140">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47"
+              Start="0,0"
+              End="0,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="312,363"
+          Size="312,406"
+          Id="Package\Sequence Container"
+          TopLeft="136.5,52" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="448.5,321.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="119.5,74.6666666666667"
+              Start="0,0"
+              End="112,74.6666666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="44.081452404318,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="44.081452404318,0"
+                    Point2="48.081452404318,0"
+                    Point3="48.081452404318,4" />
+                  <mssgle:LineSegment
+                    End="48.081452404318,70.6666666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="48.081452404318,70.6666666666667"
+                    Point2="48.081452404318,74.6666666666667"
+                    Point3="52.081452404318,74.6666666666667" />
+                  <mssgle:LineSegment
+                    End="112,74.6666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="32.840104748068,-15.7490234375,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="658,132.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="126,0"
+              Start="0,0"
+              End="118.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="118.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="448.5,188.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36.5,-58.6666666666667"
+              Start="0,0"
+              End="29,-58.6666666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="10.6859666339549,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.6859666339549,0"
+                    Point2="14.6859666339549,0"
+                    Point3="14.6859666339549,-4" />
+                  <mssgle:LineSegment
+                    End="14.6859666339549,-54.6666666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.6859666339549,-54.6666666666667"
+                    Point2="14.6859666339549,-58.6666666666667"
+                    Point3="18.6859666339549,-58.6666666666667" />
+                  <mssgle:LineSegment
+                    End="29,-58.6666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="194,25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98.5,27"
+              Start="0,0"
+              End="98.5,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="94.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94.5,0"
+                    Point2="98.5,0"
+                    Point3="98.5,4" />
+                  <mssgle:LineSegment
+                    End="98.5,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="686,396">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="107,-45"
+              Start="0,0"
+              End="99.5,-45">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="49.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="49.5,0"
+                    Point2="53.5,0"
+                    Point3="53.5,-4" />
+                  <mssgle:LineSegment
+                    End="53.5,-41" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.5,-41"
+                    Point2="53.5,-45"
+                    Point3="57.5,-45" />
+                  <mssgle:LineSegment
+                    End="99.5,-45" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="118,42"
+          Id="{82744FA9-2C4B-4DBA-A8B6-78C4C20CDC64}"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="172,42"
+          Id="{51896acf-67f8-4b30-ab42-359a97f4e429}"
+          TopLeft="374,54" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package\Commit Transaction.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="118,42"
+          Id="{993961C3-5678-4A99-86DC-FC699F70340B}"
+          TopLeft="303,275" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package\Sequence Container\Truncate  &amp; Insert -1 Into UserDW.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="118,42"
+          Id="{62f67544-bdf1-41e9-bc8b-7ab2f4edab59}"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Update Insert Delete - UserDW">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB"
+          TopLeft="228,56" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination"
+          TopLeft="224,341" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Sequence Container\Update Insert Delete - UserDW\Derived Column"
+          TopLeft="226,172" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Update Insert Delete - UserDW.Paths[OLE DB Source Output]"
+          TopLeft="304.5,98">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,74"
+              Start="0,0"
+              End="0,66.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Update Insert Delete - UserDW.Paths[Derived Column Output]"
+          TopLeft="306.25,214">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,127"
+              Start="0,0"
+              End="0,119.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,119.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\Sequence Container\Update Insert Delete - UserDW.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="118,42"
+          Id="{384AA8A7-F804-4456-B340-FC11910D75C5}"
+          TopLeft="366,272" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Update Insert Delete - UserDW\User - SourceDB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Update Insert Delete - UserDW\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ChangeBrokerAttachment": {
+      "commandName": "Project",
+      "commandLineArgs": "50000 1"
+    }
+  }
+}
