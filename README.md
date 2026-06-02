@@ -25,7 +25,7 @@ Brokerage/
 │   ├── Customer_EfficiencyV2/
 │   ├── MarketerRate_SSAS/
 │   └── SSAS_IMEMonitoring/
-├── PowerBI/                    # Power BI reports & dashboards (coming soon)
+├── PowerBI/                    # Power BI reports & dashboards 
 └── WebApiRequests/             # Deployed Web API binaries & runtime logs
 ```
 
@@ -109,7 +109,7 @@ The **SQL Server Analysis Services (SSAS)** layer provides multidimensional and 
 
 ---
 
-## 📈 Power BI Layer *(Coming Soon)*
+## 📈 Power BI Layer 
 
 The **Power BI** layer is the business-facing reporting layer that connects directly to SSAS models and prepared data sources to deliver interactive dashboards and scheduled reports.
 
