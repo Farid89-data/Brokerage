@@ -1,0 +1,16 @@
+C:\SSAS Repo\old\Customer_EfficiencyV2\Customer_EfficiencyV2\Customer_EfficiencyV2\bin\Model.asdatabase
+C:\SSAS Repo\old\Customer_EfficiencyV2\Customer_EfficiencyV2\Customer_EfficiencyV2\bin\Model.deploymenttargets
+C:\SSAS Repo\old\Customer_EfficiencyV2\Customer_EfficiencyV2\Customer_EfficiencyV2\bin\Model.deploymentoptions
+C:\SSAS Repo\old\Customer_EfficiencyV2\Customer_EfficiencyV2\Customer_EfficiencyV2\obj\Development\Customer_EfficiencyV2.smproj.AssemblyReference.cache
+C:\SSAS Repo\old\Customer_EfficiencyV2\Customer_EfficiencyV2\Customer_EfficiencyV2\obj\Development\Customer_EfficiencyV2.smproj.CoreCompileInputs.cache
+C:\SSAS Repo\old\Customer_EfficiencyV2\Customer_EfficiencyV2\Customer_EfficiencyV2\obj\Development\Model.asdatabase
+C:\SSAS Repo\old\Customer_EfficiencyV2\Customer_EfficiencyV2\Customer_EfficiencyV2\obj\Development\Model.deploymentoptions
+C:\SSAS Repo\old\Customer_EfficiencyV2\Customer_EfficiencyV2\Customer_EfficiencyV2\obj\Development\Model.deploymenttargets
+C:\SSAS Repo\Customer_EfficiencyV2\Customer_EfficiencyV2\Customer_EfficiencyV2\bin\Model.asdatabase
+C:\SSAS Repo\Customer_EfficiencyV2\Customer_EfficiencyV2\Customer_EfficiencyV2\bin\Model.deploymenttargets
+C:\SSAS Repo\Customer_EfficiencyV2\Customer_EfficiencyV2\Customer_EfficiencyV2\bin\Model.deploymentoptions
+C:\SSAS Repo\Customer_EfficiencyV2\Customer_EfficiencyV2\Customer_EfficiencyV2\obj\Development\Customer_EfficiencyV2.smproj.AssemblyReference.cache
+C:\SSAS Repo\Customer_EfficiencyV2\Customer_EfficiencyV2\Customer_EfficiencyV2\obj\Development\Customer_EfficiencyV2.smproj.CoreCompileInputs.cache
+C:\SSAS Repo\Customer_EfficiencyV2\Customer_EfficiencyV2\Customer_EfficiencyV2\obj\Development\Model.asdatabase
+C:\SSAS Repo\Customer_EfficiencyV2\Customer_EfficiencyV2\Customer_EfficiencyV2\obj\Development\Model.deploymentoptions
+C:\SSAS Repo\Customer_EfficiencyV2\Customer_EfficiencyV2\Customer_EfficiencyV2\obj\Development\Model.deploymenttargets

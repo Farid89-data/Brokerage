@@ -1,0 +1,16 @@
+C:\SSAS Repo\SSAS_IMEMonitoring\CustomerGroupMonitoring\CustomerGroupMonitoring\bin\Model.asdatabase
+C:\SSAS Repo\SSAS_IMEMonitoring\CustomerGroupMonitoring\CustomerGroupMonitoring\bin\Model.deploymenttargets
+C:\SSAS Repo\SSAS_IMEMonitoring\CustomerGroupMonitoring\CustomerGroupMonitoring\bin\Model.deploymentoptions
+C:\SSAS Repo\SSAS_IMEMonitoring\CustomerGroupMonitoring\CustomerGroupMonitoring\obj\Development\CustomerGroupMonitoring.smproj.AssemblyReference.cache
+C:\SSAS Repo\SSAS_IMEMonitoring\CustomerGroupMonitoring\CustomerGroupMonitoring\obj\Development\CustomerGroupMonitoring.smproj.CoreCompileInputs.cache
+C:\SSAS Repo\SSAS_IMEMonitoring\CustomerGroupMonitoring\CustomerGroupMonitoring\obj\Development\Model.asdatabase
+C:\SSAS Repo\SSAS_IMEMonitoring\CustomerGroupMonitoring\CustomerGroupMonitoring\obj\Development\Model.deploymentoptions
+C:\SSAS Repo\SSAS_IMEMonitoring\CustomerGroupMonitoring\CustomerGroupMonitoring\obj\Development\Model.deploymenttargets
+C:\SSAS Repo\CustomerGroupMonitoring\CustomerGroupMonitoring\bin\Model.asdatabase
+C:\SSAS Repo\CustomerGroupMonitoring\CustomerGroupMonitoring\bin\Model.deploymenttargets
+C:\SSAS Repo\CustomerGroupMonitoring\CustomerGroupMonitoring\bin\Model.deploymentoptions
+C:\SSAS Repo\CustomerGroupMonitoring\CustomerGroupMonitoring\obj\Development\CustomerGroupMonitoring.smproj.AssemblyReference.cache
+C:\SSAS Repo\CustomerGroupMonitoring\CustomerGroupMonitoring\obj\Development\CustomerGroupMonitoring.smproj.CoreCompileInputs.cache
+C:\SSAS Repo\CustomerGroupMonitoring\CustomerGroupMonitoring\obj\Development\Model.asdatabase
+C:\SSAS Repo\CustomerGroupMonitoring\CustomerGroupMonitoring\obj\Development\Model.deploymentoptions
+C:\SSAS Repo\CustomerGroupMonitoring\CustomerGroupMonitoring\obj\Development\Model.deploymenttargets

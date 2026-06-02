@@ -1,0 +1,7 @@
+C:\SSAS Repo\Customer_Efficiency\Customer_Efficiency\Customer_Efficiency\obj\Development\Customer_Efficiency.smproj.CoreCompileInputs.cache
+C:\SSAS Repo\Customer_Efficiency\Customer_Efficiency\Customer_Efficiency\bin\Model.asdatabase
+C:\SSAS Repo\Customer_Efficiency\Customer_Efficiency\Customer_Efficiency\bin\Model.deploymenttargets
+C:\SSAS Repo\Customer_Efficiency\Customer_Efficiency\Customer_Efficiency\bin\Model.deploymentoptions
+C:\SSAS Repo\Customer_Efficiency\Customer_Efficiency\Customer_Efficiency\obj\Development\Model.asdatabase
+C:\SSAS Repo\Customer_Efficiency\Customer_Efficiency\Customer_Efficiency\obj\Development\Model.deploymentoptions
+C:\SSAS Repo\Customer_Efficiency\Customer_Efficiency\Customer_Efficiency\obj\Development\Model.deploymenttargets

@@ -1,0 +1,16 @@
+C:\SSAS Repo\Customer_Efficiency\Customer_Efficiency\Customer_Efficiency\obj\Development\Customer_Efficiency.smproj.CoreCompileInputs.cache
+C:\SSAS Repo\Customer_Efficiency\Customer_Efficiency\Customer_Efficiency\bin\Model.asdatabase
+C:\SSAS Repo\Customer_Efficiency\Customer_Efficiency\Customer_Efficiency\bin\Model.deploymenttargets
+C:\SSAS Repo\Customer_Efficiency\Customer_Efficiency\Customer_Efficiency\bin\Model.deploymentoptions
+C:\SSAS Repo\Customer_Efficiency\Customer_Efficiency\Customer_Efficiency\obj\Development\Model.asdatabase
+C:\SSAS Repo\Customer_Efficiency\Customer_Efficiency\Customer_Efficiency\obj\Development\Model.deploymentoptions
+C:\SSAS Repo\Customer_Efficiency\Customer_Efficiency\Customer_Efficiency\obj\Development\Model.deploymenttargets
+C:\SSAS Repo\Customer_Efficiency2022\Customer_Efficiency\Customer_Efficiency\bin\Model.asdatabase
+C:\SSAS Repo\Customer_Efficiency2022\Customer_Efficiency\Customer_Efficiency\bin\Model.deploymenttargets
+C:\SSAS Repo\Customer_Efficiency2022\Customer_Efficiency\Customer_Efficiency\bin\Model.deploymentoptions
+C:\SSAS Repo\Customer_Efficiency2022\Customer_Efficiency\Customer_Efficiency\obj\Development\Customer_Efficiency.smproj.AssemblyReference.cache
+C:\SSAS Repo\Customer_Efficiency2022\Customer_Efficiency\Customer_Efficiency\obj\Development\Customer_Efficiency.smproj.SuggestedBindingRedirects.cache
+C:\SSAS Repo\Customer_Efficiency2022\Customer_Efficiency\Customer_Efficiency\obj\Development\Customer_Efficiency.smproj.CoreCompileInputs.cache
+C:\SSAS Repo\Customer_Efficiency2022\Customer_Efficiency\Customer_Efficiency\obj\Development\Model.asdatabase
+C:\SSAS Repo\Customer_Efficiency2022\Customer_Efficiency\Customer_Efficiency\obj\Development\Model.deploymentoptions
+C:\SSAS Repo\Customer_Efficiency2022\Customer_Efficiency\Customer_Efficiency\obj\Development\Model.deploymenttargets

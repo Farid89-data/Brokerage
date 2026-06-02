@@ -1,0 +1,1253 @@
+{
+  "name": "Customer_Efficiency2022",
+  "compatibilityLevel": 1600,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/192 168 65 11;automationdw",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "192.168.65.11",
+            "database": "automationdw"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "Windows",
+          "Username": "mobinsb\\bolboli",
+          "EncryptConnection": false
+        }
+      },
+      {
+        "type": "structured",
+        "name": "SQL/192 168 65 11;TempHistorical",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "192.168.65.11",
+            "database": "TempHistorical"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "Windows",
+          "Username": "Mobinsb\\bolboli",
+          "EncryptConnection": false
+        }
+      },
+      {
+        "type": "structured",
+        "name": "SQL/192 168 65 11;rawdb",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "192.168.65.11",
+            "database": "rawdb"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "Windows",
+          "Username": "mobinsb\\bolboli",
+          "EncryptConnection": false
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "CBStats",
+        "columns": [
+          {
+            "type": "calculatedTableColumn",
+            "name": "ID",
+            "dataType": "int64",
+            "isNameInferred": true,
+            "isDataTypeInferred": true,
+            "sourceColumn": "[ID]"
+          },
+          {
+            "type": "calculatedTableColumn",
+            "name": "Name",
+            "dataType": "string",
+            "isNameInferred": true,
+            "isDataTypeInferred": true,
+            "sourceColumn": "[Name]"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CalculatedTable 1",
+            "source": {
+              "type": "calculated",
+              "expression": "SELECTCOLUMNS({(1,\"Remain\"),(2,\"CBIn\"),(3,\"CBOut\"),(4,\"FullTrade\"),(5,\"All\")},\"ID\",[Value1],\"Name\",[Value2])"
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimCustomer",
+        "columns": [
+          {
+            "name": "Available_bonus",
+            "dataType": "double",
+            "sourceColumn": "Available_bonus"
+          },
+          {
+            "name": "BirthCityId",
+            "dataType": "int64",
+            "sourceColumn": "BirthCityId"
+          },
+          {
+            "name": "BirthCityName",
+            "dataType": "string",
+            "sourceColumn": "BirthCityName"
+          },
+          {
+            "name": "BirthDate",
+            "dataType": "dateTime",
+            "sourceColumn": "BirthDate"
+          },
+          {
+            "name": "BirthStateName",
+            "dataType": "string",
+            "sourceColumn": "BirthStateName"
+          },
+          {
+            "name": "BourseCode",
+            "dataType": "string",
+            "sourceColumn": "BourseCode"
+          },
+          {
+            "name": "BranchCityID",
+            "dataType": "int64",
+            "sourceColumn": "BranchCityID"
+          },
+          {
+            "name": "BranchCityName",
+            "dataType": "string",
+            "sourceColumn": "BranchCityName"
+          },
+          {
+            "name": "BranchId",
+            "dataType": "int64",
+            "sourceColumn": "BranchId"
+          },
+          {
+            "name": "BranchName",
+            "dataType": "string",
+            "sourceColumn": "BranchName"
+          },
+          {
+            "name": "BranchStateName",
+            "dataType": "string",
+            "sourceColumn": "BranchStateName"
+          },
+          {
+            "name": "ClientAccountNumber",
+            "dataType": "string",
+            "sourceColumn": "ClientAccountNumber"
+          },
+          {
+            "name": "ClubMemberId",
+            "dataType": "int64",
+            "sourceColumn": "ClubMemberId"
+          },
+          {
+            "name": "ClubMemberShipDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ClubMemberShipDate"
+          },
+          {
+            "name": "CodeAccount",
+            "dataType": "string",
+            "sourceColumn": "CodeAccount"
+          },
+          {
+            "name": "Credit",
+            "dataType": "decimal",
+            "sourceColumn": "Credit"
+          },
+          {
+            "name": "CustomerAge",
+            "dataType": "int64",
+            "sourceColumn": "CustomerAge"
+          },
+          {
+            "name": "CustomerAgeRange",
+            "dataType": "string",
+            "sourceColumn": "CustomerAgeRange"
+          },
+          {
+            "name": "CustomerAgeRangeInt",
+            "dataType": "int64",
+            "sourceColumn": "CustomerAgeRangeInt"
+          },
+          {
+            "name": "CustomerFrom",
+            "dataType": "string",
+            "sourceColumn": "CustomerFrom"
+          },
+          {
+            "name": "CustomerGenderName",
+            "dataType": "string",
+            "sourceColumn": "CustomerGenderName"
+          },
+          {
+            "name": "CustomerId",
+            "dataType": "int64",
+            "sourceColumn": "CustomerId"
+          },
+          {
+            "name": "EconomicCode",
+            "dataType": "string",
+            "sourceColumn": "EconomicCode"
+          },
+          {
+            "name": "EducationName",
+            "dataType": "string",
+            "sourceColumn": "EducationName"
+          },
+          {
+            "name": "FatherName",
+            "dataType": "string",
+            "sourceColumn": "FatherName"
+          },
+          {
+            "name": "First_name",
+            "dataType": "string",
+            "sourceColumn": "First_name"
+          },
+          {
+            "name": "GenderId",
+            "dataType": "int64",
+            "sourceColumn": "GenderId"
+          },
+          {
+            "name": "InsertUserGenderID",
+            "dataType": "int64",
+            "sourceColumn": "InsertUserGenderID"
+          },
+          {
+            "name": "InsertUserGenderName",
+            "dataType": "string",
+            "sourceColumn": "InsertUserGenderName"
+          },
+          {
+            "name": "InsertUserId",
+            "dataType": "int64",
+            "sourceColumn": "InsertUserId"
+          },
+          {
+            "name": "InsertUserPersonName",
+            "dataType": "string",
+            "sourceColumn": "InsertUserPersonName"
+          },
+          {
+            "name": "IntroducerGenderId",
+            "dataType": "int64",
+            "sourceColumn": "IntroducerGenderId"
+          },
+          {
+            "name": "IntroducerGenderName",
+            "dataType": "string",
+            "sourceColumn": "IntroducerGenderName"
+          },
+          {
+            "name": "IntroducerHomeCityName",
+            "dataType": "string",
+            "sourceColumn": "IntroducerHomeCityName"
+          },
+          {
+            "name": "IntroducerHomeLocationId",
+            "dataType": "int64",
+            "sourceColumn": "IntroducerHomeLocationId"
+          },
+          {
+            "name": "IntroducerHomeStateName",
+            "dataType": "string",
+            "sourceColumn": "IntroducerHomeStateName"
+          },
+          {
+            "name": "IntroducerPersonId",
+            "dataType": "int64",
+            "sourceColumn": "IntroducerPersonId"
+          },
+          {
+            "name": "IntroducerPersonName",
+            "dataType": "string",
+            "sourceColumn": "IntroducerPersonName"
+          },
+          {
+            "name": "IsAtiCustomer",
+            "dataType": "int64",
+            "sourceColumn": "IsAtiCustomer"
+          },
+          {
+            "name": "IsClubMember",
+            "dataType": "int64",
+            "sourceColumn": "IsClubMember"
+          },
+          {
+            "name": "IsClubMemberName",
+            "dataType": "string",
+            "sourceColumn": "IsClubMemberName"
+          },
+          {
+            "name": "IsEnergyCustomer",
+            "dataType": "int64",
+            "sourceColumn": "IsEnergyCustomer"
+          },
+          {
+            "name": "IsForeigner",
+            "dataType": "boolean",
+            "sourceColumn": "IsForeigner"
+          },
+          {
+            "name": "IsFromSejam",
+            "dataType": "int64",
+            "sourceColumn": "IsFromSejam"
+          },
+          {
+            "name": "IsFromSejamName",
+            "dataType": "string",
+            "sourceColumn": "IsFromSejamName"
+          },
+          {
+            "name": "IsKalaCustomer",
+            "dataType": "int64",
+            "sourceColumn": "IsKalaCustomer"
+          },
+          {
+            "name": "IsStockMarketCustomer",
+            "dataType": "int64",
+            "sourceColumn": "IsStockMarketCustomer"
+          },
+          {
+            "name": "JobId",
+            "dataType": "int64",
+            "sourceColumn": "JobId"
+          },
+          {
+            "name": "JobName",
+            "dataType": "string",
+            "sourceColumn": "JobName"
+          },
+          {
+            "name": "Last_name",
+            "dataType": "string",
+            "sourceColumn": "Last_name"
+          },
+          {
+            "name": "MarketerGenderName",
+            "dataType": "string",
+            "sourceColumn": "MarketerGenderName"
+          },
+          {
+            "name": "MarketerId",
+            "dataType": "int64",
+            "sourceColumn": "MarketerId"
+          },
+          {
+            "name": "MarketerIsActiveName",
+            "dataType": "string",
+            "sourceColumn": "MarketerIsActiveName"
+          },
+          {
+            "name": "MarketerName",
+            "dataType": "string",
+            "sourceColumn": "MarketerName"
+          },
+          {
+            "name": "MarketerPersonTypeName",
+            "dataType": "string",
+            "sourceColumn": "MarketerPersonTypeName"
+          },
+          {
+            "name": "MarriedStateId",
+            "dataType": "int64",
+            "sourceColumn": "MarriedStateId"
+          },
+          {
+            "name": "MarriedStateName",
+            "dataType": "string",
+            "sourceColumn": "MarriedStateName"
+          },
+          {
+            "name": "MembershipAge",
+            "dataType": "string",
+            "sourceColumn": "MembershipAge"
+          },
+          {
+            "name": "MembershipAgeMonth",
+            "dataType": "int64",
+            "sourceColumn": "MembershipAgeMonth"
+          },
+          {
+            "name": "MembershipAgeYear",
+            "dataType": "int64",
+            "sourceColumn": "MembershipAgeYear"
+          },
+          {
+            "name": "MilitaryStateId",
+            "dataType": "int64",
+            "sourceColumn": "MilitaryStateId"
+          },
+          {
+            "name": "MilitaryStateName",
+            "dataType": "string",
+            "sourceColumn": "MilitaryStateName"
+          },
+          {
+            "name": "MonthlySalary",
+            "dataType": "decimal",
+            "sourceColumn": "MonthlySalary"
+          },
+          {
+            "name": "NationalCode",
+            "dataType": "string",
+            "sourceColumn": "NationalCode"
+          },
+          {
+            "name": "PersonId",
+            "dataType": "int64",
+            "sourceColumn": "PersonId"
+          },
+          {
+            "name": "PersonName",
+            "dataType": "string",
+            "sourceColumn": "PersonName"
+          },
+          {
+            "name": "PersonTypeId",
+            "dataType": "int64",
+            "sourceColumn": "PersonTypeId"
+          },
+          {
+            "name": "PersonTypeName",
+            "dataType": "string",
+            "sourceColumn": "PersonTypeName"
+          },
+          {
+            "name": "RegistrationCityId",
+            "dataType": "int64",
+            "sourceColumn": "RegistrationCityId"
+          },
+          {
+            "name": "RegistrationCityName",
+            "dataType": "string",
+            "sourceColumn": "RegistrationCityName"
+          },
+          {
+            "name": "RegistrationDate",
+            "dataType": "dateTime",
+            "sourceColumn": "RegistrationDate"
+          },
+          {
+            "name": "RegistrationStateName",
+            "dataType": "string",
+            "sourceColumn": "RegistrationStateName"
+          },
+          {
+            "name": "Reserved_bonus",
+            "dataType": "int64",
+            "sourceColumn": "Reserved_bonus"
+          },
+          {
+            "name": "StartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "StartDate"
+          },
+          {
+            "name": "StationCredit",
+            "dataType": "decimal",
+            "sourceColumn": "StationCredit"
+          },
+          {
+            "name": "StockIntroductionId",
+            "dataType": "int64",
+            "sourceColumn": "StockIntroductionId"
+          },
+          {
+            "name": "StockIntroductionName",
+            "dataType": "string",
+            "sourceColumn": "StockIntroductionName"
+          },
+          {
+            "name": "StockTypeId",
+            "dataType": "int64",
+            "sourceColumn": "StockTypeId"
+          },
+          {
+            "name": "StockTypeName",
+            "dataType": "string",
+            "sourceColumn": "StockTypeName"
+          },
+          {
+            "name": "TransactionLevel",
+            "dataType": "string",
+            "sourceColumn": "TransactionLevel"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/192 168 65 11;automationdw\",",
+                "    dbo_DimCustomer = Source{[Schema=\"dbo\",Item=\"DimCustomer\"]}[Data],",
+                "    #\"Removed Columns\" = Table.RemoveColumns(dbo_DimCustomer,{\"DimCustomerID\"})",
+                "in",
+                "    #\"Removed Columns\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimDate",
+        "columns": [
+          {
+            "name": "GregorianDate",
+            "dataType": "dateTime",
+            "sourceColumn": "GregorianDate"
+          },
+          {
+            "name": "IsGregorianLeap",
+            "dataType": "boolean",
+            "sourceColumn": "IsGregorianLeap"
+          },
+          {
+            "name": "IsOneDayBefore_HijriHoliday",
+            "dataType": "boolean",
+            "sourceColumn": "IsOneDayBefore_HijriHoliday"
+          },
+          {
+            "name": "IsOneDayBefore_PersianHoliday",
+            "dataType": "boolean",
+            "sourceColumn": "IsOneDayBefore_PersianHoliday"
+          },
+          {
+            "name": "IsPersianLeap",
+            "dataType": "boolean",
+            "sourceColumn": "IsPersianLeap"
+          },
+          {
+            "name": "MaheMali",
+            "dataType": "int64",
+            "sourceColumn": "MaheMali"
+          },
+          {
+            "name": "MaheMaliName",
+            "dataType": "string",
+            "sourceColumn": "MaheMaliName"
+          },
+          {
+            "name": "NimSaleMali",
+            "dataType": "int64",
+            "sourceColumn": "NimSaleMali"
+          },
+          {
+            "name": "NimSaleMaliName",
+            "dataType": "string",
+            "sourceColumn": "NimSaleMaliName"
+          },
+          {
+            "name": "PersianDayInMonth",
+            "dataType": "int64",
+            "sourceColumn": "PersianDayInMonth"
+          },
+          {
+            "name": "PersianDayOfWeekInt",
+            "dataType": "int64",
+            "sourceColumn": "PersianDayOfWeekInt"
+          },
+          {
+            "name": "PersianDayOfWeekName",
+            "dataType": "string",
+            "sourceColumn": "PersianDayOfWeekName"
+          },
+          {
+            "name": "PersianFullName",
+            "dataType": "string",
+            "sourceColumn": "PersianFullName"
+          },
+          {
+            "name": "PersianHalfYearCode",
+            "dataType": "int64",
+            "sourceColumn": "PersianHalfYearCode"
+          },
+          {
+            "name": "PersianHalfYearName",
+            "dataType": "string",
+            "sourceColumn": "PersianHalfYearName",
+            "sortByColumn": "PersianHalfYearCode"
+          },
+          {
+            "name": "PersianInt",
+            "dataType": "int64",
+            "sourceColumn": "PersianInt"
+          },
+          {
+            "name": "PersianMonthDayInt",
+            "dataType": "int64",
+            "sourceColumn": "PersianMonthDayInt"
+          },
+          {
+            "name": "PersianMonthName",
+            "dataType": "string",
+            "sourceColumn": "PersianMonthName",
+            "sortByColumn": "PersianMonthNo"
+          },
+          {
+            "name": "PersianMonthNo",
+            "dataType": "int64",
+            "sourceColumn": "PersianMonthNo"
+          },
+          {
+            "name": "PersianStr",
+            "dataType": "string",
+            "sourceColumn": "PersianStr"
+          },
+          {
+            "name": "PersianWeekOfMonthName",
+            "dataType": "string",
+            "sourceColumn": "PersianWeekOfMonthName"
+          },
+          {
+            "name": "PersianWeekOfMonthNameShort",
+            "dataType": "string",
+            "sourceColumn": "PersianWeekOfMonthNameShort"
+          },
+          {
+            "name": "PersianWeekOfMonthNumber",
+            "dataType": "int64",
+            "sourceColumn": "PersianWeekOfMonthNumber"
+          },
+          {
+            "name": "PersianWeekOfMonthWithMonthName",
+            "dataType": "string",
+            "sourceColumn": "PersianWeekOfMonthWithMonthName"
+          },
+          {
+            "name": "PersianWeekOfMonthWithYearMonthName",
+            "dataType": "string",
+            "sourceColumn": "PersianWeekOfMonthWithYearMonthName"
+          },
+          {
+            "name": "PersianWeekOfYearName",
+            "dataType": "string",
+            "sourceColumn": "PersianWeekOfYearName"
+          },
+          {
+            "name": "PersianWeekOfYearNo",
+            "dataType": "int64",
+            "sourceColumn": "PersianWeekOfYearNo"
+          },
+          {
+            "name": "PersianYearInt",
+            "dataType": "int64",
+            "sourceColumn": "PersianYearInt"
+          },
+          {
+            "name": "PersianYearMaliMahaneh",
+            "dataType": "int64",
+            "sourceColumn": "PersianYearMaliMahaneh"
+          },
+          {
+            "name": "PersianYearMonthInt",
+            "dataType": "int64",
+            "sourceColumn": "PersianYearMonthInt"
+          },
+          {
+            "name": "PersianYearMonthName",
+            "dataType": "string",
+            "sourceColumn": "PersianYearMonthName"
+          },
+          {
+            "name": "PersianYearMonthStr",
+            "dataType": "string",
+            "sourceColumn": "PersianYearMonthStr"
+          },
+          {
+            "name": "PersianYearMonthStrD",
+            "dataType": "string",
+            "sourceColumn": "PersianYearMonthStrD"
+          },
+          {
+            "name": "PersianYearWeek",
+            "dataType": "int64",
+            "sourceColumn": "PersianYearWeek"
+          },
+          {
+            "name": "SeasonCode",
+            "dataType": "int64",
+            "sourceColumn": "SeasonCode"
+          },
+          {
+            "name": "SeasonName",
+            "dataType": "string",
+            "sourceColumn": "SeasonName",
+            "sortByColumn": "SeasonCode"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/192 168 65 11;automationdw\",",
+                "    dbo_DimDate = Source{[Schema=\"dbo\",Item=\"DimDate\"]}[Data],",
+                "    #\"Removed Other Columns\" = Table.SelectColumns(dbo_DimDate,{\"PersianYearWeek\", \"PersianYearMaliMahaneh\", \"NimSaleMaliName\", \"NimSaleMali\", \"MaheMaliName\", \"MaheMali\", \"IsOneDayBefore_HijriHoliday\", \"IsOneDayBefore_PersianHoliday\", \"IsPersianLeap\", \"IsGregorianLeap\", \"PersianWeekOfMonthWithYearMonthName\", \"PersianWeekOfMonthWithMonthName\", \"PersianWeekOfMonthNameShort\", \"PersianWeekOfMonthName\", \"PersianWeekOfMonthNumber\", \"PersianHalfYearName\", \"PersianHalfYearCode\", \"SeasonName\", \"SeasonCode\", \"PersianFullName\", \"PersianWeekOfYearNo\", \"PersianWeekOfYearName\", \"PersianDayOfWeekName\", \"PersianYearMonthName\", \"PersianYearMonthStr\", \"PersianYearMonthStrD\", \"PersianYearMonthInt\", \"PersianStr\", \"PersianMonthName\", \"PersianDayOfWeekInt\", \"PersianMonthDayInt\", \"PersianDayInMonth\", \"PersianMonthNo\", \"PersianYearInt\", \"PersianInt\", \"GregorianDate\"})",
+                "in",
+                "    #\"Removed Other Columns\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimInstrument",
+        "columns": [
+          {
+            "name": "InstrumentId",
+            "dataType": "int64",
+            "sourceColumn": "InstrumentId"
+          },
+          {
+            "name": "InstrumentName",
+            "dataType": "string",
+            "sourceColumn": "InstrumentName"
+          },
+          {
+            "name": "Isin",
+            "dataType": "string",
+            "sourceColumn": "Isin"
+          },
+          {
+            "name": "SectorId",
+            "dataType": "int64",
+            "sourceColumn": "SectorId"
+          },
+          {
+            "name": "SectorName",
+            "dataType": "string",
+            "sourceColumn": "SectorName"
+          },
+          {
+            "name": "ShortName",
+            "dataType": "string",
+            "sourceColumn": "ShortName"
+          },
+          {
+            "name": "SubSectorId",
+            "dataType": "int64",
+            "sourceColumn": "SubSectorId"
+          },
+          {
+            "name": "SubSectorName",
+            "dataType": "string",
+            "sourceColumn": "SubSectorName"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/192 168 65 11;automationdw\",",
+                "    dbo_DimInstrument = Source{[Schema=\"dbo\",Item=\"DimInstrument\"]}[Data],",
+                "    #\"Removed Columns\" = Table.RemoveColumns(dbo_DimInstrument,{\"DimInstrumentID\", \"HashValue\"})",
+                "in",
+                "    #\"Removed Columns\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimOrderSide",
+        "columns": [
+          {
+            "name": "Id",
+            "dataType": "int64",
+            "sourceColumn": "Id"
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "sourceColumn": "Name"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/192 168 65 11;automationdw\",",
+                "    dbo_DimOrderSide = Source{[Schema=\"dbo\",Item=\"DimOrderSide\"]}[Data]",
+                "in",
+                "    dbo_DimOrderSide"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimTradingStation",
+        "columns": [
+          {
+            "name": "DimTradingStationID",
+            "dataType": "int64",
+            "sourceColumn": "DimTradingStationID"
+          },
+          {
+            "name": "IsOnlineStation",
+            "dataType": "int64",
+            "sourceColumn": "IsOnlineStation"
+          },
+          {
+            "name": "IsOnlineStationName",
+            "dataType": "string",
+            "sourceColumn": "IsOnlineStationName"
+          },
+          {
+            "name": "StationType",
+            "dataType": "string",
+            "sourceColumn": "StationType"
+          },
+          {
+            "name": "StockTypeId",
+            "dataType": "int64",
+            "sourceColumn": "StockTypeId"
+          },
+          {
+            "name": "StockTypeName",
+            "dataType": "string",
+            "sourceColumn": "StockTypeName"
+          },
+          {
+            "name": "TradingStationId",
+            "dataType": "int64",
+            "sourceColumn": "TradingStationId"
+          },
+          {
+            "name": "TradingStationName",
+            "dataType": "string",
+            "sourceColumn": "TradingStationName"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/192 168 65 11;automationdw\",",
+                "    dbo_DimTradingStation = Source{[Schema=\"dbo\",Item=\"DimTradingStation\"]}[Data]",
+                "in",
+                "    dbo_DimTradingStation"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FactTrade",
+        "columns": [
+          {
+            "name": "bcom",
+            "dataType": "double",
+            "sourceColumn": "bcom"
+          },
+          {
+            "name": "BrokerCommission",
+            "dataType": "double",
+            "sourceColumn": "BrokerCommission"
+          },
+          {
+            "name": "CustomerId",
+            "dataType": "int64",
+            "sourceColumn": "CustomerId"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date"
+          },
+          {
+            "name": "InstrumentId",
+            "dataType": "int64",
+            "sourceColumn": "InstrumentId"
+          },
+          {
+            "name": "OrderSideId",
+            "dataType": "int64",
+            "sourceColumn": "OrderSideId"
+          },
+          {
+            "name": "Price",
+            "dataType": "double",
+            "sourceColumn": "Price"
+          },
+          {
+            "name": "Quantity",
+            "dataType": "int64",
+            "sourceColumn": "Quantity"
+          },
+          {
+            "name": "TotalCommission",
+            "dataType": "double",
+            "sourceColumn": "TotalCommission"
+          },
+          {
+            "name": "TotalPrice",
+            "dataType": "double",
+            "sourceColumn": "TotalPrice"
+          },
+          {
+            "name": "TradeId",
+            "dataType": "int64",
+            "sourceColumn": "TradeId"
+          },
+          {
+            "name": "TradingStationId",
+            "dataType": "int64",
+            "sourceColumn": "TradingStationId"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Value.NativeQuery(#\"SQL/192 168 65 11;automationdw\", \"SELECT ",
+                "\tft.TradeId",
+                "\t  ,ft.Date",
+                "\t  ,ft.CustomerId",
+                "\t  ,ft.OrderSideId",
+                "\t  ,ft.InstrumentId",
+                "\t  ,ft.Quantity",
+                "\t  ,ft.Price",
+                "\t  ,ft.TotalPrice",
+                "\t  ,ft.TradingStationId",
+                "\t  ,ft.BrokerCommission",
+                "\t  ,ft.TotalCommission",
+                "\t  ,ft.bcom",
+                "\t  FROM FactTrade ft",
+                "\t  WHERE ft.IsCanceled=0 AND date>='2022-03-21'\")",
+                "in",
+                "    Source"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Bcom1",
+            "expression": "sum(FactTrade[bcom])"
+          },
+          {
+            "name": "BPAVG",
+            "expression": "[BTP]/[BQTY]"
+          },
+          {
+            "name": "BQTY",
+            "expression": "SUMX(FILTER(FactTrade,FactTrade[OrderSideId]=1),FactTrade[Quantity])"
+          },
+          {
+            "name": "BTP",
+            "expression": "SUMX(FILTER(FactTrade,FactTrade[OrderSideId]=1),FactTrade[TotalPrice])"
+          },
+          {
+            "name": "PSellProfit",
+            "expression": [
+              "",
+              "SWITCH(TRUE()",
+              ",[BQTY]=[SQTY]&& not ISBLANK([BQTY]) &&  not ISBLANK([SQTY])\t ,([STP]/[BTP])-1",
+              ",[BQTY]=[SQTY]&& not ISBLANK([BQTY]) &&  ISBLANK([SQTY])\t ,0",
+              ",[BQTY]>[SQTY] &&  not ISBLANK([SQTY])  , ( [STP] / ([SQTY] * [BPAVG] ) ) - 1",
+              ",BLANK()",
+              "",
+              ")",
+              "",
+              ""
+            ],
+            "formatString": "0.00%;-0.00%;0.00%"
+          },
+          {
+            "name": "SellProfit",
+            "expression": "if([BQTY]=[SQTY],[STP]-[BTP],IF([BQTY]>[SQTY],[STP]-([SQTY]*[BPAVG]),0))"
+          },
+          {
+            "name": "SPAVG",
+            "expression": "[STP]/[SQTY]"
+          },
+          {
+            "name": "SQTY",
+            "expression": "SUMX(FILTER(FactTrade,FactTrade[OrderSideId]=2),FactTrade[Quantity])"
+          },
+          {
+            "name": "STP",
+            "expression": "SUMX(FILTER(FactTrade,FactTrade[OrderSideId]=2),FactTrade[TotalPrice])"
+          }
+        ]
+      },
+      {
+        "name": "HistoricalPortfolio",
+        "columns": [
+          {
+            "name": "Asset",
+            "dataType": "int64",
+            "sourceColumn": "Asset"
+          },
+          {
+            "name": "CustomerId",
+            "dataType": "int64",
+            "sourceColumn": "CustomerId"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date"
+          },
+          {
+            "name": "InstrumentId",
+            "dataType": "int64",
+            "sourceColumn": "InstrumentId"
+          },
+          {
+            "name": "IsFreez",
+            "dataType": "boolean",
+            "sourceColumn": "IsFreez"
+          },
+          {
+            "name": "Price",
+            "dataType": "double",
+            "sourceColumn": "Price"
+          },
+          {
+            "name": "TotalPrice",
+            "dataType": "double",
+            "sourceColumn": "TotalPrice"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Value.NativeQuery(#\"SQL/192 168 65 11;TempHistorical\", \"SELECT [Date]",
+                "\t  ,di.InstrumentId",
+                "      ,[CustomerId]",
+                "      ,[Asset]",
+                "\t  ,[Price]",
+                "      ,[Asset]*[Price] AS TotalPrice",
+                "      ,[IsFreez]",
+                "  FROM [TempHistorical].[dbo].[HistoricalPortfolio]",
+                "  JOIN automationdw.dbo.DimInstrument di ON di.Isin = [InstrumentIsin]",
+                "  WHERE Date = (SELECT MAX(date) FROM [TempHistorical].[dbo].[HistoricalPortfolio])\")",
+                "in",
+                "    Source"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "CBStats",
+            "expression": [
+              " SWITCH(",
+              "TRUE(),",
+              "[BQTY]=[SQTY] && [SQTY]>0 ,4,",
+              "[BQTY]=[SellAndHpQty] ,1,",
+              "[BQTY]>[SellAndHpQty] ,3,",
+              "[BQTY]<[SellAndHpQty] ,2,5)"
+            ]
+          },
+          {
+            "name": "FilterCBstats",
+            "expression": [
+              " ",
+              "var currentSelection = SELECTEDVALUE(CBStats[id])",
+              "var currentClass = HistoricalPortfolio[CBStats]",
+              "return",
+              "SWITCH(TRUE(),",
+              "currentSelection = 1 && currentClass = 1,1",
+              ",currentSelection = 3 && currentClass = 3,1",
+              ",currentSelection = 2 && currentClass = 2,1",
+              ",currentSelection = 4 && currentClass = 4,1,",
+              "currentSelection = 5 ,1,",
+              "0)"
+            ]
+          },
+          {
+            "name": "HPQty",
+            "expression": " sum(HistoricalPortfolio[Asset])"
+          },
+          {
+            "name": "HPV",
+            "expression": "SUM(HistoricalPortfolio[TotalPrice])"
+          },
+          {
+            "name": "PTotalProfit",
+            "expression": "if([BQTY]=[SQTY]+sum(HistoricalPortfolio[Asset]), (([STP]+[HPV]-[BTP])/[BTP]),0)",
+            "formatString": "0.00%;-0.00%;0.00%"
+          },
+          {
+            "name": "SellAndHpQty",
+            "expression": " [SQTY]+[HPQty]"
+          },
+          {
+            "name": "TotalProfit",
+            "expression": " if([BQTY]=[SQTY]+sum(HistoricalPortfolio[Asset]),[STP]-[BTP]+[HPV],0)"
+          }
+        ]
+      },
+      {
+        "name": "LastUpdate",
+        "columns": [
+          {
+            "type": "calculatedTableColumn",
+            "name": "ID",
+            "dataType": "int64",
+            "isNameInferred": true,
+            "isDataTypeInferred": true,
+            "sourceColumn": "[ID]"
+          },
+          {
+            "type": "calculatedTableColumn",
+            "name": "Name",
+            "dataType": "string",
+            "isNameInferred": true,
+            "isDataTypeInferred": true,
+            "sourceColumn": "[Name]"
+          },
+          {
+            "type": "calculatedTableColumn",
+            "name": "Type",
+            "dataType": "string",
+            "isNameInferred": true,
+            "isDataTypeInferred": true,
+            "sourceColumn": "[Type]"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CalculatedTable 1",
+            "source": {
+              "type": "calculated",
+              "expression": [
+                "SELECTCOLUMNS({(1,CALCULATE(max(DimDate[PersianStr]),filter(DimDate,DimDate[GregorianDate]=max(FactTrade[Date]))),\"FT\"),(2,CALCULATE(max(DimDate[PersianStr]),FILTER(DimDate,DimDate[GregorianDate]=max(HistoricalPortfolio[Date]))),\"HP\")",
+                "},\"ID\",[Value1],\"Name\",[Value2],\"Type\",[Value3])"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "7ab34610-0801-44ea-aba4-15820cadd434",
+        "fromTable": "FactTrade",
+        "fromColumn": "CustomerId",
+        "toTable": "DimCustomer",
+        "toColumn": "CustomerId"
+      },
+      {
+        "name": "787e4fb3-1bdd-4c38-8c77-8f6961b6ddce",
+        "fromTable": "FactTrade",
+        "fromColumn": "Date",
+        "toTable": "DimDate",
+        "toColumn": "GregorianDate"
+      },
+      {
+        "name": "4e4c95a0-21b8-4fd9-880f-51fa35452afb",
+        "fromTable": "FactTrade",
+        "fromColumn": "InstrumentId",
+        "toTable": "DimInstrument",
+        "toColumn": "InstrumentId"
+      },
+      {
+        "name": "7c644883-8cff-41f3-b09a-74a8cf896eaf",
+        "fromTable": "FactTrade",
+        "fromColumn": "OrderSideId",
+        "toTable": "DimOrderSide",
+        "toColumn": "Id"
+      },
+      {
+        "name": "c94f85a5-7bc6-49fc-aabd-7beed9bc60cd",
+        "fromTable": "FactTrade",
+        "fromColumn": "TradingStationId",
+        "toTable": "DimTradingStation",
+        "toColumn": "TradingStationId"
+      },
+      {
+        "name": "4c417c9c-f2e3-46d5-affa-7bf1b477d5bc",
+        "fromTable": "HistoricalPortfolio",
+        "fromColumn": "CustomerId",
+        "toTable": "DimCustomer",
+        "toColumn": "CustomerId"
+      },
+      {
+        "name": "8a9122e7-3061-433d-8bff-00c5550968d2",
+        "fromTable": "HistoricalPortfolio",
+        "fromColumn": "InstrumentId",
+        "toTable": "DimInstrument",
+        "toColumn": "InstrumentId"
+      }
+    ],
+    "expressions": [
+      {
+        "name": "HistoricalPortfolio",
+        "kind": "m",
+        "expression": [
+          "let",
+          "    Source = Value.NativeQuery(#\"SQL/192 168 65 11;TempHistorical\", \"SELECT [Date]",
+          "\t  ,di.InstrumentId",
+          "      ,[CustomerId]",
+          "      ,[Asset]",
+          "\t  ,[Price]",
+          "      ,[Asset]*[Price] AS TotalPrice",
+          "      ,[IsFreez]",
+          "  FROM [TempHistorical].[dbo].[HistoricalPortfolio]",
+          "  JOIN automationdw.dbo.DimInstrument di ON di.Isin = [InstrumentIsin]",
+          "  WHERE Date = (SELECT MAX(date) FROM [TempHistorical].[dbo].[HistoricalPortfolio])\")",
+          "in",
+          "    Source"
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "700"
+      }
+    ]
+  }
+}
