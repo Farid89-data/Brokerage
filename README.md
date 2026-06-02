@@ -178,13 +178,6 @@ SSAS Tabular / Direct Query
 4. Deploy the `.ispac` file to your SSIS catalog
 5. Execute the package from SQL Server Agent or SSISDB
 
-### Running a WebApi Collector
-
-```bash
-cd ETL/WebApi/<ProjectName>/<ProjectName>
-dotnet run
-```
-
 ---
 
 ## 📌 Notes
