@@ -7,6 +7,7 @@ Project("{6870E480-7721-4708-BFB8-9AE898AA21B3}") = "Customer_EfficiencyV2", "Cu
 EndProject
 Global
 
+
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|x86 = Development|x86
 	EndGlobalSection
