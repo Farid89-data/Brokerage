@@ -8,6 +8,7 @@ EndProject
 Global
 
 
+
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|x86 = Development|x86
 	EndGlobalSection
