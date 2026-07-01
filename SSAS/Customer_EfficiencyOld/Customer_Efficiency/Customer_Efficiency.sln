@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{6870E480-7721-4708-BFB8-9AE898AA21B3}") = "Customer_Efficiency", "Customer_Efficiency\Customer_Efficiency.smproj", "{8CE414BB-95B2-4C99-9E03-51BA72086E22}"
 
 
+
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
