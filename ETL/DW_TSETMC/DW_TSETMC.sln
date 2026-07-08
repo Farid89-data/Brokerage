@@ -10,6 +10,7 @@ Global
 		Development|Default = Development|Default
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+.
 		{39C895FF-2C29-4105-9B41-53DE87A65458}.Development|Default.ActiveCfg = Development
 		{39C895FF-2C29-4105-9B41-53DE87A65458}.Development|Default.Build.0 = Development
 	EndGlobalSection
