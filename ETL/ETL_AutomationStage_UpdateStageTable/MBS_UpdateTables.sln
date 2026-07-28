@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
+# VS Ver. 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "MBS_UpdateTables", "MBS_UpdateTables\MBS_UpdateTables.dtproj", "{7B9FF32F-9AD3-4A95-8910-E74A31FFF5B0}"
