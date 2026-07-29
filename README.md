@@ -57,7 +57,7 @@ Source Systems
 
 ### ETL Projects
 
-| Project | Description |
+| Projects | Description |
 |---|---|
 | `RawDB.V2` | Ingests raw data from source systems into the Raw database |
 | `ETL_DimensionTable` | Builds and maintains all dimension tables (Customer, Marketer, Instrument, Branch, etc.) |
