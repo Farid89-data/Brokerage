@@ -2,7 +2,6 @@
 
 > A comprehensive data platform for a brokerage firm, covering data ingestion, transformation, analytical modeling, reporting, and system integrations ensuring accurate and timely access to business and trading information.
 
----
 
 ...
 ## 📁 Repository Structure
