@@ -10,7 +10,7 @@ Global
 		Development|Default = Development|Default
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5D3E5E5A-BD3D-493E-ACD6-C8FE20F618A3}.Development|Default.ActiveCfg = Development
+	..	{5D3E5E5A-BD3D-493E-ACD6-C8FE20F618A3}.Development|Default.ActiveCfg = Development
 		{5D3E5E5A-BD3D-493E-ACD6-C8FE20F618A3}.Development|Default.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
