@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12
-# Visual Studio Version 16
+# Vs version 16
 VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "DW_TSETMC", "DW_TSETMC\DW_TSETMC.dtproj", "{39C895FF-2C29-4105-9B41-53DE87A65458}"
